@@ -6,97 +6,75 @@
     <link rel="stylesheet" href="css/onsen-css-components.css"/>
 	<link rel="stylesheet" href="css/material-design-iconic-font/css/material-design-iconic-font.css"/>
 	<link rel="stylesheet" href="css/style.css"/>
-	<script src="js/onsenui.min.js"></script>
-    <script src="js/jquery-2.2.3.min.js"></script>
-	<script src="js/uppod-0.6.4.js"></script>
-	<script src="js/uppod_api.js"></script>
 	
-	<script src="js/script.js"></script>
   </head>
 <body>
 <ons-splitter>
-  <ons-splitter-side id="menu" side="left" width="220px" collapse swipeable>
-    <ons-page>
-      <ons-list>
-        <ons-list-item onclick="fn.load('home.html')" tappable>Сейчас в эфире</ons-list-item>
-        <ons-list-item onclick="fn.load('settings.html')" tappable>Настройки</ons-list-item>
-        <ons-list-item onclick="fn.load('about.html')" tappable>О приложении</ons-list-item>
-      </ons-list>
-    </ons-page>
-  </ons-splitter-side>
+
   <ons-splitter-content id="content" page="home.html"></ons-splitter-content>
 </ons-splitter>
 
 <ons-template id="home.html">
-  <ons-page>
-<ons-fab position="top left" ripple><ons-icon icon="fa-info"></ons-icon></ons-fab>
-<ons-fab position="top right" ripple><ons-icon icon="fa-share-alt"></ons-icon></ons-fab>
+	<ons-page>
+		<ons-fab position="top left" ripple><ons-icon icon="fa-info"></ons-icon></ons-fab>
+		<ons-speed-dial position="top right" direction="down">
+			<ons-fab><ons-icon icon="fa-share-alt"></ons-icon></ons-fab>
+			  <ons-speed-dial-item><ons-icon icon="fa-google-plus"></ons-icon></ons-speed-dial-item>
+			  <ons-speed-dial-item><ons-icon icon="fa-facebook"></ons-icon></ons-speed-dial-item>
+			  <ons-speed-dial-item><ons-icon icon="fa-odnoklassniki"></ons-icon></ons-speed-dial-item>
+			  <ons-speed-dial-item><ons-icon icon="fa-vk"></ons-icon></ons-speed-dial-item>
+			  <ons-speed-dial-item><ons-icon icon="fa-whatsapp"></ons-icon></ons-speed-dial-item>
+			  <ons-speed-dial-item><ons-icon icon="fa-twitter"></ons-icon></ons-speed-dial-item>
+		</ons-speed-dial>
+		<div class="vert_grid">
+			<div class="vert_grid_box">
+				<div style="width: 200px; height: 200px; margin: 10px auto; background-color: #ec7063;"><ons-ripple color="#bb8fce" background="#85c1e9"></ons-ripple></div>
+			</div>
+			<div class="vert_grid_box"></div>
+			<div class="vert_grid_box">
+				<div class="song">Carter Cash</div>
+				<div class="artist">Tor Miller</div>
+			</div>
+			<div class="vert_grid_box"></div>
+			<div class="vert_grid_box">
+				<p style="text-align: center;">
+					<ons-fab ripple  class="js-button">
+							<svg width="100%" height="100%" viewBox="0 0 36 36" >
+								<defs>
+									<path id="pause-icon" data-state="playing" d="M11,10 L17,10 17,26 11,26 M20,10 L26,10 26,26 20,26" />
+									<path id="play-icon"  data-state="paused"  d="M11,10 L18,13.74 18,22.28 11,26 M18,13.74 L26,18 26,18 18,22.28" />
+								</defs>
+								<use xlink:href="#play-icon" />
+							</svg>
+					</ons-fab>
+				</p>
+			</div>
+			<div class="vert_grid_box">
+				<p style="text-align: center;"><ons-range id="range" value="100"></ons-range></p>
+			</div>
+		</div>
+		
 
-<ons-row>
-  <ons-col width="50px"><ons-icon icon="fa-twitter"></ons-icon></ons-col>
-  <ons-col>Text</ons-col>
-</ons-row>
-
-<ons-row>
-  <ons-col width="50px"><ons-icon icon="fa-twitter"></ons-icon></ons-col>
-  <ons-col>Text</ons-col>
-</ons-row>
 
 
 
 
-  <div style="width: 200px; height: 200px; margin: 10px auto; background-color: #ec7063;">
-    <ons-ripple color="#bb8fce" background="#85c1e9"></ons-ripple>
-  </div>
-
-<p style="text-align: center;">
-    <ons-fab ripple>A</ons-fab>
-</p>
-
-
-<ons-button modifier="large" id="modal">Включить</ons-button>
-<p style="text-align: center;"><ons-range id="range" value="100"></ons-range></p>
-<ons-range id="range" value="100"></ons-range>
 
 <script>
   console.log(document.getElementById('range').value); // 20
 </script>
-	
-	
-	
-	
-	<footer>
-		<div class="wrap">
-			<div class="now" onclick="fn.load('info.html')"></div>
-			<div class="track" onclick="fn.load('info.html')">
-				<div class="song"></div>
-				<div class="artist"></div>
-			</div>
-			<div class="play" onclick="streamplay();"><ons-icon icon="md-play"></ons-icon></div>
-		</div>
-	</footer>
+
   </ons-page>
 </ons-template>
 
-
-
-
-<ons-template id="info.html">
-  <ons-page>
-    <ons-toolbar>
-      <div class="left">
-        <ons-toolbar-button onclick="fn.open()">
-          <ons-icon icon="md-menu"></ons-icon>
-        </ons-toolbar-button>
-      </div>
-      <div class="center">Инфа о треке</div>
-    </ons-toolbar>
-	<div class="trackinfo">
-		<div class="img"></div>
-	</div>
-  </ons-page>
-</ons-template>
 
 <div class="player" id="stream"></div>
+
+<script src="js/onsenui.min.js"></script>
+<script src="js/jquery-2.2.3.min.js"></script>
+<script src="js/uppod-0.6.4.js"></script>
+<script src="js/uppod_api.js"></script>
+<script src="js/d3.v3.min.js"></script>	
+<script src="js/script.js"></script>
 </body>
 </html>

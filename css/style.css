@@ -1,3 +1,19 @@
+.page__background{
+    background-color: #f6f6f6;
+	
+}
+.fab{
+    background-color: #3d4844;
+}
+
+.vert_grid{
+    display: table;
+    width: 100%;
+    height: 100%;	
+}
+.vert_grid_box{
+	display: table-row;
+}
 footer {
     position: fixed;
     bottom: 0;
@@ -32,18 +48,18 @@ footer .play {
 	    font-size: 43px;
     text-align: center;
 }
-footer .track {
-    width: calc(100% - 150px);
-    float: left;
-}
-footer .artist {
-    color: rgba(0,0,0,0.60);
+
+.artist {
+    color: #35403c;
     font-size: 0.85em;
+	text-align: center;
 }
-footer .song {
+.song {
+	color: #35403c;
     font-size: 1.1em;
     margin-top: 0.15em;
     margin-bottom: 0.2em;
+	text-align: center;
 }
 
 #stream {
@@ -70,4 +86,81 @@ footer .song {
     position: absolute;
     top: 0;
     left: 0;
+}
+
+
+
+
+.material-icon {
+    width: 70px;
+    height: 70px;
+    margin: 55px;
+    position: relative;
+}
+
+.material-icon span,
+.material-icon {
+    transition: all 500ms ease;
+}
+
+.material-icon span {
+    background-color: #fff;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+.material-icon:before,
+.material-icon:after {
+    background: transparent;
+    width: 0;
+    height: 0;
+    display: block;
+    position: relative;
+    width: 100px;
+    height: 40px;
+    z-index: 1;
+    transform: translateY(-50px);
+    transition: all 500ms ease;
+    color: transparent;
+}
+.pause {
+    -webkit-transform: rotate(90deg);
+}
+.pause span {
+    height: 25px;
+}
+.stop span, .play span {
+    height: 35px;
+}
+
+.stop .second, .play .second {
+    height: 45px;
+    -webkit-transform: translateY(25px);
+}
+
+.play {
+    -webkit-transform: rotate(180deg);
+}
+
+.play:before {
+    -webkit-transform: translateY(-24px) translateX(-17px) rotate(-26deg);
+}
+
+.play:after {
+    -webkit-transform: translateY(11px) translateX(-22px) rotate(26deg);
+}
+.pause .second {
+    -webkit-transform: translateY(45px);
+}
+.stop {
+    -webkit-transform: rotate(270deg);
+}
+.stop span {
+    height: 35px;
+}
+.stop .second {
+    height: 45px;
+    -webkit-transform: translateY(25px);
 }
