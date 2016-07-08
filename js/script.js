@@ -28,7 +28,7 @@ function infoAlbum(type, id, md, artist, song) {
 							jQuery('#' + type + ' #' + id + ' .alb').css('background-image', 'url(' + $himg + ')');
 							localStorage.setItem(md+'L', $himg);
 						} else {
-							infoArtist(type, id, md, artist, song);
+							//infoArtist(type, id, md, artist, song);
 						}
 					};
 					if (img == "extralarge") {
@@ -48,7 +48,7 @@ function infoAlbum(type, id, md, artist, song) {
 		},
 		statusCode: {
 			400: function() {
-				infoArtist(type, id, md, artist, song);
+				//infoArtist(type, id, md, artist, song);
 			}
 		}
 	});
@@ -83,7 +83,7 @@ function infoArtist(type, id, md, artist, song) {
 							jQuery('#' + type + ' #' + id + ' .alb').css('background-image', 'url(' + $himg + ')');
 							localStorage.setItem(md+'L', $himg);
 						} else {
-							infoArtist(type, id, md, artist, song);
+							//infoArtist(type, id, md, artist, song);
 						}
 					};
 					if (img == "extralarge") {
@@ -121,10 +121,10 @@ function UpdateStatus(now) {
 				jQuery("#playinfo").addClass("show");
 				// название трека
 				jQuery('.songinfo').text(data.s);
-				jQuery('footer .wrap .track .song').text(data.s);
+				jQuery('.song').text(data.s);
 				// артист
 				jQuery('.titleinfo').text(data.a);
-				jQuery('footer .wrap .track .artist').text(data.a);
+				jQuery('.artist').text(data.a);
 				// Обновляет куки
 			}, 1000);
 			localStorage.setItem('TrackIdNow', data.id);
@@ -138,7 +138,7 @@ function StatusAnimation(type) {
 	if (type == 'show') {
 		setTimeout(function() {
 			jQuery("#playinfo").addClass("show");
-		}, 5000);
+		}, 20000);
 	} else if (type == 'hide') {
 		jQuery("#playinfo").removeClass("show");
 	}

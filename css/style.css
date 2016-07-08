@@ -21,6 +21,10 @@
 .hor_grid_box{
 	display: table-cell;	
 }
+.js-button {
+    width: 20vh;
+    height: 20vh;
+}
 footer {
     position: fixed;
     bottom: 0;
