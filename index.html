@@ -29,17 +29,42 @@
 
 <ons-template id="home.html">
   <ons-page>
-    <ons-toolbar>
-      <div class="left">
-        <ons-toolbar-button onclick="fn.open()"><ons-icon icon="md-menu"></ons-icon></ons-toolbar-button>
-      </div>
-      <div class="center">Сейчас в эфире</div>
-    </ons-toolbar>
-    <p style="text-align: center; opacity: 0.6; padding-top: 20px;">
-      Swipe right to open the menu!
-	  <input type="button" value="Toggle" onclick="player.Toggle();"/>
-	  <div id="trace"></div>
-    </p>
+<ons-fab position="top left" ripple><ons-icon icon="fa-info"></ons-icon></ons-fab>
+<ons-fab position="top right" ripple><ons-icon icon="fa-share-alt"></ons-icon></ons-fab>
+
+<ons-row>
+  <ons-col width="50px"><ons-icon icon="fa-twitter"></ons-icon></ons-col>
+  <ons-col>Text</ons-col>
+</ons-row>
+
+<ons-row>
+  <ons-col width="50px"><ons-icon icon="fa-twitter"></ons-icon></ons-col>
+  <ons-col>Text</ons-col>
+</ons-row>
+
+
+
+
+  <div style="width: 200px; height: 200px; margin: 10px auto; background-color: #ec7063;">
+    <ons-ripple color="#bb8fce" background="#85c1e9"></ons-ripple>
+  </div>
+
+<p style="text-align: center;">
+    <ons-fab ripple>A</ons-fab>
+</p>
+
+
+<ons-button modifier="large" id="modal">Включить</ons-button>
+<p style="text-align: center;"><ons-range id="range" value="100"></ons-range></p>
+<ons-range id="range" value="100"></ons-range>
+
+<script>
+  console.log(document.getElementById('range').value); // 20
+</script>
+	
+	
+	
+	
 	<footer>
 		<div class="wrap">
 			<div class="now" onclick="fn.load('info.html')"></div>
@@ -53,31 +78,8 @@
   </ons-page>
 </ons-template>
 
-<ons-template id="settings.html">
-  <ons-page>
-    <ons-toolbar>
-      <div class="left">
-        <ons-toolbar-button onclick="fn.open()">
-          <ons-icon icon="md-menu"></ons-icon>
-        </ons-toolbar-button>
-      </div>
-      <div class="center">Настройки</div>
-    </ons-toolbar>
-  </ons-page>
-</ons-template>
 
-<ons-template id="about.html">
-  <ons-page>
-    <ons-toolbar>
-      <div class="left">
-        <ons-toolbar-button onclick="fn.open()">
-          <ons-icon icon="md-menu"></ons-icon>
-        </ons-toolbar-button>
-      </div>
-      <div class="center">О приложении</div>
-    </ons-toolbar>
-  </ons-page>
-</ons-template>
+
 
 <ons-template id="info.html">
   <ons-page>

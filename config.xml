@@ -1,12 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="radio.player" version="0.0.3" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-  <name>Radio 13</name>
-  <description>
-    На Радио13 мы объединили лучшие вкусы, которые формировались в 1990-е и 2000-е годы. Radio13 - это станция, где звучат только хиты. Мы предоставляем лучший микс из зарубежных и Российских исполнителей музыки. Приглашаем в нашу компанию всех, для кого жизнь прекрасна и удивительна!
-  </description>
-  <author email="bugsmafia@gmail.com" href="https://vk.com/bugsmafia">
-    Сергей Осипов Bugsmafia
-  </author>
+<widget id="radioradio.interactive" version="1.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+  <name>RadioRadio</name>
+  <description>Радиостанция «РАДИО» - молодая и очень перспективная радиосеть, с хорошим темпом развития по всей территории России. </br>
+Радиостанция «РАДИО» - выходит за рамки традиционных представлений о музыкальном формате как таковом.</br>
+Это уникальный, гармоничный синтез старого и нового, смешение музыкальных стилей и направлений - от классического рок-н-ролла до ультрасовременной клубной музыки.</br>
+Обязательным критерием звучащей в эфире музыки является - абсолютный хит.</description>
+  <author email="bugsmafia@gmail.com" href="https://vk.com/bugsmafia">Сергей Осипов Bugsmafia</author>
   <content src="index.html" />
   <!-- <content src="http://localhost/index.html" /> -->
   <preference name="xwalkVersion" value="13" />
