@@ -14,6 +14,13 @@
 .vert_grid_box{
 	display: table-row;
 }
+.hor_grid{
+    display: table;
+    width: 100%;
+}
+.hor_grid_box{
+	display: table-cell;	
+}
 footer {
     position: fixed;
     bottom: 0;
