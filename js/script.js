@@ -224,7 +224,8 @@ var playButton = {
         d3.select(this.el.querySelector("use")).remove();
         d3.select(this.el.querySelector("svg")).append("path")
             .attr("class", "js-icon")
-            .attr("d", this.stateIconPath());
+            .attr("d", this.stateIconPath())
+			.attr("fill", this.stateIconFill());
     },
 
     toggle: function () {
@@ -242,6 +243,9 @@ var playButton = {
 
     stateIconPath: function () {
         return this.iconEls[this.state].getAttribute("d");
+    },
+	stateIconFill: function () {
+        return this.iconEls[this.state].getAttribute("fill");
     }
 };
 

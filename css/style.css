@@ -1,6 +1,8 @@
-.page__background{
+.page__background {
     background-color: #f6f6f6;
-	
+    background-image: url(Mesh-points-background-silver-wallpapers-HD.jpg);
+    background-position: 50%;
+    background-size: cover;
 }
 .fab{
     background-color: #3d4844;
