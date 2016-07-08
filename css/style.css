@@ -19,7 +19,8 @@
     width: 100%;
 }
 .hor_grid_box{
-	display: table-cell;	
+	display: table-cell;
+	text-align: center;
 }
 .js-button {
     width: 20vh;
