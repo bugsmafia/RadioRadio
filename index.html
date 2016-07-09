@@ -15,16 +15,14 @@
 
 <ons-template id="home.html">
 	<ons-page>
-		<ons-fab position="top left" ripple><ons-icon icon="fa-info"></ons-icon></ons-fab>
+		<ons-fab position="top left" ripple><i class="zmdi zmdi-info-outline"></i></ons-fab>
 		<ons-speed-dial position="top right" direction="down">
-			<ons-fab><ons-icon icon="fa-share-alt"></ons-icon></ons-fab>
-			  <ons-speed-dial-item><ons-icon icon="fa-google-plus"></ons-icon></ons-speed-dial-item>
-			  <ons-speed-dial-item><ons-icon icon="fa-facebook"></ons-icon></ons-speed-dial-item>
-			  <ons-speed-dial-item><ons-icon icon="fa-odnoklassniki"></ons-icon></ons-speed-dial-item>
-			  <ons-speed-dial-item><ons-icon icon="fa-vk"></ons-icon></ons-speed-dial-item>
+			<ons-fab><i class="zmdi zmdi-share"></i></ons-fab>
+			  <ons-speed-dial-item><i class="zmdi zmdi-google-plus"></i></ons-speed-dial-item>
+			  <ons-speed-dial-item><i class="zmdi zmdi-facebook"></i></ons-speed-dial-item>
+			  <ons-speed-dial-item><i class="zmdi zmdi-odnoklassniki"></i></ons-speed-dial-item>
 			  <ons-speed-dial-item><i class="zmdi zmdi-vk"></i></ons-speed-dial-item>
-			  <ons-speed-dial-item><ons-icon icon="fa-whatsapp"></ons-icon></ons-speed-dial-item>
-			  <ons-speed-dial-item><ons-icon icon="fa-twitter"></ons-icon></ons-speed-dial-item>
+			  <ons-speed-dial-item><i class="zmdi zmdi-twitter"></i></ons-speed-dial-item>
 		</ons-speed-dial>
 		<div class="vert_grid">
 			<div class="vert_grid_box">
@@ -35,7 +33,7 @@
 				<div class="artist">ожидайте</div>
 			</div>
 			<div class="vert_grid_box">
-				<div class="metal radial js-button" onclick="streamplay();"><ons-icon icon="fa-play"></ons-icon></div>
+				<div class="metal radial js-button" onclick="streamplay();"><i class="zmdi zmdi-play"></i></div>
 			</div>
 
 			<div class="vert_grid_box">
@@ -48,7 +46,7 @@
 				</div>
 			</div>
 			<div class="vert_grid_box">
-				<p style="text-align: center;margin: 0;padding: 0;font-size: 31px;"><ons-icon icon="fa-volume-up" style="display: inline-block;vertical-align: text-top;margin-right: 0.5em;"></ons-icon><ons-range id="range" value="100"></ons-range></p>
+				<p style="text-align: center;margin: 0;padding: 0;font-size: 31px;"><i style="display: inline-block;vertical-align: text-top;margin-right: 0.5em;" class="zmdi zmdi-volume-up"></i><ons-range id="range" value="100"></ons-range></p>
 			</div>
 		</div>
 		
@@ -69,7 +67,7 @@
 <div class="player" id="stream"></div>
 
 <script src="js/onsenui.min.js"></script>
-<script src="js/jquery-2.2.3.min.js"></script>
+<script src="js/jquery.min.js"></script>
 <script src="js/uppod-0.6.4.js"></script>
 <script src="js/uppod_api.js"></script>
 <script src="js/d3.v3.min.js"></script>	
