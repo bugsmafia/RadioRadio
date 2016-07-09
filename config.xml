@@ -41,11 +41,5 @@
     <splash src="resources/android/splash/drawable-port-xxhdpi-screen.png" density="port-xxhdpi"/>
     <splash src="resources/android/splash/drawable-port-xxxhdpi-screen.png" density="port-xxxhdpi"/>
   </platform>
-<icon src="resources/splash.svg" platform="android" qualifier="ldpi" />
-<icon src="resources/splash.svg"  platform="android" qualifier="mdpi" />
-<icon src="resources/splash.svg"  platform="android" qualifier="hdpi" />
-<icon src="resources/splash.svg"  platform="android" qualifier="xhdpi" />
-<icon src="resources/splash.svg"  platform="android" qualifier="xxhdpi" />
-<icon src="resources/splash.svg"  platform="android" qualifier="fr-xxhdpi" />
 	<icon src="150.png"  width="150" height="150" />
 </widget>
