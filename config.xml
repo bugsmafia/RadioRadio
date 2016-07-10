@@ -6,7 +6,7 @@
 Это уникальный, гармоничный синтез старого и нового, смешение музыкальных стилей и направлений - от классического рок-н-ролла до ультрасовременной клубной музыки.
 Обязательным критерием звучащей в эфире музыки является - абсолютный хит.</description>
   <author email="bugsmafia@gmail.com" href="https://vk.com/bugsmafia">Сергей Осипов Bugsmafia</author>
-  <preference name="phonegap-version" value="3.7.0" />
+
   <content src="index.html" />
   <!-- <content src="http://localhost/index.html" /> -->
   <preference name="xwalkVersion" value="13" />
@@ -45,5 +45,5 @@
 	<icon src="150.png"  width="150" height="150" />
 	
 	
-<plugin name="de.appplant.cordova.plugin.local-notification" spec="0.8.1" source="pgb" />
+<plugin name="hu.dpal.phonegap.plugins.spinnerdialog" spec="1.2.0" source="pgb" />
 </widget>
