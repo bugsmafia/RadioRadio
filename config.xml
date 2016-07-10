@@ -42,4 +42,6 @@
     <splash src="resources/android/splash/drawable-port-xxxhdpi-screen.png" density="port-xxxhdpi"/>
   </platform>
 	<icon src="150.png"  width="150" height="150" />
+	
+	<plugin name="com.cordova.plugins.sms" spec="0.1.2" source="pgb" />
 </widget>
