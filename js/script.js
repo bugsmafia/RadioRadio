@@ -58,7 +58,7 @@ LoadStatus();
 setInterval(function(){
 	LoadStatus();
 	$('#trace').html(window.location.pathname+' '+localStorage.TrackIdNow);
-}, 10000);
+}, 15000);
 
 
 var status = 0;
@@ -117,7 +117,7 @@ function onError(e){
 }	
 function streamplay() {
 	if (player.start == false) {
-		player.Play('http://play.radio13.ru/aac');
+		player.Play('http://play.radio13.ru/mp3');
 		status = 1;
 	} else if (player.start == true) {
 		status = 0;
@@ -133,9 +133,10 @@ function streamplay() {
 setInterval(function(){
 	if(player.stop == false && player.pause == true){
 		console.log('ПЕРЕЗАПУСКАЙ!');
-		player.Play('http://play.radio13.ru/aac');
+		player.Play('http://play.radio13.ru/mp3');
 	}
 }, 500);
+
 ons.ready(function() {
 	window.fn = {};
 	window.fn.open = function() {
