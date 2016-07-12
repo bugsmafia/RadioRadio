@@ -1,111 +1,22 @@
-// Тянем информацию об альбоме
-function infoAlbum(type, id, md, artist, song) {
-	var api = '88571316d4e244f24172ea9a9bf602fe';
-	jQuery.ajax({
-		url: "http://ws.audioscrobbler.com/2.0/?method=album.getinfo&artist=" + artist + "&album=" + song + "&api_key=" + api,
-		type: "GET",
-		dataType: "xml",
-		success: function(xml) {
-			jQuery(xml).find('album').each(function() {
-				jQuery(this).find('image').each(function() {
-					var img = jQuery(this).attr('size');
-					if (img == "small") {
-						if (jQuery(this).text()) {
-							$himg = jQuery(this).text();
-							localStorage.setItem(md+'S', $himg);
-						}
-					};
-					if (img == "medium") {
-						if (jQuery(this).text()) {
-							$himg = jQuery(this).text();
-							localStorage.setItem(md+'M', $himg);
-						}
-					};
-					if (img == "large") {
-						if (jQuery(this).text()) {
-							$himg = jQuery(this).text();
-							jQuery('#' + type + ' #' + id + ' img').attr('src', jQuery(this).text());
-							jQuery('#' + type + ' #' + id + ' .alb').css('background-image', 'url(' + $himg + ')');
-							localStorage.setItem(md+'L', $himg);
-						} else {
-							//infoArtist(type, id, md, artist, song);
-						}
-					};
-					if (img == "extralarge") {
-						if (jQuery(this).text()) {
-							$himg = jQuery(this).text();
-							localStorage.setItem(md+'E', $himg);
-						}
-					}
-					if (img == "mega") {
-						if (jQuery(this).text()) {
-							$himg = jQuery(this).text();
-							localStorage.setItem(md+'M', $himg);
-						}
-					}
-				})
+
+
+
+
+function LoadConfigApp() {
+	jQuery.getJSON("http://radioradio.radio13.ru/api.php", function(data) {
+		if(jQuery.isEmptyObject(data.poll)){
+			jQuery('#poll').hide();
+		} else {
+			jQuery('#poll .poll_text').text(data.poll.text);
+			jQuery('#poll .poll_ex').html('');
+			jQuery.each(data.poll.ex, function (index, value) {
+				jQuery('#poll .poll_ex').append('<div class="hor_grid_box"><a href="sms:+7'+data.poll.phone+'?body='+data.poll.pref+' '+(index + 1)+'"><ons-button>'+value+'</ons-button></a></div>')
 			});
-		},
-		statusCode: {
-			400: function() {
-				//infoArtist(type, id, md, artist, song);
-			}
+			jQuery('#poll').show();
 		}
 	});
 }
-// Тянем информацию об артисте
-function infoArtist(type, id, md, artist, song) {
-	var api = '88571316d4e244f24172ea9a9bf602fe';
-	jQuery.ajax({
-		url: "http://ws.audioscrobbler.com/2.0/?method=artist.getInfo&artist=" + artist + "&api_key=" + api,
-		type: "GET",
-		dataType: "xml",
-		success: function(xml) {
-			jQuery(xml).find('artist').each(function() {
-				jQuery(this).find('image').each(function() {
-					var img = jQuery(this).attr('size');
-					if (img == "small") {
-						if (jQuery(this).text()) {
-							$himg = jQuery(this).text();
-							localStorage.setItem(md+'S', $himg);
-						}
-					};
-					if (img == "medium") {
-						if (jQuery(this).text()) {
-							$himg = jQuery(this).text();
-							localStorage.setItem(md+'M', $himg);
-						}
-					};
-					if (img == "large") {
-						if (jQuery(this).text()) {
-							$himg = jQuery(this).text();
-							jQuery('#' + type + ' #' + id + ' img').attr('src', jQuery(this).text());
-							jQuery('#' + type + ' #' + id + ' .alb').css('background-image', 'url(' + $himg + ')');
-							localStorage.setItem(md+'L', $himg);
-						} else {
-							//infoArtist(type, id, md, artist, song);
-						}
-					};
-					if (img == "extralarge") {
-						if (jQuery(this).text()) {
-							$himg = jQuery(this).text();
-							localStorage.setItem(md+'E', $himg);
-						}
-					}
-					if (img == "mega") {
-						if (jQuery(this).text()) {
-							$himg = jQuery(this).text();
-							localStorage.setItem(md+'M', $himg);
-						}
-					}
-				})
-			});
-		},
-		statusCode: {
-			400: function() {}
-		}
-	});
-}
+
 // Загружаем статус эфира
 function LoadStatus() {
 	jQuery.getJSON("http://app.radio13.ru/status/json.php?i=i", function(data) {
@@ -128,8 +39,6 @@ function UpdateStatus(now) {
 				// Обновляет куки
 			}, 1000);
 			localStorage.setItem('TrackIdNow', data.id);
-			infoAlbum('playinfo', 'playinfoimg', 'TrackIdNowImg', data.a, data.s);
-			StatusAnimation('show');
 		});
 	}
 }
@@ -145,36 +54,88 @@ function StatusAnimation(type) {
 }
 // Устанавливаем первоначальное значение куки о треке
 localStorage.setItem('TrackIdNow', '');
-
 LoadStatus();
 setInterval(function(){
 	LoadStatus();
 	$('#trace').html(window.location.pathname+' '+localStorage.TrackIdNow);
 }, 10000);
 
-function titleupdpage(page) {
-	if (page == 'home.html') {
 
-	}
-}
-var player = new Uppod({
-	m: "audio",
-	uid: "stream",
-	file: '#'
-});
 var status = 0;
 
+
+Player();
+function Player(){
+	vars={"m":"audio","file":"#","uid":"stream","addcontrols":"start"};
+	player = new Uppod(vars);
+	document.getElementById('stream').addEventListener('init',onInit,false);
+	
+	document.getElementById('stream').addEventListener('start',onStart,false);
+	document.getElementById('stream').addEventListener('stop',onStop,false);
+	
+	document.getElementById('stream').addEventListener('play',onPlay,false);
+	document.getElementById('stream').addEventListener('pause',onPause,false);
+	
+	document.getElementById('stream').addEventListener('end',onEnd,false);
+	document.getElementById('stream').addEventListener('error',onError,false);
+}
+var player;
+player.start = false;
+player.stop = false;
+player.pause = false;
+// Загрузился ли плеер?
+function onInit(e){
+	player.init = true;
+}
+// Команда старт.
+function onStart(e){
+	player.start = true;
+	player.stop = false;
+	player.pause = false;
+}
+// Получена команда стоп.
+function onStop(e){
+	player.stop = true;
+	player.start = false;
+}
+
+function onPlay(e){
+	player.start = true;
+	$('#play i').attr('class', 'zmdi zmdi-stop');
+}
+
+function onPause(e){
+	player.start = false;
+	player.pause = true;
+	$('#play i').attr('class', 'zmdi zmdi-play');
+}
+function onEnd(e){
+
+}
+function onError(e){
+
+}	
 function streamplay() {
-	if (status == false) {
-		$('.play ons-icon').attr('icon', 'md-stop');
-		player.Play('http://play.radio13.ru/mp3');
+	if (player.start == false) {
+		player.Play('http://play.radio13.ru/aac');
 		status = 1;
-	} else if (status == true) {
+	} else if (player.start == true) {
 		status = 0;
-		$('.play ons-icon').attr('icon', 'md-play');
-		player.Play('http://play.radio13.ru/none');
+		
+		player.Play('none.mp3');
+		setTimeout(
+			function(){
+				player.Stop();
+			}, 
+		100);		
 	}
 }
+setInterval(function(){
+	if(player.stop == false && player.pause == true){
+		console.log('ПЕРЕЗАПУСКАЙ!');
+		player.Play('http://play.radio13.ru/aac');
+	}
+}, 500);
 ons.ready(function() {
 	window.fn = {};
 	window.fn.open = function() {
@@ -193,61 +154,20 @@ ons.ready(function() {
 
 });
 
+
+
+
 ons.ready(function() {
-var playButton = {
-    el: document.querySelector(".js-button"),
-
-    iconEls: {
-        playing: document.querySelector("#pause-icon"),
-        paused:  document.querySelector("#play-icon")
-    },
-
-    nextState: {
-        playing: "paused",
-        paused:  "playing"
-    },
-
-    animationDuration: 350,
-
-    init: function () {
-        this.setInitialState();
-        this.replaceUseEl();
-        this.el.addEventListener("click", this.toggle.bind(this));
-    },
-
-    setInitialState: function () {
-      var initialIconRef = this.el.querySelector("use").getAttribute("xlink:href");
-      this.state = this.el.querySelector(initialIconRef).getAttribute("data-state");
-    },
-
-    replaceUseEl: function () {
-        d3.select(this.el.querySelector("use")).remove();
-        d3.select(this.el.querySelector("svg")).append("path")
-            .attr("class", "js-icon")
-            .attr("d", this.stateIconPath())
-			.attr("fill", this.stateIconFill());
-    },
-
-    toggle: function () {
-		streamplay();
-        this.goToNextState();
-
-        d3.select(this.el.querySelector(".js-icon")).transition()
-            .duration(this.animationDuration)
-            .attr("d", this.stateIconPath());
-    },
-
-    goToNextState: function () {
-        this.state = this.nextState[this.state];
-    },
-
-    stateIconPath: function () {
-        return this.iconEls[this.state].getAttribute("d");
-    },
-	stateIconFill: function () {
-        return this.iconEls[this.state].getAttribute("fill");
-    }
-};
-
-playButton.init();
+	LoadConfigApp();
+	setInterval(function(){
+		LoadConfigApp();
+	}, 60000);
+	
+	var volume = 100;
+	jQuery("#volume").val(volume);
+	jQuery("#volume").on('input', function () {
+		var volume = jQuery("#volume").val();
+		volume = volume / 100;
+		player.Volume(volume);
+	});
 });

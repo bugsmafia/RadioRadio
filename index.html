@@ -26,39 +26,28 @@
 		</ons-speed-dial>
 		<div class="vert_grid">
 			<div class="vert_grid_box">
-				<div style="width: 200px; height: 70px; margin: 10px auto; background-color: #ec7063;"><ons-ripple color="#bb8fce" background="#85c1e9"></ons-ripple></div>
+				<div class="logo"></div>
 			</div>
 			<div class="vert_grid_box">
 				<div class="song">Загрузка...</div>
 				<div class="artist">ожидайте</div>
 			</div>
 			<div class="vert_grid_box">
-				<div class="metal radial js-button" onclick="streamplay();"><i class="zmdi zmdi-play"></i></div>
+				<div id="play" class="metal radial js-button" onclick="streamplay();"><i class="zmdi zmdi-play"></i></div>
 			</div>
 
-			<div class="vert_grid_box">
-				<p style="text-align: center;">Текст вопроса, возможно вопрос будет длинным, а может быть и нет, но все же пусть будет длинным.</p>
-				<div class="hor_grid">
-					<div class="hor_grid_box"><ons-button>Шишка</ons-button></div>
-					<div class="hor_grid_box"><ons-button>Киви</ons-button></div>
-					<div class="hor_grid_box"><ons-button>Уж</ons-button></div>
-					<div class="hor_grid_box"><a href="sms:+79123555341?body=Ох блин!"><ons-button>SMS</ons-button></a></div>
+			<div class="vert_grid_box" id="poll">
+				<p class="poll_text" style="text-align: center;"></p>
+				<div class="hor_grid poll_ex">
 				</div>
 			</div>
 			<div class="vert_grid_box">
-				<p style="text-align: center;margin: 0;padding: 0;font-size: 31px;"><i style="display: inline-block;vertical-align: text-top;margin-right: 0.5em;" class="zmdi zmdi-volume-up"></i><ons-range id="range" value="100"></ons-range></p>
+				<p style="text-align: center;margin: 0;padding: 0;font-size: 31px;"><i style="display: inline-block;vertical-align: text-top;margin-right: 0.5em;" class="zmdi zmdi-volume-up"></i><ons-range id="volume" value="50"></ons-range></p>
 			</div>
 		</div>
 		
 
 
-
-
-
-
-<script>
-  console.log(document.getElementById('range').value); // 20
-</script>
 
   </ons-page>
 </ons-template>
@@ -68,7 +57,7 @@
 
 <script src="js/onsenui.min.js"></script>
 <script src="js/jquery.min.js"></script>
-<script src="js/uppod-0.6.4.js"></script>
+<script src="js/uppod-0.8.0.js"></script>
 <script src="js/uppod_api.js"></script>
 <script src="js/d3.v3.min.js"></script>
 
