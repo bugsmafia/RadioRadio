@@ -46,10 +46,5 @@
 	
 	
 
-<gap:plugin name="br.com.paveisitemas.splashscreen"/>
-
-<preference name="SplashScreen" value="foo" />
-<preference name="SplashScreenDelay" value="10000" />
-<preference name="SplashMaintainAspectRatio" value="true|false" />
 
 </widget>
