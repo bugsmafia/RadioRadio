@@ -43,7 +43,5 @@
     <splash src="resources/android/splash/drawable-port-xxxhdpi-screen.png" density="port-xxxhdpi"/>
   </platform>
 	<icon src="150.png"  width="150" height="150" />
-	
-	
-<plugin name="com.mcsqd.cordova.plugins.streamingmedia" spec="0.1.4" source="pgb" />
+<plugin name="com.keosu.cordova.stream" spec="0.1" source="pgb" />
 </widget>
