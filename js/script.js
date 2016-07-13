@@ -25,7 +25,6 @@ function LoadStatus() {
 function UpdateStatus(now) {
 	if (localStorage.TrackIdNow == now) {} else {
 		jQuery.getJSON("http://app.radio13.ru/status/json.php?i=l", function(data) {
-			StatusAnimation('hide');
 			setTimeout(function() {
 				jQuery("#playinfo").addClass("show");
 				// название трека
@@ -98,13 +97,20 @@ function onError(e){
 			alert('включаем 1 поток');
 			//player.Play('http://play.radio13.ru/mp3');
 			$my_media.play();
+			$('#play i').attr('class', 'zmdi zmdi-stop');
 		} else if (streamer == "2") {
 			alert('останавливаем 2 поток');
 			//player.Play('http://play.radio13.ru/mp3');
+			$('#play i').attr('class', 'zmdi zmdi-play');
 			$my_media.stop();
 		} else if (streamer == "3") {
 			alert('останавливаем 3 поток');
+			$('#play i').attr('class', 'zmdi zmdi-play');
 			$my_media.stop();
+		} else if (streamer == "4") {
+			alert('Возобновляем после остановки');
+			$('#play i').attr('class', 'zmdi zmdi-play');
+			$my_media.play();
 		};
 	}
     
