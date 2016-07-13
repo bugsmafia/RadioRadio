@@ -134,15 +134,18 @@ var my_media = new PlayStream(url,
         alert(err);
     }
 );
-var status = false;
+var playB = false;
 function streamplay() {
-	if (status == false) {
+	alert('Нажали плей');
+	if (playB == false) {
+		alert('включаем поток');
 		//player.Play('http://play.radio13.ru/mp3');
 		my_media.play();
-		status = true;
-	} else if (status == true) {
+		playB = true;
+	} else if (playB == true) {
+		alert('отключаем поток');
 		my_media.stop();
-		status = false;
+		playB = false;
 		
 	
 	}
