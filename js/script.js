@@ -99,13 +99,11 @@ function onError(e){
 			alert('включаем 1 поток');
 			//player.Play('http://play.radio13.ru/mp3');
 			$my_media.play();
-		};
-		if (streamer = "2") {
+		} else if (streamer = "2") {
 			alert('останавливаем 2 поток');
 			//player.Play('http://play.radio13.ru/mp3');
 			$my_media.stop();
-		};
-		if (streamer = "3") {
+		} else if (streamer = "3") {
 			alert('останавливаем 3 поток');
 			$my_media.stop();
 		};
