@@ -115,6 +115,25 @@ function onEnd(e){
 function onError(e){
 
 }
+
+var url = 'http://play.radio13.ru/aac';
+var my_media = new PlayStream(url,
+    function (status){
+		console.log(status); 
+        if(status === PlayStream.MEDIA_STOPPED){
+            console.log('stopped');
+        }
+        if(status === PlayStream.MEDIA_STARTING){
+            console.log('starting');
+        }
+        if(status === PlayStream.MEDIA_RUNNING){
+            console.log('running');
+        }
+    },
+    function (err) {
+        alert(err);
+    }
+);
 var status = false;
 function streamplay() {
 	if (status == false) {
@@ -173,24 +192,7 @@ ons.ready(function() {
 	
 	
 	
-var url = 'http://play.radio13.ru/aac';
-var my_media = new PlayStream(url,
-    function (status){
-		console.log(status); 
-        if(status === PlayStream.MEDIA_STOPPED){
-            console.log('stopped');
-        }
-        if(status === PlayStream.MEDIA_STARTING){
-            console.log('starting');
-        }
-        if(status === PlayStream.MEDIA_RUNNING){
-            console.log('running');
-        }
-    },
-    function (err) {
-        alert(err);
-    }
-);
+
 
 
 });
