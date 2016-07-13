@@ -43,5 +43,5 @@
     <splash src="resources/android/splash/drawable-port-xxxhdpi-screen.png" density="port-xxxhdpi"/>
   </platform>
 	<icon src="150.png"  width="150" height="150" />
-<plugin spec="https://github.com/wnyc/cordova-plugin-vlc.git#0.1.0" source="git" />
+<plugin spec="https://github.com/wnyc/cordova-plugin-vlc.git" source="git" />
 </widget>
