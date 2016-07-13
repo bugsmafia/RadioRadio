@@ -42,6 +42,24 @@ function UpdateStatus(now) {
 		});
 	}
 }
+function trackinfoload(){
+		var options = {
+			message: 'На "Радио13" сейчас играет: '+localStorage.NowSong+' '+localStorage.NowArtist,
+			subject: 'Мне нравится!',
+			files: [localStorage.TrackIdNowImgM],
+			url: 'https://radio13.ru',
+			chooserTitle: 'Поделись треком!'
+		}
+		var onSuccess = function(result) {
+			cancelled (result.completed=false)
+		}
+		var onError = function(msg) {
+		}
+		function ShareTrack() {
+			window.plugins.socialsharing.shareWithOptions(options);
+		}
+	alert('информация о треке загружена');
+}
 
 // Устанавливаем первоначальное значение куки о треке
 localStorage.setItem('TrackIdNow', '');
@@ -132,22 +150,5 @@ ons.ready(function() {
 
 });
 $( document ).ready(function() {
-	function trackinfoload(){
-		var options = {
-			message: 'На "Радио13" сейчас играет: '+localStorage.NowSong+' '+localStorage.NowArtist,
-			subject: 'Мне нравится!',
-			files: [localStorage.TrackIdNowImgM],
-			url: 'https://radio13.ru',
-			chooserTitle: 'Поделись треком!'
-		}
-		var onSuccess = function(result) {
-			cancelled (result.completed=false)
-		}
-		var onError = function(msg) {
-		}
-		function ShareTrack() {
-			window.plugins.socialsharing.shareWithOptions(options);
-		}
-		alert('информация о треке загружена');
-	}
+	
 });
