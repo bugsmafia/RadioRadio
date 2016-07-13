@@ -117,37 +117,46 @@ function onError(e){
 }
 
 var url = 'http://play.radio13.ru/aac';
+var streamer = 1;
 var my_media = new PlayStream(url,
     function (status){
 		console.log(status); 
         if(status === PlayStream.MEDIA_STOPPED){
             console.log('stopped');
+			streamer = 1;
         }
         if(status === PlayStream.MEDIA_STARTING){
             console.log('starting');
+			streamer = 2;
         }
         if(status === PlayStream.MEDIA_RUNNING){
             console.log('running');
+			streamer = 3;
         }
     },
     function (err) {
         alert(err);
     }
 );
-var playB = false;
+
 function streamplay() {
 	alert('Нажали плей');
-	if (playB) {
-		alert('включаем поток');
+	if (streamer == "1") {
+		alert('включаем 1 поток');
 		//player.Play('http://play.radio13.ru/mp3');
 		my_media.play();
-		playB = true;
-	} else {
-		alert('отключаем поток');
+	};
+	if (streamer == "2") {
+		alert('останавливаем 2 поток');
+		//player.Play('http://play.radio13.ru/mp3');
 		my_media.stop();
-		playB = false;
-	
-	}
+	};
+	if (streamer == "3") {
+		alert('останавливаем 3 поток');
+		my_media.stop();
+	};
+
+
 }
 setInterval(function(){
 	if(player.stop == false && player.pause == true){
