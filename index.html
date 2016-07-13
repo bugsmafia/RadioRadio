@@ -2,6 +2,8 @@
 <html>
   <head>
     <meta charset="utf-8">
+	<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1,
+width=device-width, height=device-height, target-densitydpi=device-dpi" />
     <link rel="stylesheet" href="css/onsenui.css"/>
     <link rel="stylesheet" href="css/onsen-css-components.css"/>
 	<link rel="stylesheet" href="css/style.css"/>
@@ -16,15 +18,13 @@
 
 <ons-template id="home.html">
 	<ons-page>
-		<ons-fab position="top left" ripple><i class="zmdi zmdi-info-outline"></i></ons-fab>
-		<ons-speed-dial position="top right" direction="down">
-			<ons-fab><i class="zmdi zmdi-share"></i></ons-fab>
-			  <ons-speed-dial-item onclick="ShareTrack();"><i class="zmdi zmdi-google-plus"></i></ons-speed-dial-item>
-			  <ons-speed-dial-item><i class="zmdi zmdi-facebook"></i></ons-speed-dial-item>
-			  <ons-speed-dial-item><i class="zmdi zmdi-odnoklassniki"></i></ons-speed-dial-item>
-			  <ons-speed-dial-item><i class="zmdi zmdi-vk"></i></ons-speed-dial-item>
-			  <ons-speed-dial-item><i class="zmdi zmdi-twitter"></i></ons-speed-dial-item>
+
+		<ons-speed-dial position="top left" direction="down">
+			<ons-fab><i class="zmdi zmdi-info-outline"></i></ons-fab>
+			<ons-speed-dial-item><i class="zmdi zmdi-twitter"></i></ons-speed-dial-item>
 		</ons-speed-dial>
+		<ons-fab position="top right" ripple  onclick="ShareTrack();"><i class="zmdi zmdi-share"></i></ons-fab>
+
 		<div class="vert_grid">
 			<div class="vert_grid_box">
 				<div class="logo"></div>

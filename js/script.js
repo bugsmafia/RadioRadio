@@ -150,19 +150,20 @@ function UpdateStatus(now) {
 	}
 }
 
-var options = {
-			message: 'На "Радио13" сейчас играет: '+localStorage.NowSong+' '+localStorage.NowArtist,
-			subject: 'Мне нравится!',
-			files: [localStorage.TrackIdNowImgM],
-			url: 'https://radio13.ru',
-			chooserTitle: 'Поделись треком!'
-}
+
 var onSuccess = function(result) {
-cancelled (result.completed=false)
+	cancelled (result.completed=false)
 }
 var onError = function(msg) {}
 function ShareTrack() {
-	window.plugins.socialsharing.shareWithOptions(options);
+	var ShareData = {
+		message: 'На "Радио13" сейчас играет: '+localStorage.NowSong+' '+localStorage.NowArtist,
+		subject: 'Мне нравится!',
+		files: [localStorage.TrackIdNowImgM],
+		url: 'https://radio13.ru',
+		chooserTitle: 'Поделись треком!'
+	}
+	window.plugins.socialsharing.shareWithOptions(ShareData);
 }
 
 
