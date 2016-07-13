@@ -114,20 +114,18 @@ function onEnd(e){
 }
 function onError(e){
 
-}	
+}
+var status = false;
 function streamplay() {
-	if (player.start == false) {
-		player.Play('http://play.radio13.ru/mp3');
-		status = 1;
-	} else if (player.start == true) {
-		status = 0;
+	if (status == false) {
+		//player.Play('http://play.radio13.ru/mp3');
+		my_media.play();
+		status = true;
+	} else if (status == true) {
+		my_media.stop();
+		status = false;
 		
-		player.Play('none.mp3');
-		setTimeout(
-			function(){
-				player.Stop();
-			}, 
-		100);		
+	
 	}
 }
 setInterval(function(){
@@ -171,4 +169,27 @@ ons.ready(function() {
 		volume = volume / 100;
 		player.Volume(volume);
 	});
+	
+	
+	
+	
+var url = 'http://play.radio13.ru/aac';
+var my_media = new PlayStream(url,
+    function (status){
+        if(status === PlayStream.MEDIA_STOPPED){
+            console.log('stopped');
+        }
+        if(status === PlayStream.MEDIA_STARTING){
+            console.log('starting');
+        }
+        if(status === PlayStream.MEDIA_RUNNING){
+            console.log('running');
+        }
+    },
+    function (err) {
+        alert(err);
+    }
+);
+
+
 });
