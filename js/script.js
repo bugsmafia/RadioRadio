@@ -92,23 +92,22 @@ function onError(e){
 	
 	var streamer = 1;
 	function streamplay() {
-		alert('Нажали плей');
-		$my_media.play();
+		alert('Нажали плей 3');
 		
-		if (streamer = "1") {
+		if (streamer == "1") {
 			alert('включаем 1 поток');
 			//player.Play('http://play.radio13.ru/mp3');
 			$my_media.play();
-		} else if (streamer = "2") {
+		} else if (streamer == "2") {
 			alert('останавливаем 2 поток');
 			//player.Play('http://play.radio13.ru/mp3');
 			$my_media.stop();
-		} else if (streamer = "3") {
+		} else if (streamer == "3") {
 			alert('останавливаем 3 поток');
 			$my_media.stop();
 		};
 	}
-	
+    
 	LoadStream();
 	function LoadStream() {
 		setTimeout(function() {
