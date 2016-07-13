@@ -38,5 +38,5 @@
 <preference name="StatusBarOverlaysWebView" value="true" />
 <preference name="StatusBarBackgroundColor" value="#444444" />
 <preference name="StatusBarStyle" value="lightcontent" />
-<plugin spec="https://github.com/Code1Tech/phonegap-plugin-push" source="git" />
+
 </widget>
