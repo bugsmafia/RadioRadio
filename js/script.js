@@ -36,7 +36,7 @@ function UpdateStatus(now) {
 				// Обновляет куки
 				localStorage.setItem('NowSong', data.s);
 				localStorage.setItem('NowArtist', data.a);
-				
+				trackinfoload();
 			}, 1000);
 			localStorage.setItem('TrackIdNow', data.id);
 		});
@@ -129,25 +129,25 @@ setInterval(function(){
 // Sharing
 
 ons.ready(function() {
-	alert('ok');
-	var options = {
-				
-		message: 'На "Радио13" сейчас играет: '+localStorage.NowSong+' '+localStorage.NowArtist,
-		subject: 'Мне нравится!',
-		files: ['https://pbs.twimg.com/profile_images/378800000436140352/0109e573a1e4cdf47104a7b50e57eada.jpeg'],
-		url: 'https://radio13.ru',
-		chooserTitle: 'Поделись треком!'
+
+});
+$( document ).ready(function() {
+	function trackinfoload(){
+		var options = {
+			message: 'На "Радио13" сейчас играет: '+localStorage.NowSong+' '+localStorage.NowArtist,
+			subject: 'Мне нравится!',
+			files: [localStorage.TrackIdNowImgM],
+			url: 'https://radio13.ru',
+			chooserTitle: 'Поделись треком!'
+		}
+		var onSuccess = function(result) {
+			cancelled (result.completed=false)
+		}
+		var onError = function(msg) {
+		}
+		function ShareTrack() {
+			window.plugins.socialsharing.shareWithOptions(options);
+		}
+		alert('информация о треке загружена');
 	}
-	var onSuccess = function(result) {
-		cancelled (result.completed=false)
-	}
-	var onError = function(msg) {
-	}
-	function ShareTrack() {
-		window.plugins.socialsharing.shareWithOptions(options, onSuccess, onError);
-	}
-	
-	$( document ).ready(function() {
-		alert('ok doc');
-	});
 });
