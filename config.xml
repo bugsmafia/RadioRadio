@@ -46,5 +46,5 @@
 	
 <plugin spec="https://github.com/baricio/cordova-plugin-playstream.git" source="git" />
 <plugin spec="https://github.com/apache/cordova-plugin-splashscreen.git" source="git" />
-
+<preference name="SplashScreenDelay" value="5000" />
 </widget>
