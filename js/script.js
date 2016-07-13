@@ -115,6 +115,8 @@ function onError(e){
 	var streamer = 1;
 	function streamplay() {
 		alert('Нажали плей');
+		$my_media.play();
+		
 		if (streamer == "1") {
 			alert('включаем 1 поток');
 			//player.Play('http://play.radio13.ru/mp3');
