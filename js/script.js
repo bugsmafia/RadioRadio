@@ -1,4 +1,7 @@
+LoadStream();
 function LoadStream() {
+	alert("инитиализация плеера");
+	var url = 'http://play.radio13.ru/aac';
 	$my_media = new PlayStream(url, function (status){
 			if(status === PlayStream.MEDIA_STOPPED){
 				console.log('stopped');
@@ -59,16 +62,7 @@ function UpdateStatus(now) {
 		});
 	}
 }
-// Анимация информации о новом треке
-function StatusAnimation(type) {
-	if (type == 'show') {
-		setTimeout(function() {
-			jQuery("#playinfo").addClass("show");
-		}, 20000);
-	} else if (type == 'hide') {
-		jQuery("#playinfo").removeClass("show");
-	}
-}
+
 // Устанавливаем первоначальное значение куки о треке
 localStorage.setItem('TrackIdNow', '');
 LoadStatus();
@@ -78,43 +72,6 @@ setInterval(function(){
 }, 15000);
 
 
-var status = 0;
-
-
-Player();
-function Player(){
-	vars={"m":"audio","file":"#","uid":"stream","addcontrols":"start"};
-	player = new Uppod(vars);
-	document.getElementById('stream').addEventListener('init',onInit,false);
-	
-	document.getElementById('stream').addEventListener('start',onStart,false);
-	document.getElementById('stream').addEventListener('stop',onStop,false);
-	
-	document.getElementById('stream').addEventListener('play',onPlay,false);
-	document.getElementById('stream').addEventListener('pause',onPause,false);
-	
-	document.getElementById('stream').addEventListener('end',onEnd,false);
-	document.getElementById('stream').addEventListener('error',onError,false);
-}
-var player;
-player.start = false;
-player.stop = false;
-player.pause = false;
-// Загрузился ли плеер?
-function onInit(e){
-	player.init = true;
-}
-// Команда старт.
-function onStart(e){
-	player.start = true;
-	player.stop = false;
-	player.pause = false;
-}
-// Получена команда стоп.
-function onStop(e){
-	player.stop = true;
-	player.start = false;
-}
 
 function onPlay(e){
 	player.start = true;
@@ -133,39 +90,6 @@ function onError(e){
 
 }
 
-var url = 'http://play.radio13.ru/aac';
-var streamer = 1;
-
-
-
-
-
-function streamplay() {
-	alert('Нажали плей');
-	if (streamer == "1") {
-		alert('включаем 1 поток');
-		//player.Play('http://play.radio13.ru/mp3');
-		$my_media.play();
-	};
-	if (streamer == "2") {
-		alert('останавливаем 2 поток');
-		//player.Play('http://play.radio13.ru/mp3');
-		$my_media.stop();
-	};
-	if (streamer == "3") {
-		alert('останавливаем 3 поток');
-		$my_media.stop();
-	};
-
-
-}
-setInterval(function(){
-	if(player.stop == false && player.pause == true){
-		console.log('ПЕРЕЗАПУСКАЙ!');
-		player.Play('http://play.radio13.ru/mp3');
-	}
-}, 500);
-
 
 
 
@@ -173,7 +97,7 @@ setInterval(function(){
 
 ons.ready(function() {
 	LoadConfigApp();
-	LoadStream();
+	
 	
 	setInterval(function(){
 		LoadConfigApp();
@@ -188,7 +112,24 @@ ons.ready(function() {
 	});
 	
 	
-	
+	var streamer = 1;
+	function streamplay() {
+		alert('Нажали плей');
+		if (streamer == "1") {
+			alert('включаем 1 поток');
+			//player.Play('http://play.radio13.ru/mp3');
+			$my_media.play();
+		};
+		if (streamer == "2") {
+			alert('останавливаем 2 поток');
+			//player.Play('http://play.radio13.ru/mp3');
+			$my_media.stop();
+		};
+		if (streamer == "3") {
+			alert('останавливаем 3 поток');
+			$my_media.stop();
+		};
+	}
 	
 
 

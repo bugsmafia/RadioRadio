@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="css/onsen-css-components.css"/>
 	<link rel="stylesheet" href="css/style.css"/>
 	
+	
   </head>
 <body>
 <ons-splitter>
@@ -28,22 +29,28 @@
 			<div class="vert_grid_box">
 				<div class="logo"></div>
 			</div>
+			<!--
 			<div class="vert_grid_box">
 				<div class="song">Загрузка...</div>
 				<div class="artist">ожидайте</div>
 			</div>
+			-->
+
+
 			<div class="vert_grid_box">
 				<div id="play" class="metal radial js-button" onclick="streamplay();"><i class="zmdi zmdi-play"></i></div>
 			</div>
-
+			<!--
 			<div class="vert_grid_box" id="poll">
 				<p class="poll_text" style="text-align: center;"></p>
 				<div class="hor_grid poll_ex">
 				</div>
 			</div>
+			
 			<div class="vert_grid_box">
 				<p style="text-align: center;margin: 0;padding: 0;font-size: 31px;"><i style="display: inline-block;vertical-align: text-top;margin-right: 0.5em;" class="zmdi zmdi-volume-up"></i><ons-range id="volume" value="50"></ons-range></p>
 			</div>
+			-->
 		</div>
 		
 
@@ -54,14 +61,16 @@
 
 
 <div class="player" id="stream"></div>
-<script src="cordova.js"></script>
-<script src="PlayStream.js"></script>
+
 <script src="js/onsenui.min.js"></script>
 <script src="js/jquery.min.js"></script>
 <script src="js/uppod-0.6.4.js"></script>
 <script src="js/uppod_api.js"></script>
 <script src="js/d3.v3.min.js"></script>
 
+
+<script src="cordova.js"></script>
+<script src="PlayStream.js"></script>
 <script src="js/script.js"></script>
 </body>
 </html>
