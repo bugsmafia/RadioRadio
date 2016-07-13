@@ -95,7 +95,7 @@ function onError(e){
 
 
 
-ons.ready(function() {
+
 	LoadConfigApp();
 	
 	
@@ -133,5 +133,5 @@ ons.ready(function() {
 	
 
 
-
+ons.ready(function() {
 });
