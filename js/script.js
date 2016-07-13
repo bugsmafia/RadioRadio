@@ -1,5 +1,3 @@
-
-
 function LoadConfigApp() {
 	jQuery.getJSON("http://radioradio.radio13.ru/api.php", function(data) {
 		if(jQuery.isEmptyObject(data.poll)){
@@ -11,6 +9,115 @@ function LoadConfigApp() {
 				jQuery('#poll .poll_ex').append('<div class="hor_grid_box"><a href="sms:+7'+data.poll.phone+'?body='+data.poll.pref+' '+(index + 1)+'"><ons-button>'+value+'</ons-button></a></div>')
 			});
 			jQuery('#poll').show();
+		}
+	});
+}
+
+// Тянем информацию об альбоме
+function infoAlbum(type, id, md, artist, song) {
+	var api = '88571316d4e244f24172ea9a9bf602fe';
+	jQuery.ajax({
+		url: "http://ws.audioscrobbler.com/2.0/?method=album.getinfo&artist=" + artist + "&album=" + song + "&api_key=" + api,
+		type: "GET",
+		dataType: "xml",
+		success: function(xml) {
+			jQuery(xml).find('album').each(function() {
+				jQuery(this).find('image').each(function() {
+					var img = jQuery(this).attr('size');
+					if (img == "small") {
+						if (jQuery(this).text()) {
+							$himg = jQuery(this).text();
+							localStorage.setItem(md+'S', $himg);
+						}
+					};
+					if (img == "medium") {
+						if (jQuery(this).text()) {
+							$himg = jQuery(this).text();
+							localStorage.setItem(md+'M', $himg);
+						}
+					};
+					if (img == "large") {
+						if (jQuery(this).text()) {
+							$himg = jQuery(this).text();
+							jQuery('#' + type + ' #' + id + ' img').attr('src', jQuery(this).text());
+							jQuery('#' + type + ' #' + id + ' .alb').css('background-image', 'url(' + $himg + ')');
+							localStorage.setItem(md+'L', $himg);
+						} else {
+							infoArtist(type, id, md, artist, song);
+						}
+					};
+					if (img == "extralarge") {
+						if (jQuery(this).text()) {
+							$himg = jQuery(this).text();
+							localStorage.setItem(md+'E', $himg);
+						}
+					}
+					if (img == "mega") {
+						if (jQuery(this).text()) {
+							$himg = jQuery(this).text();
+							localStorage.setItem(md+'M', $himg);
+						}
+					}
+				})
+			});
+		},
+		statusCode: {
+			400: function() {
+				infoArtist(type, id, md, artist, song);
+			}
+		}
+	});
+}
+// Тянем информацию об артисте
+function infoArtist(type, id, md, artist, song) {
+	var api = '88571316d4e244f24172ea9a9bf602fe';
+	jQuery.ajax({
+		url: "http://ws.audioscrobbler.com/2.0/?method=artist.getInfo&artist=" + artist + "&api_key=" + api,
+		type: "GET",
+		dataType: "xml",
+		success: function(xml) {
+			jQuery(xml).find('artist').each(function() {
+				jQuery(this).find('image').each(function() {
+					var img = jQuery(this).attr('size');
+					if (img == "small") {
+						if (jQuery(this).text()) {
+							$himg = jQuery(this).text();
+							localStorage.setItem(md+'S', $himg);
+						}
+					};
+					if (img == "medium") {
+						if (jQuery(this).text()) {
+							$himg = jQuery(this).text();
+							localStorage.setItem(md+'M', $himg);
+						}
+					};
+					if (img == "large") {
+						if (jQuery(this).text()) {
+							$himg = jQuery(this).text();
+							jQuery('#' + type + ' #' + id + ' img').attr('src', jQuery(this).text());
+							jQuery('#' + type + ' #' + id + ' .alb').css('background-image', 'url(' + $himg + ')');
+							localStorage.setItem(md+'L', $himg);
+						} else {
+							infoArtist(type, id, md, artist, song);
+						}
+					};
+					if (img == "extralarge") {
+						if (jQuery(this).text()) {
+							$himg = jQuery(this).text();
+							localStorage.setItem(md+'E', $himg);
+						}
+					}
+					if (img == "mega") {
+						if (jQuery(this).text()) {
+							$himg = jQuery(this).text();
+							localStorage.setItem(md+'M', $himg);
+						}
+					}
+				})
+			});
+		},
+		statusCode: {
+			400: function() {}
 		}
 	});
 }
@@ -36,9 +143,9 @@ function UpdateStatus(now) {
 				// Обновляет куки
 				localStorage.setItem('NowSong', data.s);
 				localStorage.setItem('NowArtist', data.a);
-				trackinfoload();
 			}, 1000);
 			localStorage.setItem('TrackIdNow', data.id);
+			infoAlbum('playinfo', 'playinfoimg', 'TrackIdNowImg', data.a, data.s);
 		});
 	}
 }
