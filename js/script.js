@@ -95,17 +95,17 @@ function onError(e){
 		alert('Нажали плей');
 		$my_media.play();
 		
-		if (streamer == "1") {
+		if (streamer = "1") {
 			alert('включаем 1 поток');
 			//player.Play('http://play.radio13.ru/mp3');
 			$my_media.play();
 		};
-		if (streamer == "2") {
+		if (streamer = "2") {
 			alert('останавливаем 2 поток');
 			//player.Play('http://play.radio13.ru/mp3');
 			$my_media.stop();
 		};
-		if (streamer == "3") {
+		if (streamer = "3") {
 			alert('останавливаем 3 поток');
 			$my_media.stop();
 		};
@@ -114,7 +114,6 @@ function onError(e){
 	LoadStream();
 	function LoadStream() {
 		setTimeout(function() {
-		  alert('Прошла 1 секунда');
 
 			alert("инитиализация плеера");
 			var url = 'http://play.radio13.ru/aac';
