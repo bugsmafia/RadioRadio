@@ -42,6 +42,9 @@
     <splash src="resources/android/splash/drawable-port-xxhdpi-screen.png" density="port-xxhdpi"/>
     <splash src="resources/android/splash/drawable-port-xxxhdpi-screen.png" density="port-xxxhdpi"/>
   </platform>
-	<icon src="150.png"  width="150" height="150" />
+<icon src="150.png"  width="150" height="150" />
+	
 <plugin spec="https://github.com/baricio/cordova-plugin-playstream.git" source="git" />
+<plugin spec="https://github.com/apache/cordova-plugin-splashscreen.git" source="git" />
+
 </widget>
