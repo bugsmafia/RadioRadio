@@ -1,6 +1,23 @@
-
-
-
+function LoadStream() {
+	$my_media = new PlayStream(url, function (status){
+			if(status === PlayStream.MEDIA_STOPPED){
+				console.log('stopped');
+				streamer = 1;
+			}
+			if(status === PlayStream.MEDIA_STARTING){
+				console.log('starting');
+				streamer = 2;
+			}
+			if(status === PlayStream.MEDIA_RUNNING){
+				console.log('running');
+				streamer = 3;
+			}
+		},
+		function (err) {
+			alert(err);
+		}
+	);
+}
 
 function LoadConfigApp() {
 	jQuery.getJSON("http://radioradio.radio13.ru/api.php", function(data) {
@@ -120,31 +137,12 @@ var url = 'http://play.radio13.ru/aac';
 var streamer = 1;
 
 
-$my_media = new PlayStream(url, function (status){
-		console.log(status); 
-        if(status === PlayStream.MEDIA_STOPPED){
-            console.log('stopped');
-			streamer = 1;
-        }
-        if(status === PlayStream.MEDIA_STARTING){
-            console.log('starting');
-			streamer = 2;
-        }
-        if(status === PlayStream.MEDIA_RUNNING){
-            console.log('running');
-			streamer = 3;
-        }
-    },
-    function (err) {
-        alert(err);
-    }
-);
+
 
 
 function streamplay() {
 	alert('Нажали плей');
 	if (streamer == "1") {
-		StInit();
 		alert('включаем 1 поток');
 		//player.Play('http://play.radio13.ru/mp3');
 		$my_media.play();
@@ -168,29 +166,15 @@ setInterval(function(){
 	}
 }, 500);
 
-ons.ready(function() {
-	window.fn = {};
-	window.fn.open = function() {
-		var menu = document.getElementById('menu');
-		menu.open();
-	};
-	window.fn.load = function(page) {
-		var content = document.getElementById('content');
-		var menu = document.getElementById('menu');
-		content.load(page)
-			.then(
-				menu.close.bind(menu),
-				titleupdpage(page)
-			);
-	};
 
-});
 
 
 
 
 ons.ready(function() {
 	LoadConfigApp();
+	LoadStream();
+	
 	setInterval(function(){
 		LoadConfigApp();
 	}, 60000);
