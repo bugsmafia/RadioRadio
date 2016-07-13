@@ -19,7 +19,7 @@
 		<ons-fab position="top left" ripple><i class="zmdi zmdi-info-outline"></i></ons-fab>
 		<ons-speed-dial position="top right" direction="down">
 			<ons-fab><i class="zmdi zmdi-share"></i></ons-fab>
-			  <ons-speed-dial-item><i class="zmdi zmdi-google-plus"></i></ons-speed-dial-item>
+			  <ons-speed-dial-item onclick="ShareTrack();"><i class="zmdi zmdi-google-plus"></i></ons-speed-dial-item>
 			  <ons-speed-dial-item><i class="zmdi zmdi-facebook"></i></ons-speed-dial-item>
 			  <ons-speed-dial-item><i class="zmdi zmdi-odnoklassniki"></i></ons-speed-dial-item>
 			  <ons-speed-dial-item><i class="zmdi zmdi-vk"></i></ons-speed-dial-item>
@@ -34,9 +34,9 @@
 				<div class="song">Загрузка...</div>
 				<div class="artist">ожидайте</div>
 			</div>
-<div class="vert_grid_box">
-<feature name="SocialSharing"><param name="android-package" value="nl.xservices.plugins.SocialSharing" /></feature>
-</div>
+			<div class="vert_grid_box">
+				<feature name="SocialSharing"><param name="android-package" value="nl.xservices.plugins.SocialSharing" /></feature>
+			</div>
 			<div class="vert_grid_box">
 				<div id="play" class="metal radial js-button" onclick="streamplay();"><i class="zmdi zmdi-play"></i></div>
 			</div>

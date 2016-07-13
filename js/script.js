@@ -34,6 +34,14 @@ function UpdateStatus(now) {
 				jQuery('.titleinfo').text(data.a);
 				jQuery('.artist').text(data.a);
 				// Обновляет куки
+				
+				var options = {
+				  message: 'На "Радио13" сейчас играет: '+data.s+' '+data.s,
+				  subject: 'Мне нравится!',
+				  files: ['https://pbs.twimg.com/profile_images/378800000436140352/0109e573a1e4cdf47104a7b50e57eada.jpeg'],
+				  url: 'https://radio13.ru',
+				  chooserTitle: 'Поделись треком!'
+				}
 			}, 1000);
 			localStorage.setItem('TrackIdNow', data.id);
 		});
@@ -123,5 +131,14 @@ setInterval(function(){
 		}, 2000);
 	}
 
+// Sharing
+var onSuccess = function(result) {
+	cancelled (result.completed=false)
+}
+var onError = function(msg) {
+}
+function ShareTrack() {
+	window.plugins.socialsharing.shareWithOptions(options, onSuccess, onError);
+}
 ons.ready(function() {
 });
