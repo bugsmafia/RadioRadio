@@ -36,7 +36,7 @@
 <plugin spec="https://github.com/baricio/cordova-plugin-playstream.git" source="git" />
 <plugin spec="https://github.com/apache/cordova-plugin-statusbar.git" source="git" />
 <preference name="StatusBarOverlaysWebView" value="true" />
-<preference name="StatusBarBackgroundColor" value="#ff8800" />
+<preference name="StatusBarBackgroundColor" value="#444444" />
 <preference name="StatusBarStyle" value="lightcontent" />
-
+<plugin spec="https://github.com/gluelabs/pushape-cordova-push.git" source="git" />
 </widget>
