@@ -118,10 +118,9 @@ function onError(e){
 
 var url = 'http://play.radio13.ru/aac';
 var streamer = 1;
-function StInit(){
-	alert('загрузка конфигураций');
-var my_media = new PlayStream(url,
-    function (status){
+
+
+$my_media = new PlayStream(url, function (status){
 		console.log(status); 
         if(status === PlayStream.MEDIA_STOPPED){
             console.log('stopped');
@@ -140,7 +139,7 @@ var my_media = new PlayStream(url,
         alert(err);
     }
 );
-}
+
 
 function streamplay() {
 	alert('Нажали плей');
@@ -148,16 +147,16 @@ function streamplay() {
 		StInit();
 		alert('включаем 1 поток');
 		//player.Play('http://play.radio13.ru/mp3');
-		my_media.play();
+		$my_media.play();
 	};
 	if (streamer == "2") {
 		alert('останавливаем 2 поток');
 		//player.Play('http://play.radio13.ru/mp3');
-		my_media.stop();
+		$my_media.stop();
 	};
 	if (streamer == "3") {
 		alert('останавливаем 3 поток');
-		my_media.stop();
+		$my_media.stop();
 	};
 
 
