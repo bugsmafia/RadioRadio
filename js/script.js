@@ -137,16 +137,15 @@ var my_media = new PlayStream(url,
 var playB = false;
 function streamplay() {
 	alert('Нажали плей');
-	if (playB == false) {
+	if (playB) {
 		alert('включаем поток');
 		//player.Play('http://play.radio13.ru/mp3');
 		my_media.play();
 		playB = true;
-	} else if (playB == true) {
+	} else {
 		alert('отключаем поток');
 		my_media.stop();
 		playB = false;
-		
 	
 	}
 }
