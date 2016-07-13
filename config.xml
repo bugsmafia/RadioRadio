@@ -39,4 +39,5 @@
 <preference name="StatusBarBackgroundColor" value="#444444" />
 <preference name="StatusBarStyle" value="lightcontent" />
 
+<plugin name="de.appplant.cordova.plugin.local-notification" spec="0.8.1" source="pgb" />
 </widget>
