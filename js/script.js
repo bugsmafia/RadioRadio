@@ -50,23 +50,6 @@ setInterval(function(){
 
 
 
-function onPlay(e){
-	player.start = true;
-	$('#play i').attr('class', 'zmdi zmdi-stop');
-}
-
-function onPause(e){
-	player.start = false;
-	player.pause = true;
-	$('#play i').attr('class', 'zmdi zmdi-play');
-}
-function onEnd(e){
-
-}
-function onError(e){
-
-}
-
 
 
 
@@ -91,24 +74,22 @@ function onError(e){
 	
 	var streamer = 1;
 	function streamplay() {
-		alert('Нажали плей 3');
+
 		
 		if (streamer == "1") {
-			alert('включаем 1 поток');
-			//player.Play('http://play.radio13.ru/mp3');
+
 			$my_media.play();
 			$('#play i').attr('class', 'zmdi zmdi-stop');
 		} else if (streamer == "2") {
-			alert('останавливаем 2 поток');
-			//player.Play('http://play.radio13.ru/mp3');
+
 			$('#play i').attr('class', 'zmdi zmdi-play');
 			$my_media.stop();
 		} else if (streamer == "3") {
-			alert('останавливаем 3 поток');
+
 			$('#play i').attr('class', 'zmdi zmdi-play');
 			$my_media.stop();
 		} else if (streamer == "4") {
-			alert('Возобновляем после остановки');
+
 			$('#play i').attr('class', 'zmdi zmdi-play');
 			$my_media.play();
 		};
@@ -118,7 +99,6 @@ function onError(e){
 	function LoadStream() {
 		setTimeout(function() {
 
-			alert("инитиализация плеера");
 			var url = 'http://play.radio13.ru/aac';
 			$my_media = new PlayStream(url, function (status){
 					alert("статус плеера "+status);
