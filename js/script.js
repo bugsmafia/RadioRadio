@@ -1,3 +1,27 @@
+function onLoad() {
+    document.addEventListener("deviceready", onDeviceReady, false);
+}
+
+function onDeviceReady() {
+    document.addEventListener("pause", onPause, false);
+    document.addEventListener("resume", onResume, false);
+}
+
+function onPause() {
+	cordova.plugins.notification.local.schedule({
+		id: 56,
+		title: "Трансляция",
+		message: localStorage.NowSong+" - "+localStorage.NowArtist, 
+		icon: "icon.npg"
+	});
+}
+
+function onResume() {
+
+}
+
+
+
 function LoadConfigApp() {
 	jQuery.getJSON("http://radioradio.radio13.ru/api.php", function(data) {
 		if(jQuery.isEmptyObject(data.poll)){
@@ -266,6 +290,12 @@ setInterval(function(){
 							$my_media.stop();
 						}
 						callmemabe = '2';
+						cordova.plugins.notification.local.schedule({
+							id: 56,
+							title: "Остановлено",
+							message: "Вернемся после звонка",
+							icon: "icon.npg"
+						});
 						break;
 					case "OFFHOOK":
 						console.log("Phone is off-hook");
