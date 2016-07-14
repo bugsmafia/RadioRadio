@@ -2,14 +2,14 @@
 <html>
   <head>
     <meta charset="utf-8">
-
+	<script src="cordova.js"></script>
     <link rel="stylesheet" href="css/onsenui.css"/>
     <link rel="stylesheet" href="css/onsen-css-components.css"/>
 	<link rel="stylesheet" href="css/style.css"/>
 	
 	
   </head>
-<body>
+<body onload="onLoad()">
 <ons-splitter>
 
   <ons-splitter-content id="content" page="home.html"></ons-splitter-content>
@@ -69,7 +69,7 @@
 <script src="js/d3.v3.min.js"></script>
 
 
-<script src="cordova.js"></script>
+
 <script src="statusbar.js"></script>
 <script src="SocialSharing.js"></script>
 <script src="JustMusicPlayer.js"></script>
