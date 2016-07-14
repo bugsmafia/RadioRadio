@@ -224,13 +224,13 @@ setInterval(function(){
 		};
 	}
     
+	
 	LoadStream();
 	function LoadStream() {
 		setTimeout(function() {
 
 			var url = 'http://play.radio13.ru/aac';
 			$my_media = new PlayStream(url, function (status){
-					alert("статус плеера "+status);
 					console.log(status);
 					if(status === PlayStream.MEDIA_STOPPED){
 						console.log('stopped');
