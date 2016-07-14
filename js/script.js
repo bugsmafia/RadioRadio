@@ -251,6 +251,7 @@ setInterval(function(){
 			);
 			
 			PhoneCallTrap.onCall(function(state) {
+				var callmemabe = '1';
 				console.log("CHANGE STATE: " + state);
 				switch (state) {
 					case "RINGING":
@@ -263,6 +264,7 @@ setInterval(function(){
 							$('#play i').attr('class', 'zmdi zmdi-play');
 							$my_media.stop();
 						}
+						callmemabe = '2';
 						break;
 					case "OFFHOOK":
 						console.log("Phone is off-hook");
@@ -274,11 +276,12 @@ setInterval(function(){
 							$('#play i').attr('class', 'zmdi zmdi-play');
 							$my_media.stop();
 						}
+						callmemabe = '2';
 						break;
 
 					case "IDLE":
-						console.log("Телефон свободен: "+streamer);
-						if (streamer == "4") {
+						console.log("Телефон свободен: "+streamer+ " "+callmemabe);
+						if (streamer == "1" || callmemabe == '2') {
 							console.log("Восстанавливаем стрим через 3 секунды");
 							setTimeout(function() {
 								console.log("Восстанавливаем стрим");
