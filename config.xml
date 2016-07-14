@@ -56,6 +56,6 @@
 
 <plugin spec="https://github.com/renanoliveira/cordova-phone-call-trap" source="git" />
 
-<plugin spec="https://github.com/commontime/com.commontime.cordova.notification" source="git" />
+<plugin spec="https://github.com/katzer/cordova-plugin-local-notifications" source="git" />
  
 </widget>
