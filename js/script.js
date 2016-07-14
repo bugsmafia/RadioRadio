@@ -255,16 +255,33 @@ setInterval(function(){
 				switch (state) {
 					case "RINGING":
 						console.log("Phone is ringing");
-						$my_media.stop();
+						if (streamer == "2") {
+							$('#play i').attr('class', 'zmdi zmdi-play');
+							$my_media.stop();
+						} else if (streamer == "3") {
+
+							$('#play i').attr('class', 'zmdi zmdi-play');
+							$my_media.stop();
+						}
 						break;
 					case "OFFHOOK":
 						console.log("Phone is off-hook");
-						$my_media.stop();
+						 if (streamer == "2") {
+							$('#play i').attr('class', 'zmdi zmdi-play');
+							$my_media.stop();
+						} else if (streamer == "3") {
+
+							$('#play i').attr('class', 'zmdi zmdi-play');
+							$my_media.stop();
+						}
 						break;
 
 					case "IDLE":
 						console.log("Phone is idle");
-						$my_media.start();
+						if (streamer == "4") {
+							$('#play i').attr('class', 'zmdi zmdi-play');
+							$my_media.play();
+						};
 						break;
 				}
 			});
