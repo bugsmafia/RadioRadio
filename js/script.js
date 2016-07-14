@@ -20,20 +20,33 @@ function onResume() {
 
 } 
 
-
+function modals(name) {
+	switch (name) {
+		case "config":
+			document.querySelector("#Modal_Config").toggle();
+		break;
+		case "about":
+			document.querySelector("#Modal_About").toggle();
+		break;
+	};
+} 
 
 function LoadConfigApp() {
 	jQuery.getJSON("http://radioradio.radio13.ru/api.php", function(data) {
-		if(jQuery.isEmptyObject(data.poll)){
-			jQuery('#poll').hide();
-		} else {
-			jQuery('#poll .poll_text').text(data.poll.text);
-			jQuery('#poll .poll_ex').html('');
-			jQuery.each(data.poll.ex, function (index, value) {
-				jQuery('#poll .poll_ex').append('<div class="hor_grid_box"><a href="sms:+7'+data.poll.phone+'?body='+data.poll.pref+' '+(index + 1)+'"><ons-button>'+value+'</ons-button></a></div>')
-			});
-			jQuery('#poll').show();
-		}
+		var streamChanel = data.stream.reg50.aac.b32[2].patch;
+		//console.log(data.stream.reg50.aac.b32[2].patch);
+		setTimeout(function() {
+			if(jQuery.isEmptyObject(data.poll)){
+				jQuery('#poll').hide();
+			} else {
+				jQuery('#poll .poll_text').text(data.poll.text);
+				jQuery('#poll .poll_ex').html('');
+				jQuery.each(data.poll.ex, function (index, value) {
+					jQuery('#poll .poll_ex').append('<div class="hor_grid_box"><a href="sms:+7'+data.poll.phone+'?body='+data.poll.pref+' '+(index + 1)+'"><ons-button>'+value+'</ons-button></a></div>')
+				});
+				jQuery('#poll').show();
+			}
+		}, 5000);
 	});
 }
 
@@ -209,9 +222,7 @@ setInterval(function(){
 
 
 
-	LoadConfigApp();
-	
-	
+	LoadConfigApp();	
 	setInterval(function(){
 		LoadConfigApp();
 	}, 60000);
@@ -254,8 +265,8 @@ setInterval(function(){
 	function LoadStream() {
 		setTimeout(function() {
 
-			var url = 'http://play.radio13.ru/aac';
-			$my_media = new PlayStream(url, function (status){
+
+			$my_media = new PlayStream(streamChanel, function (status){
 					console.log(status);
 					if(status === PlayStream.MEDIA_STOPPED){
 						console.log('stopped');

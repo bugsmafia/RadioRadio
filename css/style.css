@@ -1,6 +1,6 @@
 .logo{
-	width: 160px;
-    height: 113px;
+    width: 150px;
+    height: 107px;
     margin: 10px auto;
     background-image: url(../logo/1.png);
     background-size: cover;
@@ -9,7 +9,7 @@
 }
 .page__background {
     background-color: #f6f6f6;
-    background-image: url(silver-background-11.jpg);
+    background-image: url(m.jpg);
     background-position: 50%;
     background-size: cover;
 }
@@ -24,6 +24,9 @@
     -moz-transition: all 0.2s ease;
     -o-transition: all 0.2s ease;
     transition: all 0.2s ease;
+}
+.navigation-bar--material {
+	background-color: #3d4844;
 }
 .button--material:active {
     background-color: #f1f1f1;
@@ -105,6 +108,7 @@ footer .play {
     margin-top: 0.15em;
     margin-bottom: 0.2em;
 	text-align: center;
+	font-weight: 700;
 }
 
 #stream {
