@@ -149,24 +149,7 @@ function UpdateStatus(now) {
 		});
 	}
 }
-PhoneCallTrap.onCall(function(state) {
-    console.log("CHANGE STATE: " + state);
-    switch (state) {
-        case "RINGING":
-            console.log("Phone is ringing");
-			$my_media.stop();
-            break;
-        case "OFFHOOK":
-            console.log("Phone is off-hook");
-			$my_media.stop();
-            break;
 
-        case "IDLE":
-            console.log("Phone is idle");
-			$my_media.start();
-            break;
-    }
-});
 
 
 var onSuccess = function(result) {
@@ -266,6 +249,26 @@ setInterval(function(){
 					alert(err);
 				}
 			);
+			
+			PhoneCallTrap.onCall(function(state) {
+				console.log("CHANGE STATE: " + state);
+				switch (state) {
+					case "RINGING":
+						console.log("Phone is ringing");
+						$my_media.stop();
+						break;
+					case "OFFHOOK":
+						console.log("Phone is off-hook");
+						$my_media.stop();
+						break;
+
+					case "IDLE":
+						console.log("Phone is idle");
+						$my_media.start();
+						break;
+				}
+			});
+			
 		}, 2000);
 	}
 
