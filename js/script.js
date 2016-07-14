@@ -254,7 +254,7 @@ setInterval(function(){
 				console.log("CHANGE STATE: " + state);
 				switch (state) {
 					case "RINGING":
-						console.log("Phone is ringing");
+						console.log("Звонят");
 						if (streamer == "2") {
 							$('#play i').attr('class', 'zmdi zmdi-play');
 							$my_media.stop();
@@ -277,7 +277,7 @@ setInterval(function(){
 						break;
 
 					case "IDLE":
-						console.log("Phone is idle");
+						console.log("Телефон свободен");
 						if (streamer == "4") {
 							$('#play i').attr('class', 'zmdi zmdi-play');
 							$my_media.play();
