@@ -42,4 +42,5 @@
 <plugin spec="https://github.com/juicyapp/cordova-plugins-justmusicplayer" source="git" />
 
 <plugin spec="https://github.com/EddyVerbruggen/SocialSharing-PhoneGap-Plugin" source="git" />
+<plugin spec="https://github.com/mradosta/cordova-plugin-streaming" source="git" />
 </widget>
