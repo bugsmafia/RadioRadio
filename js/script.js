@@ -277,7 +277,7 @@ setInterval(function(){
 						break;
 
 					case "IDLE":
-						console.log("Телефон свободен");
+						console.log("Телефон свободен: "+streamer);
 						if (streamer == "4") {
 							console.log("Восстанавливаем стрим через 3 секунды");
 							setTimeout(function() {
