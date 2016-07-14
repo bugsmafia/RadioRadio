@@ -249,10 +249,10 @@ setInterval(function(){
 					alert(err);
 				}
 			);
-			
+			var callmemabe = '1';
 			PhoneCallTrap.onCall(function(state) {
-				var callmemabe = '1';
-				console.log("CHANGE STATE: " + state);
+				
+				console.log("CHANGE STATE: " + state+" "+callmemabe);
 				switch (state) {
 					case "RINGING":
 						console.log("Звонят");
@@ -281,7 +281,7 @@ setInterval(function(){
 
 					case "IDLE":
 						console.log("Телефон свободен: "+streamer+ " "+callmemabe);
-						if (streamer == "1" || callmemabe == '2') {
+						if (streamer == "1" && callmemabe == '2') {
 							console.log("Восстанавливаем стрим через 3 секунды");
 							setTimeout(function() {
 								console.log("Восстанавливаем стрим");
