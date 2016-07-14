@@ -34,6 +34,7 @@ function modals(name) {
 function LoadConfigApp() {
 	jQuery.getJSON("http://radioradio.radio13.ru/api.php", function(data) {
 		var streamChanel = data.stream.reg50.aac.b32[2].patch;
+		localStorage.setItem('streamChanel', data.stream.reg50.aac.b32[2].patch);
 		//console.log(data.stream.reg50.aac.b32[2].patch);
 		setTimeout(function() {
 			if(jQuery.isEmptyObject(data.poll)){
@@ -266,7 +267,7 @@ setInterval(function(){
 		setTimeout(function() {
 
 
-			$my_media = new PlayStream(streamChanel, function (status){
+			$my_media = new PlayStream(localStorage.streamChanel, function (status){
 					console.log(status);
 					if(status === PlayStream.MEDIA_STOPPED){
 						console.log('stopped');
