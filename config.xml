@@ -42,5 +42,5 @@
 <plugin spec="https://github.com/juicyapp/cordova-plugins-justmusicplayer" source="git" />
 <plugin spec="https://github.com/EddyVerbruggen/SocialSharing-PhoneGap-Plugin" source="git" />
 
-
+<plugin spec="https://github.com/apache/cordova-plugin-dialogs" source="git" />
 </widget>
