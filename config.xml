@@ -49,13 +49,13 @@
 <preference name="StatusBarBackgroundColor" value="#444444" />
 <preference name="StatusBarStyle" value="lightcontent" />
 
-<plugin spec="https://github.com/commontime/com.commontime.cordova.audio" source="git" />
+<plugin spec="https://github.com/juicyapp/cordova-plugins-justmusicplayer" source="git" />
 <plugin spec="https://github.com/EddyVerbruggen/SocialSharing-PhoneGap-Plugin" source="git" />
 
 <plugin spec="https://github.com/apache/cordova-plugin-splashscreen" source="git" />
 
 <plugin spec="https://github.com/renanoliveira/cordova-phone-call-trap" source="git" />
 
-<plugin spec="https://github.com/dpalou/cordova-plugin-local-notifications" source="git" />
-
+<plugin spec="https://github.com/commontime/com.commontime.cordova.notification" source="git" />
+ 
 </widget>
