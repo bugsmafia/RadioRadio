@@ -202,8 +202,9 @@ setInterval(function(){
 	
 	
 	var streamer = 1;
+	var OneclickPlay = 1;
 	function streamplay() {
-
+		OneclickPlay = 2;
 		
 		if (streamer == "1") {
 
@@ -280,8 +281,8 @@ setInterval(function(){
 						break;
 
 					case "IDLE":
-						console.log("Телефон свободен: "+streamer+ " "+callmemabe);
-						if (streamer == "1" && callmemabe == '2') {
+						console.log("Телефон свободен: "+streamer+ " "+callmemabe+ " "+OneclickPlay);
+						if (streamer == "1" && callmemabe == '2' && OneclickPlay == "2") {
 							console.log("Восстанавливаем стрим через 3 секунды");
 							setTimeout(function() {
 								console.log("Восстанавливаем стрим");
@@ -296,7 +297,7 @@ setInterval(function(){
 		}, 2000);
 	}
 
-	
+
 // Sharing
 
 ons.ready(function() {
