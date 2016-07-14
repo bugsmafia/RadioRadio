@@ -279,8 +279,12 @@ setInterval(function(){
 					case "IDLE":
 						console.log("Телефон свободен");
 						if (streamer == "4") {
-							$('#play i').attr('class', 'zmdi zmdi-play');
-							$my_media.play();
+							console.log("Восстанавливаем стрим через 3 секунды");
+							setTimeout(function() {
+								console.log("Восстанавливаем стрим");
+								$('#play i').attr('class', 'zmdi zmdi-play');
+								$my_media.play();
+							}, 3000);
 						};
 						break;
 				}
@@ -289,6 +293,7 @@ setInterval(function(){
 		}, 2000);
 	}
 
+	
 // Sharing
 
 ons.ready(function() {
