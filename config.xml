@@ -29,8 +29,18 @@
     <icon src="resources/android/icon/drawable-xhdpi-icon.png" density="xhdpi"/>
     <icon src="resources/android/icon/drawable-xxhdpi-icon.png" density="xxhdpi"/>
     <icon src="resources/android/icon/drawable-xxxhdpi-icon.png" density="xxxhdpi"/>
+	
+	<splash src="resources/android/splash/splash-land-hdpi.png" density="land-hdpi"/>
+    <splash src="resources/android/splash/splash-land-ldpi.png" density="land-ldpi"/>
+    <splash src="resources/android/splash/splash-land-mdpi.png" density="land-mdpi"/>
+    <splash src="resources/android/splash/splash-land-xhdpi.png" density="land-xhdpi"/>
 
+    <splash src="resources/android/splash/drawable-port-hdpi-screen.png" density="port-hdpi"/>
+    <splash src="resources/android/splash/drawable-port-ldpi-screen.png" density="port-ldpi"/>
+    <splash src="resources/android/splash/drawable-port-mdpi-screen.png" density="port-mdpi"/>
+    <splash src="resources/android/splash/drawable-port-xhdpi-screen.png" density="port-xhdpi"/>
   </platform>
+  <preference name="SplashScreenDelay" value="10000" />
 <icon src="150.png"  width="150" height="150" />
 	
 <plugin spec="https://github.com/baricio/cordova-plugin-playstream.git" source="git" />
@@ -42,5 +52,6 @@
 <plugin spec="https://github.com/juicyapp/cordova-plugins-justmusicplayer" source="git" />
 <plugin spec="https://github.com/EddyVerbruggen/SocialSharing-PhoneGap-Plugin" source="git" />
 
-<plugin spec="https://github.com/apache/cordova-plugin-dialogs" source="git" />
+<plugin spec="https://github.com/apache/cordova-plugin-splashscreen" source="git" />
+
 </widget>
