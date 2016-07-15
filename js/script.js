@@ -187,13 +187,19 @@ function UpdateStatus(now) {
 	}
 }
 
-
+var Playing = false;
 function statusBar(){
+	if(streamer == "1"){
+		Playing = false;
+	} else {
+		Playing = true;
+	};
 	MusicControls.create({
 		track: localStorage.NowSong,
 		artist: localStorage.NowArtist,
 		cover: localStorage.TrackIdNowImgE,
-		isPlaying: true,
+		isPlaying: Playing,
+		
 		dismissable : true,
 		hasPrev: false,
 		hasNext: false,
