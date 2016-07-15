@@ -280,7 +280,7 @@ setInterval(function(){
 
 
 			$my_media = new PlayStream(localStorage.streamChanel, function (status){
-					console.log(status);
+					console.log("status - "+status);
 					if(status === PlayStream.MEDIA_STOPPED){
 						console.log('stopped');
 						MusicControls.updateIsPlaying(false);
@@ -299,7 +299,7 @@ setInterval(function(){
 				}, 
 				function (err) {
 					alert(err);
-				}
+				} 
 			);
 			var callmemabe = '1';
 			PhoneCallTrap.onCall(function(state) {
@@ -345,7 +345,7 @@ setInterval(function(){
 						break;
 				}
 			});
-			
+			$my_media.stop();
 		}, 2000);
 	}
 
