@@ -257,44 +257,43 @@ setInterval(function(){
 		if (streamer == "1") {
 
 			$my_media.play();
-			MusicControls.updateIsPlaying(true);
 			$('#play i').attr('class', 'zmdi zmdi-stop');
 		} else if (streamer == "2") {
 
 			$('#play i').attr('class', 'zmdi zmdi-play');
 			$my_media.stop();
-			MusicControls.updateIsPlaying(false);
 		} else if (streamer == "3") {
 
 			$('#play i').attr('class', 'zmdi zmdi-play');
 			$my_media.stop();
-			MusicControls.updateIsPlaying(false);
 		} else if (streamer == "4") {
 
 			$('#play i').attr('class', 'zmdi zmdi-play');
 			$my_media.play();
-			MusicControls.updateIsPlaying(true);
 		};
 	}
     
 	
 	LoadStream();
 	function LoadStream() {
-		setTimeout(function() {
+		setTimeout(function() { 
 
 
 			$my_media = new PlayStream(localStorage.streamChanel, function (status){
 					console.log(status);
 					if(status === PlayStream.MEDIA_STOPPED){
 						console.log('stopped');
+						MusicControls.updateIsPlaying(false);
 						streamer = 1;
 					}
 					if(status === PlayStream.MEDIA_STARTING){
 						console.log('starting');
+						MusicControls.updateIsPlaying(true);
 						streamer = 2;
 					}
 					if(status === PlayStream.MEDIA_RUNNING){
 						console.log('running');
+						MusicControls.updateIsPlaying(true);
 						streamer = 3;
 					}
 				},
@@ -312,12 +311,10 @@ setInterval(function(){
 						if (streamer == "2") {
 							$('#play i').attr('class', 'zmdi zmdi-play');
 							$my_media.stop();
-							MusicControls.updateIsPlaying(false);
 						} else if (streamer == "3") {
 
 							$('#play i').attr('class', 'zmdi zmdi-play');
 							$my_media.stop();
-							MusicControls.updateIsPlaying(false);
 						}
 						callmemabe = '2';
 
@@ -327,12 +324,10 @@ setInterval(function(){
 						 if (streamer == "2") {
 							$('#play i').attr('class', 'zmdi zmdi-play');
 							$my_media.stop();
-							MusicControls.updateIsPlaying(false);
 						} else if (streamer == "3") {
 
 							$('#play i').attr('class', 'zmdi zmdi-play');
 							$my_media.stop();
-							MusicControls.updateIsPlaying(false);
 						}
 						callmemabe = '2';
 						break;
@@ -345,7 +340,6 @@ setInterval(function(){
 								console.log("Восстанавливаем стрим");
 								$('#play i').attr('class', 'zmdi zmdi-play');
 								$my_media.play();
-								MusicControls.updateIsPlaying(true);
 							}, 3000);
 						};
 						break;
@@ -370,17 +364,14 @@ function events(action) {
         case 'music-controls-pause':
             console.log('Пауза');
 			$my_media.stop();
-			MusicControls.updateIsPlaying(false);
             break;
         case 'music-controls-play':
             console.log('Плей');
 			$my_media.play();
-			MusicControls.updateIsPlaying(false);
             break;
         case 'music-controls-destroy':
             console.log('Удалено');
 			$my_media.stop();
-			MusicControls.updateIsPlaying(false);
             break;
 
         // Headset events (Android only)
