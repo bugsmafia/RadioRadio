@@ -374,7 +374,7 @@ function events(action) {
             break;
         case 'music-controls-play':
             console.log('Плей');
-			$my_media.stop();
+			$my_media.play();
 			MusicControls.updateIsPlaying(false);
             break;
         case 'music-controls-destroy':
