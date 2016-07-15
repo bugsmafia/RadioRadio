@@ -51,7 +51,6 @@
 <preference name="StatusBarBackgroundColor" value="#444444" />
 <preference name="StatusBarStyle" value="lightcontent" />
 
-<plugin spec="https://github.com/juicyapp/cordova-plugins-justmusicplayer" source="git" />
 <plugin spec="https://github.com/EddyVerbruggen/SocialSharing-PhoneGap-Plugin" source="git" />
 
 <plugin spec="https://github.com/apache/cordova-plugin-splashscreen" source="git" />
