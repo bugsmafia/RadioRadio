@@ -57,9 +57,7 @@
 <plugin spec="https://github.com/apache/cordova-plugin-splashscreen" source="git" />
 
 <plugin spec="https://github.com/renanoliveira/cordova-phone-call-trap" source="git" />
-
-<plugin spec="https://github.com/katzer/cordova-plugin-local-notifications" source="git" />
-
+ 
 <plugin spec="https://github.com/homerours/cordova-music-controls-plugin" source="git" />
  
 </widget>
