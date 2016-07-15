@@ -369,8 +369,8 @@ function events(action) {
             break;
         case 'music-controls-pause':
             console.log('Пауза');
-			$my_media.play();
-			MusicControls.updateIsPlaying(true);
+			$my_media.stop();
+			MusicControls.updateIsPlaying(false);
             break;
         case 'music-controls-play':
             console.log('Плей');
@@ -396,10 +396,10 @@ function events(action) {
         default:
             break;
     }
-}
+} 
 MusicControls.subscribe(events);
 MusicControls.listen();
-});
+}); 
 $( document ).ready(function() {
 	
 });
