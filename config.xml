@@ -57,5 +57,5 @@
 <plugin spec="https://github.com/homerours/cordova-music-controls-plugin" source="git" />
  <plugin spec="https://github.com/hazems/cordova-sms-plugin" source="git" /> 
  
- <plugin spec="https://github.com/mgcrea/cordova-plugin-volume-control" source="git" /> 
+ <plugin spec="https://github.com/g-w/cordova-volume" source="git" /> 
 </widget>
