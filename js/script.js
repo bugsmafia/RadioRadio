@@ -23,6 +23,9 @@ function modals(name) {
 		case "about":
 			document.querySelector("#Modal_About").toggle();
 		break;
+		case "share":
+			document.querySelector("#Modal_Share").toggle();
+		break;
 	};
 } 
 
@@ -213,6 +216,7 @@ var onSuccess = function(result) {
 }
 var onError = function(msg) {}
 function ShareTrack() {
+	modals('share');
 	var ShareData = {
 		message: 'На "Радио13" сейчас играет: '+localStorage.NowSong+' '+localStorage.NowArtist,
 		subject: 'Мне нравится!',
@@ -220,7 +224,15 @@ function ShareTrack() {
 		url: 'https://radio13.ru',
 		chooserTitle: 'Поделись треком!'
 	}
-	window.plugins.socialsharing.shareWithOptions(ShareData);
+	var onSuccess = function(result) {
+	  modals('share');
+	}
+
+	var onError = function(msg) {
+	  console.log("Sharing failed with message: " + msg);
+	}
+	
+	window.plugins.socialsharing.shareWithOptions(ShareData, onSuccess, onError);
 }
 
 
