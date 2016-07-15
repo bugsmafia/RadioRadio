@@ -5,8 +5,20 @@ function onLoad() {
 function onDeviceReady() {
     document.addEventListener("pause", onPause, false);
     document.addEventListener("resume", onResume, false);
+	document.addEventListener("backbutton", onBackKeyDown, false);
 }
 
+
+function onBackKeyDown() {
+	$my_media.stop();
+	ons.notification.confirm('Закрыть радио?').then(
+		function(answer) {
+		  if (answer === 1) {
+				console.log('закрывается');
+		  }
+		}
+	);
+}
 function onPause() {
 	
 }
