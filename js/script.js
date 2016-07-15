@@ -8,7 +8,7 @@ function onDeviceReady() {
 }
 
 function onPause() {
-	statusBar();
+	
 }
 
 function onResume() {
@@ -46,14 +46,60 @@ function LoadConfigApp() {
 	});
 }
 
+
+function events(action) {
+    switch(action) {
+        case 'music-controls-next':
+            console.log('Следующая');
+            break;
+        case 'music-controls-previous':
+            console.log('Предыдущая');
+            break;
+        case 'music-controls-pause':
+            console.log('Пауза');
+			$my_media.play();
+			MusicControls.updateIsPlaying(true);
+            break;
+        case 'music-controls-play':
+            console.log('Плей');
+			$my_media.stop();
+			MusicControls.updateIsPlaying(false);
+            break;
+        case 'music-controls-destroy':
+            console.log('Удалено');
+			$my_media.stop();
+			MusicControls.updateIsPlaying(false);
+            break;
+
+        // Headset events (Android only)
+        case 'music-controls-media-button' :
+            console.log('music-controls-media-button');
+            break;
+        case 'music-controls-headset-unplugged':
+            console.log('unplugged');
+            break;
+        case 'music-controls-headset-plugged':
+            console.log('plugged');
+            break;
+        default:
+            break;
+    }
+}
+
+MusicControls.subscribe(events);
+MusicControls.listen();
 function statusBar(){
-	cordova.plugins.notification.local.schedule({
-		id: 56,
-		title: "Остановлено",
-		message: "Вернемся после звонка",
-		icon: "icon.npg",
-		sound: "none.mp3"
-	});
+	MusicControls.create({
+		track: localStorage.NowSong,
+		artist: localStorage.NowArtist,
+		cover: localStorage.TrackIdNowImgE,
+		isPlaying: true,
+		dismissable : true,
+		hasPrev: false,
+		hasNext: false,
+		hasClose: false, 
+		ticker: 'Now playing "Time is Running Out"'
+	}, onSuccess, onError);
 }
 
 // Тянем информацию об альбоме
@@ -186,7 +232,8 @@ function UpdateStatus(now) {
 				// Обновляет куки
 				localStorage.setItem('NowSong', data.s);
 				localStorage.setItem('NowArtist', data.a);
-			}, 1000);
+				statusBar();
+			}, 2000);
 			localStorage.setItem('TrackIdNow', data.id);
 			infoAlbum('playinfo', 'playinfoimg', 'TrackIdNowImg', data.a, data.s);
 		});
@@ -250,19 +297,23 @@ setInterval(function(){
 		if (streamer == "1") {
 
 			$my_media.play();
+			MusicControls.updateIsPlaying(true);
 			$('#play i').attr('class', 'zmdi zmdi-stop');
 		} else if (streamer == "2") {
 
 			$('#play i').attr('class', 'zmdi zmdi-play');
 			$my_media.stop();
+			MusicControls.updateIsPlaying(false);
 		} else if (streamer == "3") {
 
 			$('#play i').attr('class', 'zmdi zmdi-play');
 			$my_media.stop();
+			MusicControls.updateIsPlaying(false);
 		} else if (streamer == "4") {
 
 			$('#play i').attr('class', 'zmdi zmdi-play');
 			$my_media.play();
+			MusicControls.updateIsPlaying(true);
 		};
 	}
     
@@ -301,23 +352,27 @@ setInterval(function(){
 						if (streamer == "2") {
 							$('#play i').attr('class', 'zmdi zmdi-play');
 							$my_media.stop();
+							MusicControls.updateIsPlaying(false);
 						} else if (streamer == "3") {
 
 							$('#play i').attr('class', 'zmdi zmdi-play');
 							$my_media.stop();
+							MusicControls.updateIsPlaying(false);
 						}
 						callmemabe = '2';
-						statusBar();
+
 						break;
 					case "OFFHOOK":
 						console.log("Phone is off-hook");
 						 if (streamer == "2") {
 							$('#play i').attr('class', 'zmdi zmdi-play');
 							$my_media.stop();
+							MusicControls.updateIsPlaying(false);
 						} else if (streamer == "3") {
 
 							$('#play i').attr('class', 'zmdi zmdi-play');
 							$my_media.stop();
+							MusicControls.updateIsPlaying(false);
 						}
 						callmemabe = '2';
 						break;
@@ -330,6 +385,7 @@ setInterval(function(){
 								console.log("Восстанавливаем стрим");
 								$('#play i').attr('class', 'zmdi zmdi-play');
 								$my_media.play();
+								MusicControls.updateIsPlaying(true);
 							}, 3000);
 						};
 						break;
