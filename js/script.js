@@ -187,46 +187,7 @@ function UpdateStatus(now) {
 	}
 }
 
-function events(action) {
-    switch(action) {
-        case 'music-controls-next':
-            console.log('Следующая');
-            break;
-        case 'music-controls-previous':
-            console.log('Предыдущая');
-            break;
-        case 'music-controls-pause':
-            console.log('Пауза');
-			$my_media.play();
-			MusicControls.updateIsPlaying(true);
-            break;
-        case 'music-controls-play':
-            console.log('Плей');
-			$my_media.stop();
-			MusicControls.updateIsPlaying(false);
-            break;
-        case 'music-controls-destroy':
-            console.log('Удалено');
-			$my_media.stop();
-			MusicControls.updateIsPlaying(false);
-            break;
 
-        // Headset events (Android only)
-        case 'music-controls-media-button' :
-            console.log('music-controls-media-button');
-            break;
-        case 'music-controls-headset-unplugged':
-            console.log('unplugged');
-            break;
-        case 'music-controls-headset-plugged':
-            console.log('plugged');
-            break;
-        default:
-            break;
-    }
-}
-MusicControls.subscribe(events);
-MusicControls.listen();
 function statusBar(){
 	MusicControls.create({
 		track: localStorage.NowSong,
@@ -398,7 +359,46 @@ setInterval(function(){
 // Sharing
 
 ons.ready(function() {
+function events(action) {
+    switch(action) {
+        case 'music-controls-next':
+            console.log('Следующая');
+            break;
+        case 'music-controls-previous':
+            console.log('Предыдущая');
+            break;
+        case 'music-controls-pause':
+            console.log('Пауза');
+			$my_media.play();
+			MusicControls.updateIsPlaying(true);
+            break;
+        case 'music-controls-play':
+            console.log('Плей');
+			$my_media.stop();
+			MusicControls.updateIsPlaying(false);
+            break;
+        case 'music-controls-destroy':
+            console.log('Удалено');
+			$my_media.stop();
+			MusicControls.updateIsPlaying(false);
+            break;
 
+        // Headset events (Android only)
+        case 'music-controls-media-button' :
+            console.log('music-controls-media-button');
+            break;
+        case 'music-controls-headset-unplugged':
+            console.log('unplugged');
+            break;
+        case 'music-controls-headset-plugged':
+            console.log('plugged');
+            break;
+        default:
+            break;
+    }
+}
+MusicControls.subscribe(events);
+MusicControls.listen();
 });
 $( document ).ready(function() {
 	
