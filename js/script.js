@@ -273,20 +273,12 @@ setInterval(function(){
 		OneclickPlay = 2;
 		
 		if (streamer == "1") {
-
 			$my_media.play();
-			$('#play i').attr('class', 'zmdi zmdi-stop');
 		} else if (streamer == "2") {
-
-			$('#play i').attr('class', 'zmdi zmdi-play');
 			$my_media.stop();
 		} else if (streamer == "3") {
-
-			$('#play i').attr('class', 'zmdi zmdi-play');
 			$my_media.stop();
 		} else if (streamer == "4") {
-
-			$('#play i').attr('class', 'zmdi zmdi-play');
 			$my_media.play();
 		};
 	}
@@ -295,24 +287,25 @@ setInterval(function(){
 	LoadStream();
 	function LoadStream() {
 		setTimeout(function() {
-
-
 			$my_media = new PlayStream(localStorage.streamChanel, function (status){
 					console.log("status - "+status);
 					if(status === PlayStream.MEDIA_STOPPED){
 						console.log('stopped');
 						MusicControls.updateIsPlaying(false);
 						streamer = 1;
+						$('#play i').attr('class', 'zmdi zmdi-play');
 					}
 					if(status === PlayStream.MEDIA_STARTING){
 						console.log('starting');
 						MusicControls.updateIsPlaying(true);
 						streamer = 2;
+						$('#play i').attr('class', 'zmdi zmdi-play');
 					}
 					if(status === PlayStream.MEDIA_RUNNING){
 						console.log('running');
 						MusicControls.updateIsPlaying(true);
 						streamer = 3;
+						$('#play i').attr('class', 'zmdi zmdi-stop');
 					}
 				}, 
 				function (err) {
