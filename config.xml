@@ -59,5 +59,7 @@
 <plugin spec="https://github.com/renanoliveira/cordova-phone-call-trap" source="git" />
 
 <plugin spec="https://github.com/katzer/cordova-plugin-local-notifications" source="git" />
+
+<plugin spec="https://github.com/wnyc/cordova-plugin-vlc" source="git" />
  
 </widget>

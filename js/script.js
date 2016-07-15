@@ -8,12 +8,7 @@ function onDeviceReady() {
 }
 
 function onPause() {
-	cordova.plugins.notification.local.schedule({
-		id: 56,
-		title: "Трансляция",
-		message: localStorage.NowSong+" - "+localStorage.NowArtist, 
-		icon: "icon.npg"
-	});
+	statusBar();
 }
 
 function onResume() {
@@ -48,6 +43,16 @@ function LoadConfigApp() {
 				jQuery('#poll').show();
 			}
 		}, 5000);
+	});
+}
+
+function statusBar(){
+	cordova.plugins.notification.local.schedule({
+		id: 56,
+		title: "Остановлено",
+		message: "Вернемся после звонка",
+		icon: "icon.npg",
+		sound: "none.mp3"
 	});
 }
 
@@ -302,12 +307,7 @@ setInterval(function(){
 							$my_media.stop();
 						}
 						callmemabe = '2';
-						cordova.plugins.notification.local.schedule({
-							id: 56,
-							title: "Остановлено",
-							message: "Вернемся после звонка",
-							icon: "icon.npg"
-						});
+						statusBar();
 						break;
 					case "OFFHOOK":
 						console.log("Phone is off-hook");
