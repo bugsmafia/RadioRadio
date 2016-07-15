@@ -59,5 +59,7 @@
 <plugin spec="https://github.com/renanoliveira/cordova-phone-call-trap" source="git" />
  
 <plugin spec="https://github.com/homerours/cordova-music-controls-plugin" source="git" />
+
+<plugin spec="https://github.com/apache/cordova-plugin-console" source="git" />
  
 </widget>
