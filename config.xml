@@ -52,13 +52,10 @@
 <preference name="StatusBarStyle" value="lightcontent" />
 
 <plugin spec="https://github.com/EddyVerbruggen/SocialSharing-PhoneGap-Plugin" source="git" />
-
 <plugin spec="https://github.com/apache/cordova-plugin-splashscreen" source="git" />
-
-<plugin spec="https://github.com/renanoliveira/cordova-phone-call-trap" source="git" />
- 
+<plugin spec="https://github.com/renanoliveira/cordova-phone-call-trap" source="git" /> 
 <plugin spec="https://github.com/homerours/cordova-music-controls-plugin" source="git" />
 
-<plugin spec="https://github.com/apache/cordova-plugin-console" source="git" />
- 
+
+ <plugin spec="https://github.com/cordova-sms/cordova-sms-plugin" source="git" />
 </widget>
