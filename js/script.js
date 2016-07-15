@@ -41,7 +41,7 @@ function LoadConfigApp() {
 				jQuery('#poll .poll_text').text(data.poll.text);
 				jQuery('#poll .poll_ex').html('');
 				jQuery.each(data.poll.ex, function (index, value) {
-					jQuery('#poll .poll_ex').append('<div class="hor_grid_box"><a href="sms:+7'+data.poll.phone+'?body='+data.poll.pref+' '+(index + 1)+'"><ons-button>'+value+'</ons-button></a></div>')
+					jQuery('#poll .poll_ex').append('<div class="hor_grid_box"><a onclick="SmsSend('+data.poll.pref+' '+(index + 1)+')" href="#"><ons-button>'+value+'</ons-button></a></div>')
 				});
 				jQuery('#poll').show();
 			}
@@ -234,8 +234,17 @@ function ShareTrack() {
 	
 	window.plugins.socialsharing.shareWithOptions(ShareData, onSuccess, onError);
 }
-
-
+function SmsSend(mess) {
+	var SmsData = {
+		phoneNumber: "+79123555341",
+		textMessage: mess
+	};
+	sms.sendMessage(SmsData , function(message) {
+		console.log("success: " + message);
+	}, function(error) {
+		console.log("code: " + error.code + ", message: " + error.message);
+	});
+}
 
 // Устанавливаем первоначальное значение куки о треке
 localStorage.setItem('TrackIdNow', '');
