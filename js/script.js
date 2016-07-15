@@ -276,7 +276,7 @@ setInterval(function(){
 	
 	LoadStream();
 	function LoadStream() {
-		setTimeout(function() { 
+		setTimeout(function() {
 
 
 			$my_media = new PlayStream(localStorage.streamChanel, function (status){
@@ -296,7 +296,7 @@ setInterval(function(){
 						MusicControls.updateIsPlaying(true);
 						streamer = 3;
 					}
-				},
+				}, 
 				function (err) {
 					alert(err);
 				}
