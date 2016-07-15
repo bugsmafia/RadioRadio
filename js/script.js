@@ -304,21 +304,21 @@ setInterval(function(){
 	LoadStream();
 	function LoadStream() {
 		setTimeout(function() {
-			$my_media = new PlayStream(localStorage.streamChanel, function (status){
+			$my_media = new playAudio(localStorage.streamChanel, function (status){
 					console.log("status - "+status);
-					if(status === PlayStream.MEDIA_STOPPED){
+					if(status === playAudio.MEDIA_STOPPED){
 						console.log('stopped');
 						MusicControls.updateIsPlaying(false);
 						streamer = 1;
 						$('#play i').attr('class', 'zmdi zmdi-play');
 					}
-					if(status === PlayStream.MEDIA_STARTING){
+					if(status === playAudio.MEDIA_STARTING){
 						console.log('starting');
 						MusicControls.updateIsPlaying(true);
 						streamer = 2;
 						$('#play i').attr('class', 'zmdi zmdi-play');
 					}
-					if(status === PlayStream.MEDIA_RUNNING){
+					if(status === playAudio.MEDIA_RUNNING){
 						console.log('running');
 						MusicControls.updateIsPlaying(true);
 						streamer = 3;
