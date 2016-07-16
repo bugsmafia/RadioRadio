@@ -338,18 +338,21 @@ function checkConnection() {
 						MusicControls.updateIsPlaying(false);
 						streamer = 1;
 						$('#play i').attr('class', 'zmdi zmdi-play');
+						$('#play').removeClass('active');
 					}
 					if(status === PlayStream.MEDIA_STARTING){
 						console.log('starting');
 						MusicControls.updateIsPlaying(true);
 						streamer = 2;
 						$('#play i').attr('class', 'zmdi zmdi-play');
+						$('#play').addClass('active');
 					}
 					if(status === PlayStream.MEDIA_RUNNING){
 						console.log('running');
 						MusicControls.updateIsPlaying(true);
 						streamer = 3;
 						$('#play i').attr('class', 'zmdi zmdi-stop');
+						$('#play').addClass('active');
 					}
 				}, 
 				function (err) {
@@ -365,10 +368,12 @@ function checkConnection() {
 						console.log("Звонят");
 						if (streamer == "2") {
 							$('#play i').attr('class', 'zmdi zmdi-play');
+							$('#play').removeClass('active');
 							$my_media.stop();
 						} else if (streamer == "3") {
 
 							$('#play i').attr('class', 'zmdi zmdi-play');
+							$('#play').removeClass('active');
 							$my_media.stop();
 						}
 						callmemabe = '2';
@@ -378,10 +383,12 @@ function checkConnection() {
 						console.log("Phone is off-hook");
 						 if (streamer == "2") {
 							$('#play i').attr('class', 'zmdi zmdi-play');
+							$('#play').removeClass('active');
 							$my_media.stop();
 						} else if (streamer == "3") {
 
 							$('#play i').attr('class', 'zmdi zmdi-play');
+							$('#play').removeClass('active');
 							$my_media.stop();
 						}
 						callmemabe = '2';
@@ -394,6 +401,7 @@ function checkConnection() {
 							setTimeout(function() {
 								console.log("Восстанавливаем стрим");
 								$('#play i').attr('class', 'zmdi zmdi-play');
+								$('#play').addClass('active');
 								$my_media.play();
 							}, 3000);
 						};
