@@ -289,7 +289,6 @@ function checkConnection() {
     states[Connection.NONE]     = 'нет соединения';
 	$('#inet').html('Статус соединения - '+states[networkState]);
 }
-checkConnection(); 
 
 
 
