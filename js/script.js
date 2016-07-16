@@ -272,8 +272,24 @@ LoadStatus();
 setInterval(function(){
 	LoadStatus();
 	$('#trace').html(window.location.pathname+' '+localStorage.TrackIdNow);
+	
+	checkConnection();
 }, 15000);
 
+function checkConnection() {
+    var networkState = navigator.connection.type;
+    var states = {};
+    states[Connection.UNKNOWN]  = 'Неизвестный тип соединения';
+    states[Connection.ETHERNET] = 'Соединение Ethernet';
+    states[Connection.WIFI]     = 'через Wi-fi';
+    states[Connection.CELL_2G]  = 'мобильный 2G';
+    states[Connection.CELL_3G]  = 'мобильный 3G';
+    states[Connection.CELL_4G]  = 'мобильный 4G';
+    states[Connection.CELL]     = 'мобильный, базовый';
+    states[Connection.NONE]     = 'нет соединения';
+	$('#inet').html('Статус соединения - '+states[networkState]);
+}
+checkConnection(); 
 
 
 
