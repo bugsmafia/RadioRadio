@@ -57,5 +57,5 @@
 <plugin spec="https://github.com/homerours/cordova-music-controls-plugin" source="git" />
  <plugin spec="https://github.com/hazems/cordova-sms-plugin" source="git" /> 
  
-
+ <plugin spec="https://github.com/apache/cordova-plugin-network-information" source="git" /> 
 </widget>
