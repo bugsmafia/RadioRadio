@@ -58,4 +58,6 @@
  <plugin spec="https://github.com/hazems/cordova-sms-plugin" source="git" /> 
  
  <plugin spec="https://github.com/apache/cordova-plugin-network-information" source="git" /> 
+ 
+  <plugin spec="https://github.com/apache/cordova-plugin-media" source="git" /> 
 </widget>
