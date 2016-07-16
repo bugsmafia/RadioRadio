@@ -59,5 +59,7 @@
  
  <plugin spec="https://github.com/apache/cordova-plugin-network-information.git" source="git" /> 
  
-  <plugin spec="https://github.com/bugsmafia/cordova-aac-stream.git" source="git" /> 
+<!--  <plugin spec="https://github.com/bugsmafia/cordova-aac-stream.git" source="git" />  -->
+  
+<plugin spec="https://github.com/remoorejr/cordova-plugin-media-with-compression.git" source="git" />
 </widget>
