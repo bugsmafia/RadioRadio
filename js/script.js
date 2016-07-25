@@ -444,8 +444,6 @@ function checkConnection() {
 						console.log('starting');
 						MusicControls.updateIsPlaying(true);
 						streamer = 2;
-						$('#play i').attr('class', 'zmdi zmdi-play');
-						$('#play').addClass('active');
 						$("#play ons-progress-circular").show();
 					}
 					if(status === PlayStream.MEDIA_RUNNING){
@@ -471,12 +469,14 @@ function checkConnection() {
 						if (streamer == "2") {
 							$('#play i').attr('class', 'zmdi zmdi-play');
 							$('#play').removeClass('active');
+							$("#play ons-progress-circular").show();
 							$my_media.stop();
 							OneclickStop = 3;
 						} else if (streamer == "3") {
 
 							$('#play i').attr('class', 'zmdi zmdi-play');
 							$('#play').removeClass('active');
+							$("#play ons-progress-circular").show();
 							$my_media.stop();
 							OneclickStop = 3;
 						}
@@ -488,12 +488,14 @@ function checkConnection() {
 						 if (streamer == "2") {
 							$('#play i').attr('class', 'zmdi zmdi-play');
 							$('#play').removeClass('active');
+							$("#play ons-progress-circular").show();
 							$my_media.stop();
 							OneclickStop = 3;
 						} else if (streamer == "3") {
 
 							$('#play i').attr('class', 'zmdi zmdi-play');
 							$('#play').removeClass('active');
+							$("#play ons-progress-circular").show();
 							$my_media.stop();
 							OneclickStop = 3;
 						}
@@ -517,7 +519,7 @@ function checkConnection() {
 			});
 			$my_media.stop();
 		}, 2000);
-	}
+	} 
 
 	// Функция восстановления воспроизведения
 function streamRePlayGO(){
