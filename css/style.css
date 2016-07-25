@@ -2,7 +2,7 @@
     width: 150px;
     height: 107px;
     margin: 10px auto;
-    background-image: url(../logo/2.png);
+    background-image: url(../logo/3.png);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 50%;
@@ -236,9 +236,7 @@ footer .play {
     
     hsla(0,0%, 0%,.15) 0 -5px 6px 4px, /* outer SD */
     hsla(0,0%,100%,.5) 0  5px 6px 4px; /* outer HL */ 
-  
-	-webkit-transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
-    transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+
 	font-size: 4em;
 }
 
@@ -323,4 +321,13 @@ footer .play {
     hsla(210,100%,75%, .8) 0  0px 3px 2px, /* outer SD */
     hsla(210,50%,40%, .25) 0 -5px 6px 4px, /* outer SD */
     hsla(210,80%,95%,   1) 0  5px 6px 4px; /* outer HL */
+}
+
+#play ons-progress-circular {
+    position: absolute;
+    top: -18px;
+    left: -18px;
+    width: 196px;
+    height: 196px;
+	display: none;
 }

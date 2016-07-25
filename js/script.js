@@ -207,8 +207,6 @@ function infoArtist(type, id, md, artist, song) {
 						if (jQuery(this).text()) {
 							$himg = jQuery(this).text();
 							localStorage.setItem(md+'Extralarge', $himg);
-						} else {
-							infoArtist(type, id, md, artist, song);
 						}
 					}
 					if (img == "mega") {

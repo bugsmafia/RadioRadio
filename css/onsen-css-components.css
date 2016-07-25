@@ -5950,7 +5950,7 @@ input[type="search"].search-input::-webkit-search-cancel-button {
   -moz-animation: progress__dash 1.5s ease-in-out infinite;
   -o-animation: progress__dash 1.5s ease-in-out infinite;
   animation: progress__dash 1.5s ease-in-out infinite;
-  stroke: #009688;
+  stroke: hsl(210, 100%, 40%);
   -webkit-transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
   -moz-transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
   -o-transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
@@ -6226,3 +6226,5 @@ input[type="search"].search-input::-webkit-search-cancel-button {
   -o-transform: scale(0);
   transform: scale(0);
 }
+
+
