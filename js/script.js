@@ -1,16 +1,22 @@
+function getPageName(url) {
+    var index = url.lastIndexOf("/") + 1;
+    var filenameWithExtension = url.substr(index);
+    return filenameWithExtension;
+}
+// Функция выполнения кода при загрузки приложения
 function onLoad() {
     document.addEventListener("deviceready", onDeviceReady, false);
 }
-
+// Функция исполнения когда приложение готово
 function onDeviceReady() {
     document.addEventListener("pause", onPause, false);
     document.addEventListener("resume", onResume, false);
 	document.addEventListener("backbutton", onBackKeyDown, false);
 }
-
-
+// Функция при нажатии кнопки НАЗАД
 function onBackKeyDown() {
 	$my_media.stop();
+	OneclickPlay = 2;
 	ons.notification.confirm('Закрыть радио?').then(
 		function(answer) {
 		  if (answer === 1) {
@@ -19,13 +25,10 @@ function onBackKeyDown() {
 		}
 	);
 }
-function onPause() {
-	
-}
-
-function onResume() {
-
-} 
+// Функция при сворачивании приложения
+function onPause() {}
+// Функция при восстановлении приложения
+function onResume() {} 
 
 function modals(name) {
 	switch (name) {
@@ -61,9 +64,6 @@ function LoadConfigApp() {
 	});
 }
 
-
-
-
 // Тянем информацию об альбоме
 function infoAlbum(type, id, md, artist, song) {
 	var api = '88571316d4e244f24172ea9a9bf602fe';
@@ -78,39 +78,94 @@ function infoAlbum(type, id, md, artist, song) {
 					if (img == "small") {
 						if (jQuery(this).text()) {
 							$himg = jQuery(this).text();
-							localStorage.setItem(md+'S', $himg);
+							localStorage.setItem(md+'Small', $himg);
 						}
 					};
 					if (img == "medium") {
 						if (jQuery(this).text()) {
 							$himg = jQuery(this).text();
-							localStorage.setItem(md+'M', $himg);
+							localStorage.setItem(md+'Medium', $himg);
 						}
 					};
 					if (img == "large") {
 						if (jQuery(this).text()) {
-							$himg = jQuery(this).text();
-							jQuery('#' + type + ' #' + id + ' img').attr('src', jQuery(this).text());
-							jQuery('#' + type + ' #' + id + ' .alb').css('background-image', 'url(' + $himg + ')');
-							localStorage.setItem(md+'L', $himg);
-						} else {
-							infoArtist(type, id, md, artist, song);
+							$himg = jQuery(this).text();							
+							localStorage.setItem(md+'Large', $himg);
 						}
 					};
 					if (img == "extralarge") {
 						if (jQuery(this).text()) {
 							$himg = jQuery(this).text();
-							localStorage.setItem(md+'E', $himg);
+							
+							localStorage.setItem(md+'Extralarge', $himg);
 						}
 					}
 					if (img == "mega") {
 						if (jQuery(this).text()) {
 							$himg = jQuery(this).text();
-							localStorage.setItem(md+'M', $himg);
+							localStorage.setItem(md+'Mega', $himg);
+						} else {
+							infoArtist(type, id, md, artist, song);
 						}
 					}
 				})
 			});
+			
+			var ImgCashSmall = ContentSync.sync({
+					src: localStorage.TrackIdNowImgSmall,
+					id: 'small/'+getPageName(localStorage.TrackIdNowImgSmall),
+					type: 'local'
+			});
+			var ImgCashMedium = ContentSync.sync({
+					src: localStorage.TrackIdNowImgMedium,
+					id: 'medium/'+getPageName(localStorage.TrackIdNowImgMedium),
+					type: 'local'
+			});
+			var ImgCashLarge = ContentSync.sync({
+					src: localStorage.TrackIdNowImgLarge,
+					id: 'large/'+getPageName(localStorage.TrackIdNowImgLarge),
+					type: 'local'
+			});
+			var ImgCashExtralarge = ContentSync.sync({
+					src: localStorage.TrackIdNowImgExtralarge,
+					id: 'extralarge/'+getPageName(localStorage.TrackIdNowImgExtralarge),
+					type: 'local'
+			});
+			var ImgCashMega = ContentSync.sync({
+					src: localStorage.TrackIdNowImgMega,
+					id: 'mega/'+getPageName(localStorage.TrackIdNowImgMega),
+					type: 'local'
+			});
+			
+			ImgCashSmall.on('complete', function(data) {
+				console.log(data.localPath);
+				console.log(data.cached);
+			});
+			ImgCashMedium.on('complete', function(data) {
+				console.log(data.localPath);
+				console.log(data.cached);
+			});
+			ImgCashLarge.on('complete', function(data) {
+				console.log(data.localPath);
+				console.log(data.cached);
+				if(data.localPath){
+					statusBar(data.localPath);
+				}
+			});
+			ImgCashExtralarge.on('complete', function(data) {
+				console.log(data.localPath);
+				console.log(data.cached);
+				if(data.localPath){
+					jQuery('#' + type + ' #' + id + ' img').attr('src', data.localPath);
+					
+				}
+				
+			});
+			ImgCashMega.on('complete', function(data) {
+				console.log(data.localPath);
+				console.log(data.cached);
+			});
+			
 		},
 		statusCode: {
 			400: function() {
@@ -119,7 +174,7 @@ function infoAlbum(type, id, md, artist, song) {
 		}
 	});
 }
-// Тянем информацию об артисте
+// Тянем информацию об артисте 
 function infoArtist(type, id, md, artist, song) {
 	var api = '88571316d4e244f24172ea9a9bf602fe';
 	jQuery.ajax({
@@ -133,38 +188,90 @@ function infoArtist(type, id, md, artist, song) {
 					if (img == "small") {
 						if (jQuery(this).text()) {
 							$himg = jQuery(this).text();
-							localStorage.setItem(md+'S', $himg);
+							localStorage.setItem(md+'Small', $himg);
 						}
 					};
 					if (img == "medium") {
 						if (jQuery(this).text()) {
 							$himg = jQuery(this).text();
-							localStorage.setItem(md+'M', $himg);
+							localStorage.setItem(md+'Medium', $himg);
 						}
 					};
 					if (img == "large") {
 						if (jQuery(this).text()) {
 							$himg = jQuery(this).text();
-							jQuery('#' + type + ' #' + id + ' img').attr('src', jQuery(this).text());
-							jQuery('#' + type + ' #' + id + ' .alb').css('background-image', 'url(' + $himg + ')');
-							localStorage.setItem(md+'L', $himg);
-						} else {
-							infoArtist(type, id, md, artist, song);
-						}
+							localStorage.setItem(md+'Large', $himg);
+						};
 					};
 					if (img == "extralarge") {
 						if (jQuery(this).text()) {
 							$himg = jQuery(this).text();
-							localStorage.setItem(md+'E', $himg);
+							localStorage.setItem(md+'Extralarge', $himg);
+						} else {
+							infoArtist(type, id, md, artist, song);
 						}
 					}
 					if (img == "mega") {
 						if (jQuery(this).text()) {
 							$himg = jQuery(this).text();
-							localStorage.setItem(md+'M', $himg);
+							localStorage.setItem(md+'Mega', $himg);
 						}
 					}
 				})
+			});
+			
+			var ImgCashSmall = ContentSync.sync({
+					src: localStorage.TrackIdNowImgSmall,
+					id: 'small/'+getPageName(localStorage.TrackIdNowImgSmall),
+					type: 'local'
+			});
+			var ImgCashMedium = ContentSync.sync({
+					src: localStorage.TrackIdNowImgMedium,
+					id: 'medium/'+getPageName(localStorage.TrackIdNowImgMedium),
+					type: 'local'
+			});
+			var ImgCashLarge = ContentSync.sync({
+					src: localStorage.TrackIdNowImgLarge,
+					id: 'large/'+getPageName(localStorage.TrackIdNowImgLarge),
+					type: 'local'
+			});
+			var ImgCashExtralarge = ContentSync.sync({
+					src: localStorage.TrackIdNowImgExtralarge,
+					id: 'extralarge/'+getPageName(localStorage.TrackIdNowImgExtralarge),
+					type: 'local'
+			});
+			var ImgCashMega = ContentSync.sync({
+					src: localStorage.TrackIdNowImgMega,
+					id: 'mega/'+getPageName(localStorage.TrackIdNowImgMega),
+					type: 'local'
+			});
+			
+			ImgCashSmall.on('complete', function(data) {
+				console.log(data.localPath);
+				console.log(data.cached);
+			});
+			ImgCashMedium.on('complete', function(data) {
+				console.log(data.localPath);
+				console.log(data.cached);
+				
+			});
+			ImgCashLarge.on('complete', function(data) {
+				console.log(data.localPath);
+				console.log(data.cached);
+				if(data.localPath){
+					statusBar(data.localPath);
+				}
+			});
+			ImgCashExtralarge.on('complete', function(data) {
+				console.log(data.localPath);
+				console.log(data.cached);
+				if(data.localPath){
+					jQuery('#' + type + ' #' + id + ' img').attr('src', data.localPath);
+				}
+			});
+			ImgCashMega.on('complete', function(data) {
+				console.log(data.localPath);
+				console.log(data.cached);
 			});
 		},
 		statusCode: {
@@ -179,6 +286,14 @@ function LoadStatus() {
 		UpdateStatus(data.i);
 	});
 }
+// Устанавливаем первоначальное значение куки о треке
+localStorage.setItem('TrackIdNow', '');
+LoadStatus();
+// Каждые 15 секунд запрашиваем статус эфира
+setInterval(function(){
+	LoadStatus();
+	$('#trace').html(window.location.pathname+' '+localStorage.TrackIdNow);	
+}, 15000);
 // Обновляем статус эфира
 function UpdateStatus(now) {
 	if (localStorage.TrackIdNow == now) {} else {
@@ -194,32 +309,32 @@ function UpdateStatus(now) {
 				// Обновляет куки
 				localStorage.setItem('NowSong', data.s);
 				localStorage.setItem('NowArtist', data.a);
-				statusBar();
 			}, 2000);
 			localStorage.setItem('TrackIdNow', data.id);
 			infoAlbum('playinfo', 'playinfoimg', 'TrackIdNowImg', data.a, data.s);
-		});
+		}); 
 	}
 }
 
+// Статус, играет или нет.
 var Playing = false;
-function statusBar(){
+// Вывод статус бара в шторку с инфой трека и обложкой
+function statusBar(img){
 	if(streamer == "1"){
 		Playing = false;
-	} else {
+	} else { 
 		Playing = true;
 	};
 	MusicControls.create({
 		track: localStorage.NowSong,
 		artist: localStorage.NowArtist,
-		cover: localStorage.TrackIdNowImgE,
+		cover: img,
 		isPlaying: Playing,
 		
 		dismissable : true,
 		hasPrev: false,
 		hasNext: false,
-		hasClose: false, 
-		ticker: 'Now playing "Time is Running Out"'
+		hasClose: false
 	}, onSuccess, onError);
 }
 
@@ -227,13 +342,17 @@ var onSuccess = function(result) {
 	cancelled (result.completed=false)
 }
 var onError = function(msg) {}
+
+
+// Шарим треки
 function ShareTrack() {
+var textShare = 'Отличная музыка: '+localStorage.NowSong+' - '+localStorage.NowArtist+'. Присоединяйся к Радио13! #радио #музыка #онлайн';
 	modals('share');
 	var ShareData = {
-		message: 'На "Радио13" сейчас играет: '+localStorage.NowSong+' '+localStorage.NowArtist,
+		message: textShare,
 		subject: 'Мне нравится!',
-		files: [localStorage.TrackIdNowImgM],
-		url: 'https://radio13.ru',
+		files: [localStorage.TrackIdNowImgMega],
+		url: 'https://app.radio13.ru',
 		chooserTitle: 'Поделись треком!'
 	}
 	var onSuccess = function(result) {
@@ -241,11 +360,12 @@ function ShareTrack() {
 	}
 
 	var onError = function(msg) {
-	  console.log("Sharing failed with message: " + msg);
+	  console.log("Ошибка: " + msg);
 	}
 	
 	window.plugins.socialsharing.shareWithOptions(ShareData, onSuccess, onError);
 }
+
 function SmsSend(mess) {
 ons.notification.confirm('Услуга платная').then(
     function(answer) {
@@ -266,15 +386,6 @@ ons.notification.confirm('Услуга платная').then(
 	
 }
 
-// Устанавливаем первоначальное значение куки о треке
-localStorage.setItem('TrackIdNow', '');
-LoadStatus();
-setInterval(function(){
-	LoadStatus();
-	$('#trace').html(window.location.pathname+' '+localStorage.TrackIdNow);
-	
-	checkConnection();
-}, 15000);
 
 function checkConnection() {
     var networkState = navigator.connection.type;
@@ -291,28 +402,18 @@ function checkConnection() {
 }
 
 
-
-
-
-
-
-
 	LoadConfigApp();	
 	setInterval(function(){
 		LoadConfigApp();
 	}, 60000);
 	
-	var volume = 100;
-	jQuery("#volume").val(volume);
-	jQuery("#volume").on('input', function () {
-		var volume = jQuery("#volume").val();
-		volume = volume / 100;
-		player.Volume(volume);
-	});
+	
 	
 	
 	var streamer = 1;
 	var OneclickPlay = 1;
+	var OneclickStop = 1;
+	// Функция кнопки ПЛЕЙ основной
 	function streamplay() {
 		OneclickPlay = 2;
 		
@@ -339,6 +440,7 @@ function checkConnection() {
 						streamer = 1;
 						$('#play i').attr('class', 'zmdi zmdi-play');
 						$('#play').removeClass('active');
+						$("#play ons-progress-circular").hide();
 					}
 					if(status === PlayStream.MEDIA_STARTING){
 						console.log('starting');
@@ -346,6 +448,7 @@ function checkConnection() {
 						streamer = 2;
 						$('#play i').attr('class', 'zmdi zmdi-play');
 						$('#play').addClass('active');
+						$("#play ons-progress-circular").show();
 					}
 					if(status === PlayStream.MEDIA_RUNNING){
 						console.log('running');
@@ -353,6 +456,7 @@ function checkConnection() {
 						streamer = 3;
 						$('#play i').attr('class', 'zmdi zmdi-stop');
 						$('#play').addClass('active');
+						$("#play ons-progress-circular").hide();
 					}
 				}, 
 				function (err) {
@@ -370,11 +474,13 @@ function checkConnection() {
 							$('#play i').attr('class', 'zmdi zmdi-play');
 							$('#play').removeClass('active');
 							$my_media.stop();
+							OneclickStop = 3;
 						} else if (streamer == "3") {
 
 							$('#play i').attr('class', 'zmdi zmdi-play');
 							$('#play').removeClass('active');
 							$my_media.stop();
+							OneclickStop = 3;
 						}
 						callmemabe = '2';
 
@@ -385,11 +491,13 @@ function checkConnection() {
 							$('#play i').attr('class', 'zmdi zmdi-play');
 							$('#play').removeClass('active');
 							$my_media.stop();
+							OneclickStop = 3;
 						} else if (streamer == "3") {
 
 							$('#play i').attr('class', 'zmdi zmdi-play');
 							$('#play').removeClass('active');
 							$my_media.stop();
+							OneclickStop = 3;
 						}
 						callmemabe = '2';
 						break;
@@ -403,6 +511,7 @@ function checkConnection() {
 								$('#play i').attr('class', 'zmdi zmdi-play');
 								$('#play').addClass('active');
 								$my_media.play();
+								OneclickStop = 2;
 							}, 3000);
 						};
 						break;
@@ -412,48 +521,83 @@ function checkConnection() {
 		}, 2000);
 	}
 
-
+	// Функция восстановления воспроизведения
+function streamRePlayGO(){
+	setTimeout(function() {
+		console.log("Восстанавливаем стрим");
+		$('#play i').attr('class', 'zmdi zmdi-play');
+		$('#play').addClass('active');
+		$my_media.play();
+	}, 100);
+};
+function streamRePlay(){
+	console.log(navigator.connection.type+' '+streamer+' '+OneclickStop+' '+OneclickPlay);
+	if(navigator.connection.type != 'none' && streamer == "1" && OneclickStop == "2"){
+		console.log('Сработали условия для перезапуска стрима!');
+		streamRePlayGO();
+	};	
+}
+setInterval(function(){
+	streamRePlay()
+}, 6000); 
 // Sharing
 
 ons.ready(function() {
-function events(action) {
-    switch(action) {
-        case 'music-controls-next':
-            console.log('Следующая');
-            break;
-        case 'music-controls-previous':
-            console.log('Предыдущая');
-            break;
-        case 'music-controls-pause':
-            console.log('Пауза');
-			$my_media.stop();
-            break;
-        case 'music-controls-play':
-            console.log('Плей');
-			$my_media.play();
-            break;
-        case 'music-controls-destroy':
-            console.log('Удалено');
-			$my_media.stop();
-            break;
+	function events(action) {
+		switch(action) {
+			case 'music-controls-next':
+				console.log('Следующая');
+				break;
+			case 'music-controls-previous':
+				console.log('Предыдущая');
+				break;
+			case 'music-controls-pause':
+				console.log('Пауза');
+				OneclickPlay = 1;
+				OneclickStop = 3;
+				$my_media.stop();
+				
+				break;
+			case 'music-controls-play':
+				console.log('Плей');
+				OneclickPlay = 2;
+				OneclickStop = 2;
+				$my_media.play();
+				
+				break;
+			case 'music-controls-destroy':
+				console.log('Удалено');
+				OneclickPlay = 1;
+				OneclickStop = 3;
+				$my_media.stop();
+				 
+				break;
 
-        // Headset events (Android only)
-        case 'music-controls-media-button' :
-            console.log('music-controls-media-button');
-            break;
-        case 'music-controls-headset-unplugged':
-            console.log('unplugged');
-            break;
-        case 'music-controls-headset-plugged':
-            console.log('plugged');
-            break;
-        default:
-            break;
-    }
-} 
+			// Headset events (Android only)
+			case 'music-controls-media-button' :
+				console.log('music-controls-media-button');
+				break;
+			case 'music-controls-headset-unplugged':
+				console.log('unplugged');
+				break;
+			case 'music-controls-headset-plugged':
+				console.log('plugged');
+				break;
+			default:
+				break;
+		}
+	} 
 MusicControls.subscribe(events);
 MusicControls.listen();
-}); 
-$( document ).ready(function() {
+
+
+
+  
 	
-});
+	jQuery("#volume").on('input', function () {
+		var volume = jQuery("#volume").val();
+		window.plugins.mediaVolume.setVol(volume);
+		console.log(volume);
+	});
+
+}); 
