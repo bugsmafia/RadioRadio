@@ -244,7 +244,7 @@ footer .play {
 .radial.metal {
   width: 160px;
   height: 160px;
-  line-height: 160px;
+	line-height: 165px;
   border-radius: 80px;
   background-image: url(circular300.jpg);
   background-position: 50%;
@@ -330,4 +330,11 @@ footer .play {
     width: 196px;
     height: 196px;
 	display: none;
+}
+#play i.zmdi.zmdi-play {
+    margin-left: 4px;
+}
+
+ons-fab .fab__icon {
+    line-height: 60px;
 }
