@@ -1,11 +1,17 @@
 .logo{
     width: 150px;
-    height: 107px;
+    height: 150px;
     margin: 10px auto;
-    background-image: url(../logo/3.png);
+    background-image: url(../logo/8.png);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 50%;
+	position: relative;
+}
+.logo:after{
+	content: ' ';
+	width: 5px;
+	height: 5px;
 }
 .page__background {
     background-color: #f6f6f6;
