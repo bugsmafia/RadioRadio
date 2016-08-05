@@ -63,6 +63,25 @@ function LoadConfigApp() {
 		}, 5000);
 	});
 }
+LocalConfig();
+function LocalConfig(){
+	var streamQ = 'auto';
+	if(localStorage.getItem('ConfloadAlbum')){
+		var ConfloadAlbum = localStorage.getItem('ConfloadAlbum');
+		$("#album").prop( "checked", ConfloadAlbum);
+	} else {
+		var ConfloadAlbum = $("#album").prop('checked');
+		localStorage.setItem('ConfloadAlbum', ConfloadAlbum);
+	};
+	jQuery("input[name='qa']").each(function() {
+		if(this.checked == true){
+			console.log(this.value);
+			streamQ = this.value;
+		}
+	});
+	
+}
+
 
 // Тянем информацию об альбоме
 function infoAlbum(type, id, md, artist, song) {
@@ -280,7 +299,7 @@ function infoArtist(type, id, md, artist, song) {
 
 // Загружаем статус эфира
 function LoadStatus() {
-	jQuery.getJSON("http://app.radio13.ru/status/json.php?i=i", function(data) {
+	jQuery.getJSON("http://app.radioradio.ru/json.php?i=i", function(data) {
 		UpdateStatus(data.i);
 	});
 }
@@ -295,7 +314,7 @@ setInterval(function(){
 // Обновляем статус эфира
 function UpdateStatus(now) {
 	if (localStorage.TrackIdNow == now) {} else {
-		jQuery.getJSON("http://app.radio13.ru/status/json.php?i=l", function(data) {
+		jQuery.getJSON("http://app.radioradio.ru/json.php?i=l", function(data) {
 			setTimeout(function() {
 				jQuery("#playinfo").addClass("show");
 				// название трека
@@ -309,7 +328,11 @@ function UpdateStatus(now) {
 				localStorage.setItem('NowArtist', data.a);
 			}, 2000);
 			localStorage.setItem('TrackIdNow', data.id);
-			infoAlbum('playinfo', 'playinfoimg', 'TrackIdNowImg', data.a, data.s);
+			if(localStorage.getItem('ConfloadAlbum') == 'false'){
+				infoAlbum('playinfo', 'playinfoimg', 'TrackIdNowImg', data.a, data.s);
+			} else {
+				console.log('Загрузка изображений альбома отключена.');
+			};
 		}); 
 	}
 }
@@ -322,6 +345,10 @@ function statusBar(img){
 		Playing = false;
 	} else { 
 		Playing = true;
+	};
+	if(localStorage.getItem('ConfloadAlbum') == 'false'){
+	} else {
+		img = 'icon.png';
 	};
 	MusicControls.create({
 		track: localStorage.NowSong,
@@ -344,23 +371,47 @@ var onError = function(msg) {}
 
 // Шарим треки
 function ShareTrack() {
-var textShare = 'Отличная музыка: '+localStorage.NowSong+' - '+localStorage.NowArtist+'. Присоединяйся к Радио13! #радио #музыка #онлайн';
+var textShare = 'Отличная музыка: '+localStorage.NowSong+' - '+localStorage.NowArtist+'.\n Присоединяйся к RadioRadio!\n #радиорадио #музыка #онлайн';
 	modals('share');
+	if(localStorage.getItem('ConfloadAlbum') == 'false'){
+		var files = localStorage.TrackIdNowImgMega;
+	} else {
+		var files = 'icon.png';
+	};
 	var ShareData = {
 		message: textShare,
 		subject: 'Мне нравится!',
-		files: [localStorage.TrackIdNowImgMega],
-		url: 'https://app.radio13.ru',
+		files: [files],
+		url: 'http://radioradio.ru',
 		chooserTitle: 'Поделись треком!'
 	}
 	var onSuccess = function(result) {
 	  modals('share');
 	}
-
 	var onError = function(msg) {
 	  console.log("Ошибка: " + msg);
+	  modals('share');
+	}	
+	window.plugins.socialsharing.shareWithOptions(ShareData, onSuccess, onError);
+}
+function ShareRadioRadio() {
+var textShare = 'Присоединяйся к RadioRadio!\n https://vk.com/radioradioru \nhttps://www.facebook.com/radioradioru\n#радиорадио #музыка #онлайн';
+	modals('share');
+	var files = 'icon.png';
+	var ShareData = {
+		message: textShare,
+		subject: 'Мне нравится!',
+		files: [files],
+		url: 'https://radioradio.ru/',
+		chooserTitle: 'Поделись треком!'
 	}
-	
+	var onSuccess = function(result) {
+	  modals('share');
+	}
+	var onError = function(msg) {
+	  console.log("Ошибка: " + msg);
+	  modals('share');
+	}	
 	window.plugins.socialsharing.shareWithOptions(ShareData, onSuccess, onError);
 }
 

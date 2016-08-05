@@ -27,15 +27,15 @@
 <ons-list>
 	<ons-list-header>Качество трансляции</br>Рекомендуем использовать "автоматическую" настройку для оптимального качества звучания и потребления интернет трафика.</ons-list-header>
 		<ons-list-item tappable>
-			<label class="left"><ons-input name="color" type="radio" input-id="stream-1" checked></ons-input></label>
+			<label class="left"><ons-input name="qa" type="radio" input-id="stream-1" value="auto" checked></ons-input></label>
 			<label for="stream-1" class="center">Автоматическое</label>
 		</ons-list-item>
 		<ons-list-item tappable>
-			<label class="left"><ons-input name="color" type="radio" input-id="stream-2"></ons-input></label>
+			<label class="left"><ons-input name="qa" type="radio" input-id="stream-2" value="h"></ons-input></label>
 			<label for="stream-2" class="center">Высокое качество</label>
 		</ons-list-item>
 		<ons-list-item tappable>
-			<label class="left"><ons-input name="color" type="radio" input-id="stream-3"></ons-input></label>
+			<label class="left"><ons-input name="qa" type="radio" input-id="stream-3" value="l"></ons-input></label>
 			<label for="stream-3" class="center">Низкое качество</label>
 		</ons-list-item>
 	</ons-list>
@@ -105,6 +105,19 @@
 <p style="text-align: center;"><ons-progress-circular indeterminate></ons-progress-circular></p>
 </ons-modal>
 
+<ons-template id="dialog.html">
+  <ons-dialog id="dialog-3">
+    <div style="text-align: center; padding: 10px;">
+      <p>
+        This dialog was created from a template.
+      <p>
+
+      <p>
+        <ons-button onclick="hideDialog('dialog-3')">Close</ons-button>
+      </p>
+    </div>
+  </ons-dialog>
+</ons-template>
 
 <ons-template id="home.html">
 	<ons-page>
