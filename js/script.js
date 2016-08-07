@@ -45,7 +45,7 @@ function modals(name) {
 } 
 
 function LoadConfigApp() {
-	jQuery.getJSON("http://radioradio.radio13.ru/api.php", function(data) {
+	jQuery.getJSON("http://app.radioradio.ru/api.php", function(data) {
 		var streamChanel = data.stream.reg50.aac.b32[2].patch;
 		localStorage.setItem('streamChanel', data.stream.reg50.aac.b32[2].patch);
 		//console.log(data.stream.reg50.aac.b32[2].patch);
@@ -66,17 +66,15 @@ function LoadConfigApp() {
 LocalConfig();
 function LocalConfig(){
 	var streamQ = 'auto';
-	if(localStorage.getItem('ConfloadAlbum')){
-		var ConfloadAlbum = localStorage.getItem('ConfloadAlbum');
-		$("#album").prop( "checked", ConfloadAlbum);
-	} else {
-		var ConfloadAlbum = $("#album").prop('checked');
-		localStorage.setItem('ConfloadAlbum', ConfloadAlbum);
-	};
+
+	var ConfloadAlbum = $("#album").prop('checked');
+	localStorage.setItem('ConfloadAlbum', ConfloadAlbum);
+
 	jQuery("input[name='qa']").each(function() {
 		if(this.checked == true){
 			console.log(this.value);
 			streamQ = this.value;
+			localStorage.setItem('StreamQ', streamQ);
 		}
 	});
 	

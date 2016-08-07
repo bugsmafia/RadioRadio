@@ -1,170 +1,176 @@
 <!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8">
-	<script src="cordova.js"></script>
-    <link rel="stylesheet" href="css/onsenui.css"/>
-    <link rel="stylesheet" href="css/onsen-css-components.css"/>
-	<link rel="stylesheet" href="css/style.css"/>
-	
-	
-  </head>
-<body onload="onLoad()">
-<ons-splitter>
-  <ons-splitter-content id="content" page="home.html"></ons-splitter-content>
-</ons-splitter>
-
-<ons-modal id="Modal_Config">
-	<ons-page>
-		<ons-toolbar>      
-		  <div class="center">Настройки приложения</div>
-		  <div class="right">
-			<ons-toolbar-button onclick="modals('config')">
-			  <ons-icon icon="md-close"></ons-icon>
-			</ons-toolbar-button>
-		  </div>
-		</ons-toolbar>
-<ons-list>
-	<ons-list-header>Качество трансляции</br>Рекомендуем использовать "автоматическую" настройку для оптимального качества звучания и потребления интернет трафика.</ons-list-header>
-		<ons-list-item tappable>
-			<label class="left"><ons-input name="qa" type="radio" input-id="stream-1" value="auto" checked></ons-input></label>
-			<label for="stream-1" class="center">Автоматическое</label>
-		</ons-list-item>
-		<ons-list-item tappable>
-			<label class="left"><ons-input name="qa" type="radio" input-id="stream-2" value="h"></ons-input></label>
-			<label for="stream-2" class="center">Высокое качество</label>
-		</ons-list-item>
-		<ons-list-item tappable>
-			<label class="left"><ons-input name="qa" type="radio" input-id="stream-3" value="l"></ons-input></label>
-			<label for="stream-3" class="center">Низкое качество</label>
-		</ons-list-item>
-	</ons-list>
-<ons-list>
-    <ons-list-header>Экономия трафика</ons-list-header>
-	<ons-list-item tappable>
-		<label class="left"><ons-input id="conf-alb" type="checkbox" input-id="album"></ons-input></label>
-		<label for="album" class="center">Отключить обложки</label>
-    </ons-list-item>
-</ons-list>
-	</ons-page>
-</ons-modal>
-<ons-modal id="Modal_About">
-	<ons-page>
-		<ons-toolbar>      
-		  <div class="center">Информация</div>
-		  <div class="right">
-			<ons-toolbar-button onclick="modals('about')">
-			  <ons-icon icon="md-close"></ons-icon>
-			</ons-toolbar-button>
-		  </div>
-		</ons-toolbar>
-<p>Радиостанция «РАДИО» - молодая и очень перспективная радиосеть, с хорошим темпом развития по всей территории России.</p>
-
-<p>Радиостанция «РАДИО» - выходит за рамки традиционных представлений о музыкальном формате как таковом.</p>
-<p>Это уникальный, гармоничный синтез старого и нового, смешение музыкальных стилей и направлений - от классического рок-н-ролла до ультрасовременной клубной музыки.</p>
-<p>Обязательным критерием звучащей в эфире музыки является - абсолютный хит.</p>
- 
-<p>Радиостанция «РАДИО» - лучшая* сетевая радиостанция 2014!</p> 
-<p> Круглосуточное онлайн-вещание по всему миру www.radioradio.ru</p>
-<p>· Вещание в прямом эфире на FM-частотах в 45 субъектах РФ (ежедневный охват – 5 миллионов человек)</p>
-<h3>Стоимость отправки СМС на номер 5533</h3>
-<table class="table table-hover table-striped table-bordered" id="prices_5533" cellspacing="2">
-		<tbody>
-		<tr>
-			<th style="width:100%;">Оператор</th>
-			<th nowrap="">Стоимость отправки сообщения, руб. с НДС</th>
-		</tr>
-		<tr>
-			<td>Билайн</td>
-			<td>9,00</td>
-		</tr>
-		<tr>
-			<td>МТС</td>
-			<td>8,47</td>
-		</tr>
-		<tr>
-			<td>TELE2</td>
-			<td>9,95</td>
-		</tr>
-		<tr>
-			<td>МегаФон</td>
-			<td>10,62</td>
-		</tr>
-		<tr>
-			<td>Мотив</td>
-			<td>8,85</td>
-		</tr>
-	</tbody></table>
-<a modifier="large" href="https://vk.com/bugsmafia">Разработчик: Bugsmafia</a>
-<p><small>* по результатам RadioStation Awards 2014</small></p>
-	</ons-page>
-</ons-modal>
-
-<ons-modal id="Modal_Share">
-<p style="text-align: center;">Пожалуйста, подождите... </br>Загружаем изображение альбома</p>
-<p style="text-align: center;"><ons-progress-circular indeterminate></ons-progress-circular></p>
-</ons-modal>
-
-<ons-template id="dialog.html">
-  <ons-dialog id="dialog-3">
-    <div style="text-align: center; padding: 10px;">
-      <p>
-        This dialog was created from a template.
-      <p>
-
-      <p>
-        <ons-button onclick="hideDialog('dialog-3')">Close</ons-button>
-      </p>
-    </div>
-  </ons-dialog>
-</ons-template>
-
-<ons-template id="home.html">
-	<ons-page>
-
-		<ons-speed-dial position="top left" direction="down">
-			<ons-fab><i class="zmdi zmdi-menu"></i></ons-fab>
-			<ons-speed-dial-item onclick="modals('config')"><i class="zmdi zmdi-tune"></i></ons-speed-dial-item>
-			<ons-speed-dial-item onclick="modals('about')"><i class="zmdi zmdi-info-outline"></i></ons-speed-dial-item>
-		</ons-speed-dial>
-		<ons-fab position="top right" ripple  onclick="ShareTrack();"><i class="zmdi zmdi-share"></i></ons-fab>
-
-		<div class="vert_grid">
-			<div class="vert_grid_box">
-				<div class="logo"></div>
-			</div>
-
-			<div class="vert_grid_box">
-				<div class="song">Загрузка...</div>
-				<div class="artist">ожидайте</div>
-			</div>
-
-			<div class="vert_grid_box">
-				<div id="play" class="metal radial js-button" onclick="streamplay();"><i class="zmdi zmdi-play"><ons-progress-circular indeterminate></ons-progress-circular></i></div>
-			</div>
-
-			<div class="vert_grid_box" id="poll">
-				<p class="poll_text" style="text-align: center;"></p>
-				<div class="hor_grid poll_ex">
+	<head>
+		<meta charset="utf-8">
+		<script src="cordova.js"></script>
+		<link rel="stylesheet" href="css/onsenui.css"/>
+		<link rel="stylesheet" href="css/onsen-css-components.css"/>
+		<link rel="stylesheet" href="css/style.css"/>
+		<title>RadioRadio</title>
+	</head>
+	<body onload="onLoad()">
+		<ons-splitter>
+			<ons-splitter-content id="content" page="home.html"></ons-splitter-content>
+		</ons-splitter>
+		<ons-modal id="Modal_Config">
+			<ons-page>
+				<ons-toolbar>
+					<div class="center">Настройки приложения</div>
+					<div class="right">
+						<ons-toolbar-button onclick="modals('config'); LocalConfig();">
+							<ons-icon icon="md-close"></ons-icon>
+						</ons-toolbar-button>
+					</div>
+				</ons-toolbar>
+				<ons-list>
+					<ons-list-header>Качество трансляции</br>Рекомендуем использовать "автоматическую" настройку для оптимального качества звучания и потребления интернет трафика.</ons-list-header>
+					<ons-list-item tappable>
+						<label class="left">
+							<ons-input name="qa" type="radio" input-id="stream-1" value="auto" checked></ons-input>
+						</label>
+						<label for="stream-1" class="center">Автоматическое</label>
+					</ons-list-item>
+					<ons-list-item tappable>
+						<label class="left">
+							<ons-input name="qa" type="radio" input-id="stream-2" value="h"></ons-input>
+						</label>
+						<label for="stream-2" class="center">Высокое качество</label>
+					</ons-list-item>
+					<ons-list-item tappable>
+						<label class="left">
+							<ons-input name="qa" type="radio" input-id="stream-3" value="l"></ons-input>
+						</label>
+						<label for="stream-3" class="center">Низкое качество</label>
+					</ons-list-item>
+				</ons-list>
+				<ons-list>
+					<ons-list-header>Регион трансляции</ons-list-header>
+					<ons-list-item tappable>
+						<label class="left">
+							<ons-input name="reg" type="radio" input-id="reg-RU-MOS" value="RU-MOS" checked></ons-input>
+						</label>
+						<label for="reg-RU-MOS" class="center">Московская область</label>
+					</ons-list-item>
+				</ons-list>
+				<ons-list>
+					<ons-list-header>Экономия трафика</ons-list-header>
+					<ons-list-item tappable>
+						<label class="left">
+							<ons-input id="conf-alb" type="checkbox" input-id="album"></ons-input>
+						</label>
+						<label for="album" class="center">Отключить обложки</label>
+					</ons-list-item>
+				</ons-list>
+			</ons-page>
+		</ons-modal>
+		<ons-modal id="Modal_About">
+			<ons-page>
+				<ons-toolbar>
+					<div class="center">Информация</div>
+					<div class="right">
+						<ons-toolbar-button onclick="modals('about')">
+							<ons-icon icon="md-close"></ons-icon>
+						</ons-toolbar-button>
+					</div>
+				</ons-toolbar>
+				<p>Радиостанция «РАДИО» - молодая и очень перспективная радиосеть, с хорошим темпом развития по всей территории России.</p>
+				<p>Радиостанция «РАДИО» - выходит за рамки традиционных представлений о музыкальном формате как таковом.</p>
+				<p>Это уникальный, гармоничный синтез старого и нового, смешение музыкальных стилей и направлений - от классического рок-н-ролла до ультрасовременной клубной музыки.</p>
+				<p>Обязательным критерием звучащей в эфире музыки является - абсолютный хит.</p>
+				<p>Радиостанция «РАДИО» - лучшая* сетевая радиостанция 2014!</p>
+				<p> Круглосуточное онлайн-вещание по всему миру www.radioradio.ru</p>
+				<p>· Вещание в прямом эфире на FM-частотах в 45 субъектах РФ (ежедневный охват – 5 миллионов человек)</p>
+				<h3>Стоимость отправки СМС на номер 5533</h3>
+				<table class="table table-hover table-striped table-bordered" id="prices_5533" cellspacing="2">
+					<tbody>
+						<tr>
+							<th style="width:100%;">Оператор</th>
+							<th nowrap="">Стоимость отправки сообщения, руб. с НДС</th>
+						</tr>
+						<tr>
+							<td>Билайн</td>
+							<td>9,00</td>
+						</tr>
+						<tr>
+							<td>МТС</td>
+							<td>8,47</td>
+						</tr>
+						<tr>
+							<td>TELE2</td>
+							<td>9,95</td>
+						</tr>
+						<tr>
+							<td>МегаФон</td>
+							<td>10,62</td>
+						</tr>
+						<tr>
+							<td>Мотив</td>
+							<td>8,85</td>
+						</tr>
+					</tbody>
+				</table>
+				<a modifier="large" href="https://vk.com/bugsmafia">Разработчик: Bugsmafia</a>
+				<p><small>* по результатам RadioStation Awards 2014</small></p>
+			</ons-page>
+		</ons-modal>
+		<ons-modal id="Modal_Share">
+			<p style="text-align: center;">Пожалуйста, подождите... </br>Загружаем изображение альбома</p>
+			<p style="text-align: center;">
+				<ons-progress-circular indeterminate></ons-progress-circular>
+			</p>
+		</ons-modal>
+		<ons-template id="dialog.html">
+			<ons-dialog id="dialog-3">
+				<div style="text-align: center; padding: 10px;">
+					<p>
+						This dialog was created from a template.
+					<p>
+					<p>
+						<ons-button onclick="hideDialog('dialog-3')">Close</ons-button>
+					</p>
 				</div>
-			</div>
-
-			<div class="vert_grid_box">
-				<p style="text-align: center;margin: 0;padding: 0;font-size: 31px;"><i style="display: inline-block;vertical-align: text-top;margin-right: 0.5em;" class="zmdi zmdi-volume-up"></i><ons-range id="volume" value="100"></ons-range></p>
-			</div>
-
-
-		</div>
-		
-
-
-
-  </ons-page>
-</ons-template>
-<script src="js/jquery.min.js"></script>
-<script src="js/jQuery.fastClick.js"></script>
-<script src="js/onsenui.min.js"></script>
-<script src="js/script.js"></script>
-</body>
-
+			</ons-dialog>
+		</ons-template>
+		<ons-template id="home.html">
+			<ons-page>
+				<ons-speed-dial position="top left" direction="down">
+					<ons-fab><i class="zmdi zmdi-menu"></i></ons-fab>
+					<ons-speed-dial-item onclick="modals('config')"><i class="zmdi zmdi-tune"></i></ons-speed-dial-item>
+					<ons-speed-dial-item onclick="modals('about')"><i class="zmdi zmdi-info-outline"></i></ons-speed-dial-item>
+				</ons-speed-dial>
+				<ons-fab position="top right" ripple  onclick="ShareTrack();"><i class="zmdi zmdi-share"></i></ons-fab>
+				<div class="vert_grid">
+					<div class="vert_grid_box">
+						<div class="logo"></div>
+					</div>
+					<div class="vert_grid_box">
+						<div class="song">Загрузка...</div>
+						<div class="artist">ожидайте</div>
+					</div>
+					<div class="vert_grid_box">
+						<div id="play" class="metal radial js-button" onclick="streamplay();">
+							<i class="zmdi zmdi-play">
+								<ons-progress-circular indeterminate></ons-progress-circular>
+							</i>
+						</div>
+					</div>
+					<div class="vert_grid_box" id="poll">
+						<p class="poll_text" style="text-align: center;"></p>
+						<div class="hor_grid poll_ex">
+						</div>
+					</div>
+					<div class="vert_grid_box">
+						<p style="text-align: center;margin: 0;padding: 0;font-size: 31px;">
+							<i style="display: inline-block;vertical-align: text-top;margin-right: 0.5em;" class="zmdi zmdi-volume-up"></i>
+							<ons-range id="volume" value="100"></ons-range>
+						</p>
+					</div>
+				</div>
+			</ons-page>
+		</ons-template>
+		<script src="js/jquery.min.js"></script>
+		<script src="js/jQuery.fastClick.js"></script>
+		<script src="js/onsenui.min.js"></script>
+		<script src="js/script.js"></script>
+	</body>
 </html>
