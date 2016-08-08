@@ -461,7 +461,7 @@ function checkConnection() {
 	LoadStream();
 	function LoadStream() {
 		setTimeout(function() {
-			$my_media = new PlayStream(StreamGO, function (status){
+			$my_media = new PlayStream(StreamGO(), function (status){
 					console.log("status - "+status);
 					if(status === PlayStream.MEDIA_STOPPED){
 						console.log('stopped');
@@ -551,7 +551,32 @@ function checkConnection() {
 			$my_media.stop();
 		}, 2000);
 	} 
-
+function StreamGO(){	
+		var StreamGO;
+			var StreamRegion = 'reg'+localStorage.getItem('StreamReg');
+			$.each(streamChanel, function (key, region) {
+				console.log(key);
+				console.log(StreamRegion);
+				// выбираем регион
+				if(key == StreamRegion){
+					$.each(region, function (index, codec) {
+						console.log(index);
+						console.log(codec);
+						// выбираем кодек
+						if(index == 'aac'){
+							console.log('выбрали aac');				
+							$.each(codec, function (index, qa) {
+								console.log(index);
+								$.each(qa, function (index, chanel) {
+									StreamGO = chanel.patch;
+								})
+							})
+						};
+					})
+				};
+			});
+	return StreamGO;
+};			
 	// Функция восстановления воспроизведения
 function streamRePlayGO(){
 	setTimeout(function() {
@@ -603,29 +628,7 @@ console.log('Приложение загружено');
 			localStorage.setItem('StreamReg', 'RU-MOS');
 		};
 		
-		var StreamGO;
-			var StreamRegion = 'reg'+localStorage.getItem('StreamReg');
-			$.each(streamChanel, function (key, region) {
-				console.log(key);
-				console.log(StreamRegion);
-				// выбираем регион
-				if(key == StreamRegion){
-					$.each(region, function (index, codec) {
-						console.log(index);
-						console.log(codec);
-						// выбираем кодек
-						if(index == 'aac'){
-							console.log('выбрали aac');				
-							$.each(codec, function (index, qa) {
-								console.log(index);
-								$.each(qa, function (index, chanel) {
-									StreamGO = chanel.patch;
-								})
-							})
-						};
-					})
-				};
-			});
+			
 		
 	}; 
 	$('input:checkbox').change(function(){
