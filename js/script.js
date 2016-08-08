@@ -598,10 +598,6 @@ setInterval(function(){
 	streamRePlay()
 }, 6000); 
 // Sharing
-
-ons.ready(function() {
-console.log('Приложение загружено');
-	LocalConfig();
 	function LocalConfig(){
 		if(localStorage.getItem('ConfloadAlbum')){
 			$("#album").prop('checked', localStorage.getItem('ConfloadAlbum'));
@@ -621,17 +617,18 @@ console.log('Приложение загружено');
 					$(this).prop('checked', true)
 				}
 			});
-		};
+		}; 
 		
 		if(localStorage.getItem('StreamReg')){
 			localStorage.setItem('StreamReg', 'RU-MOS');
 		} else {
 			localStorage.setItem('StreamReg', 'RU-MOS');
-		};
-		
-			
-		
+		};		
 	}; 
+ons.ready(function() {
+console.log('Приложение загружено');
+	LocalConfig();
+	
 	$('input:checkbox').change(function(){
 		var IdName = $(this).attr('id');
 		if(IdName == 'album'){
