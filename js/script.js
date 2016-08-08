@@ -46,7 +46,7 @@ function modals(name) {
 var streamChanel;
 function LoadConfigApp() {
 	jQuery.getJSON("http://app.radioradio.ru/api.php", function(data) {
-		streamChanel = data.stream.reg50.aac.b32[2].patch;
+		streamChanel = data.stream;
 		localStorage.setItem('streamChanel', data.stream.reg50.aac.b32[2].patch);
 		//console.log(data.stream.reg50.aac.b32[2].patch);
 		setTimeout(function() {
