@@ -599,6 +599,13 @@ console.log('Приложение загружено');
 				}
 			});
 		};
+		
+		if(localStorage.getItem('StreamReg')){
+			localStorage.setItem('StreamReg', 'RU-MOS');
+		} else {
+			localStorage.setItem('StreamReg', 'RU-MOS');
+		};
+		
 	}; 
 	$('input:checkbox').change(function(){
 		var IdName = $(this).attr('id');
