@@ -47,8 +47,6 @@ var streamChanel;
 function LoadConfigApp() {
 	jQuery.getJSON("http://app.radioradio.ru/api.php", function(data) {
 		streamChanel = data.stream;
-		localStorage.setItem('streamChanel', data.stream.reg50.aac.b32[2].patch);
-		//console.log(data.stream.reg50.aac.b32[2].patch);
 		setTimeout(function() {
 			if(jQuery.isEmptyObject(data.poll)){
 				jQuery('#poll').hide();
@@ -61,10 +59,9 @@ function LoadConfigApp() {
 				jQuery('#poll').show();
 			}
 		}, 5000);
+			
 	});
 }
-
-
 
 // Тянем информацию об альбоме
 function infoAlbum(type, id, md, artist, song) {
@@ -464,7 +461,7 @@ function checkConnection() {
 	LoadStream();
 	function LoadStream() {
 		setTimeout(function() {
-			$my_media = new PlayStream(localStorage.streamChanel, function (status){
+			$my_media = new PlayStream(StreamGO, function (status){
 					console.log("status - "+status);
 					if(status === PlayStream.MEDIA_STOPPED){
 						console.log('stopped');
@@ -605,6 +602,30 @@ console.log('Приложение загружено');
 		} else {
 			localStorage.setItem('StreamReg', 'RU-MOS');
 		};
+		
+		var StreamGO;
+			var StreamRegion = 'reg'+localStorage.getItem('StreamReg');
+			$.each(streamChanel, function (key, region) {
+				console.log(key);
+				console.log(StreamRegion);
+				// выбираем регион
+				if(key == StreamRegion){
+					$.each(region, function (index, codec) {
+						console.log(index);
+						console.log(codec);
+						// выбираем кодек
+						if(index == 'aac'){
+							console.log('выбрали aac');				
+							$.each(codec, function (index, qa) {
+								console.log(index);
+								$.each(qa, function (index, chanel) {
+									StreamGO = chanel.patch;
+								})
+							})
+						};
+					})
+				};
+			});
 		
 	}; 
 	$('input:checkbox').change(function(){
