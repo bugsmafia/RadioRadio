@@ -583,8 +583,8 @@ ons-range[disabled] .range {
   -webkit-border-radius: 0;
   border-radius: 0;
   background-color: transparent;
-  background-image: -webkit-radial-gradient(7px, circle 6px, #009688 0%, #009688 6px, transparent 7px);
-  background-image: radial-gradient(circle 6px at 7px, #009688 0%, #009688 6px, transparent 7px);
+  background-image: -webkit-radial-gradient(7px, circle 6px, #fff 0%, #fff 6px, transparent 7px);
+  background-image: radial-gradient(circle 6px at 7px, #fff 0%, #fff 6px, transparent 7px);
   margin-top: -1px;
 }
 .range--material::-moz-range-thumb {
@@ -593,8 +593,8 @@ ons-range[disabled] .range {
   height: 12px;
   width: 12px;
   border-radius: 100%;
-  border-color: #009688;
-  background-color: #009688;
+  border-color: #fff;
+  background-color: #fff;
 }
 .range--material::-moz-range-track {
   background-color: #e0e0e0;
@@ -6011,7 +6011,7 @@ input[type="search"].search-input::-webkit-search-cancel-button {
   -moz-animation: progress__dash 1.5s ease-in-out infinite;
   -o-animation: progress__dash 1.5s ease-in-out infinite;
   animation: progress__dash 1.5s ease-in-out infinite;
-  stroke: #009688;
+  stroke: #06c;
   -webkit-transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
   -moz-transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
   -o-transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);

@@ -63,22 +63,7 @@ function LoadConfigApp() {
 		}, 5000);
 	});
 }
-LocalConfig();
-function LocalConfig(){
-	var streamQ = 'auto';
 
-	var ConfloadAlbum = $("#album").prop('checked');
-	localStorage.setItem('ConfloadAlbum', ConfloadAlbum);
-
-	jQuery("input[name='qa']").each(function() {
-		if(this.checked == true){
-			console.log(this.value);
-			streamQ = this.value;
-			localStorage.setItem('StreamQ', streamQ);
-		}
-	});
-	
-}
 
 
 // Тянем информацию об альбоме
@@ -592,6 +577,22 @@ setInterval(function(){
 // Sharing
 
 ons.ready(function() {
+console.log('Приложение загружено');
+	LocalConfig();
+	function LocalConfig(){
+		var streamQ = 'auto';
+		var ConfloadAlbum = $("#album").prop('checked');
+		localStorage.setItem('ConfloadAlbum', ConfloadAlbum);
+		jQuery("input[name='qa']").each(function() {
+			if(this.checked == true){
+				console.log(this.value);
+				streamQ = this.value;
+				localStorage.setItem('StreamQ', streamQ);
+			}
+		});	
+	}
+	
+	
 	function events(action) {
 		switch(action) {
 			case 'music-controls-next':
@@ -648,5 +649,7 @@ MusicControls.listen();
 		window.plugins.mediaVolume.setVol(volume);
 		console.log(volume);
 	});
-
+	
+	// скрыть плашку загрузки
+	navigator.splashscreen.hide();
 }); 
