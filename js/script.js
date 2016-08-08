@@ -312,6 +312,7 @@ function UpdateStatus(now) {
 				infoAlbum('playinfo', 'playinfoimg', 'TrackIdNowImg', data.a, data.s);
 			} else {
 				console.log('Загрузка изображений альбома отключена.');
+				statusBar('icon.png');
 			};
 		}); 
 	}
