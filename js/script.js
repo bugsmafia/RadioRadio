@@ -43,10 +43,10 @@ function modals(name) {
 		break;
 	};
 } 
-
+var streamChanel;
 function LoadConfigApp() {
 	jQuery.getJSON("http://app.radioradio.ru/api.php", function(data) {
-		var streamChanel = data.stream.reg50.aac.b32[2].patch;
+		streamChanel = data.stream.reg50.aac.b32[2].patch;
 		localStorage.setItem('streamChanel', data.stream.reg50.aac.b32[2].patch);
 		//console.log(data.stream.reg50.aac.b32[2].patch);
 		setTimeout(function() {
@@ -580,18 +580,43 @@ ons.ready(function() {
 console.log('Приложение загружено');
 	LocalConfig();
 	function LocalConfig(){
-		var streamQ = 'auto';
-		var ConfloadAlbum = $("#album").prop('checked');
-		localStorage.setItem('ConfloadAlbum', ConfloadAlbum);
-		jQuery("input[name='qa']").each(function() {
+		if(localStorage.getItem('ConfloadAlbum')){
+			$("#album").prop('checked', localStorage.getItem('ConfloadAlbum'));
+		} else {
+			localStorage.setItem('ConfloadAlbum', false);
+		};
+		if(localStorage.getItem('StreamQ')){
+			$("input[name='qa']").each(function() {
+				if(this.value == localStorage.getItem('StreamQ')){
+					$(this).prop('checked', true)
+				}
+			});
+		} else {
+			localStorage.setItem('StreamQ', 'auto');
+			$("input[name='qa']").each(function() {
+				if(this.value == localStorage.getItem('StreamQ')){
+					$(this).prop('checked', true)
+				}
+			});
+		};
+	}; 
+	$('input:checkbox').change(function(){
+		var IdName = $(this).attr('id');
+		if(IdName == 'album'){
+			$(this).prop('checked')
+			var ConfloadAlbum = $("#album").prop('checked');
+			localStorage.setItem('ConfloadAlbum', ConfloadAlbum);
+		};
+	});
+	$('input[name="qa"]').change(function(){
+		$("input[name='qa']").each(function() {
 			if(this.checked == true){
 				console.log(this.value);
 				streamQ = this.value;
 				localStorage.setItem('StreamQ', streamQ);
 			}
-		});	
-	}
-	
+		});
+	});
 	
 	function events(action) {
 		switch(action) {
