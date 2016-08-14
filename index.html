@@ -5,8 +5,9 @@
 		<script src="cordova.js"></script>
 		<script>navigator.splashscreen.show();</script>
 		<link rel="stylesheet" href="css/onsenui.css"/>
-		<link rel="stylesheet" href="css/onsen-css-components.css"/>
-		<link rel="stylesheet" href="css/style.css"/>
+		<!-- <link rel="stylesheet" href="css/onsen-css-components.css"/> -->
+		<link rel="stylesheet" href="css/stylus/style.css"/>
+		<!-- <link rel="stylesheet" href="css/style.css"/> -->
 		<title>RadioRadio</title>
 	</head>
 	<body onload="onLoad()">
@@ -149,10 +150,11 @@
 						<div class="artist">ожидайте</div>
 					</div>
 					<div class="vert_grid_box">
-						<div id="play" class="metal radial js-button" onclick="streamplay();">
-							<i class="zmdi zmdi-play">
-								<ons-progress-circular indeterminate></ons-progress-circular>
-							</i>
+						<div class="playbtn" onclick="streamplay();">
+							<div class="l4s"></div>
+							<div class="l3s"></div>
+							<div class="l2s"></div>
+							<div class="l1s"></div>
 						</div>
 					</div>
 					<div class="vert_grid_box" id="poll">
@@ -161,8 +163,7 @@
 						</div>
 					</div>
 					<div class="vert_grid_box">
-						<p style="text-align: center;margin: 0;padding: 0;font-size: 31px;">
-							<i style="display: inline-block;vertical-align: text-top;margin-right: 0.5em;" class="zmdi zmdi-volume-up"></i>
+						<p style="text-align: center;margin: 0;padding: 0;">
 							<ons-range id="volume" value="100"></ons-range>
 						</p>
 					</div>
