@@ -5399,7 +5399,7 @@ input[type="search"].search-input::-webkit-search-cancel-button {
   position: absolute;
   top: 0px;
   left: 0px;
-  background-color: rgba(255,185,51,0.6);
+  background-color: #ff5722;
   z-index: 8;
 }
 .playbtn .l3s {
