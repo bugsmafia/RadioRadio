@@ -408,12 +408,13 @@ ons-range[disabled] .range {
   height: 33px;
   border-radius: 3px;
   background-position: 50%;
-  background-size: 100% 17px;
+  background-size: calc(100% - 36px) 17px;
   background-image: url("../../img/range-c.png");
   background-repeat: no-repeat;
   height: 100%;
   position: absolute;
   left: 0px;
+  margin-right: 20px;
 }
 .range:before {
   content: ' ';
@@ -423,7 +424,7 @@ ons-range[disabled] .range {
   background-repeat: no-repeat;
   display: block;
   position: absolute;
-  left: -8px;
+  left: 10px;
   background-position: 50%;
 }
 .range:after {
@@ -434,7 +435,7 @@ ons-range[disabled] .range {
   background-repeat: no-repeat;
   display: block;
   position: absolute;
-  right: -8px;
+  right: 10px;
   background-position: 50%;
 }
 .range::-moz-range-track {
@@ -517,6 +518,30 @@ ons-range[disabled] .range {
   left: 0px;
   top: 0px;
   z-index: 3;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+.range__left:before {
+  content: ' ';
+  width: 8px;
+  height: 100%;
+  background-image: url("../../img/range-l-act.png");
+  background-repeat: no-repeat;
+  display: block;
+  position: absolute;
+  left: -8px;
+  background-position: 50%;
+}
+.range__left:after {
+  content: ' ';
+  width: 8px;
+  height: 100%;
+  background-image: url("../../img/range-r-act.png");
+  background-repeat: no-repeat;
+  display: block;
+  position: absolute;
+  right: -8px;
+  background-position: 50%;
 }
 /* topdoc
   name: Navigation Bar
@@ -840,7 +865,7 @@ ons-range[disabled] .range {
   border-bottom: 0;
   box-shadow: 0 1px 5px rgba(0,0,0,0.3);
   padding: 0;
-  background-color: #009688;
+  background-color: #29b6fe;
   background-size: 0;
 }
 .navigation-bar--noshadow {
@@ -2020,7 +2045,7 @@ ons-range[disabled] .range {
   border-bottom: 4px solid #549eff;
 }
 .tab-bar--material {
-  background-color: #009688;
+  background-color: #29b6fe;
   border-bottom-width: 0px;
   box-shadow: 0 4px 2px -2px rgba(0,0,0,0.14), 0 3px 5px -2px rgba(0,0,0,0.12), 0 5px 1px -4px rgba(0,0,0,0.2);
 }
@@ -2646,7 +2671,7 @@ ons-range[disabled] .range {
   border: 2px solid #f5f5f5;
 }
 .checkbox--material__input:checked + .checkbox--material__checkmark:before {
-  background-color: #009688;
+  background-color: #29b6fe;
   border: none;
 }
 .checkbox--material__input + .checkbox--material__checkmark:after {
@@ -2867,7 +2892,7 @@ ons-range[disabled] .range {
 }
 .radio-button--material__input:checked + .radio-button__checkmark:before {
   background: transparent;
-  border: 2px solid #009688;
+  border: 2px solid #29b6fe;
 }
 .radio-button--material__input + .radio-button__checkmark:after {
   background: #f5f5f5;
@@ -2876,7 +2901,7 @@ ons-range[disabled] .range {
 }
 .radio-button--material__input:checked + .radio-button__checkmark:after {
   opacity: 1;
-  background: #009688;
+  background: #29b6fe;
   transform: scale(1);
 }
 .radio-button--material__input:disabled + .radio-button__checkmark {
@@ -3549,7 +3574,7 @@ ons-range[disabled] .range {
   font-size: 14px;
   text-transform: none;
   margin: -1px 0 0 0;
-  color: #6c6c6c;
+  color: #bbb;
   font-weight: 500;
   padding: 8px 16px;
 }
@@ -4045,13 +4070,13 @@ input[type="search"].search-input::-webkit-search-cancel-button {
   pointer-events: none;
 }
 .text-input--material__label--active {
-  color: #009688;
+  color: #29b6fe;
   transform: translate(0, -75%) scale(0.75);
   transform-origin: left top;
   transition: transform 0.1s ease-in, color 0.1s ease-in;
 }
 .text-input--material:focus {
-  background-image: linear-gradient(#009688, #009688), linear-gradient(to top, transparent 1px, #4c4c4c 1px);
+  background-image: linear-gradient(#29b6fe, #29b6fe), linear-gradient(to top, transparent 1px, #4c4c4c 1px);
   animation: material-text-input-animate 0.3s forwards;
 }
 .text-input--material::-webkit-input-placeholder {
@@ -4912,7 +4937,7 @@ input[type="search"].search-input::-webkit-search-cancel-button {
 .progress-bar--determinate > .progress-bar__primary,
 .progress-bar--determinate > .progress-bar__secondary {
   position: absolute;
-  background-color: #009688;
+  background-color: #29b6fe;
   top: 0;
   bottom: 0;
   transition: width 0.3s linear;
@@ -4925,7 +4950,7 @@ input[type="search"].search-input::-webkit-search-cancel-button {
 .progress-bar--indeterminate:before {
   content: '';
   position: absolute;
-  background-color: #009688;
+  background-color: #29b6fe;
   top: 0;
   left: 0;
   bottom: 0;
@@ -4935,7 +4960,7 @@ input[type="search"].search-input::-webkit-search-cancel-button {
 .progress-bar--indeterminate:after {
   content: '';
   position: absolute;
-  background-color: #009688;
+  background-color: #29b6fe;
   top: 0;
   left: 0;
   bottom: 0;
@@ -5078,7 +5103,7 @@ input[type="search"].search-input::-webkit-search-cancel-button {
   stroke-dasharray: 1, 200;
   stroke-dashoffset: 0;
   animation: progress__dash 1.5s ease-in-out infinite;
-  stroke: #009688;
+  stroke: #29b6fe;
   transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .progress-circular--determinate {
@@ -5337,17 +5362,18 @@ input[type="search"].search-input::-webkit-search-cancel-button {
   text-align: center;
 }
 .artist {
-  font-size: 17px;
+  font-size: 1em;
   font-weight: 400;
-  line-height: 36px;
+  line-height: 1em;
   display: block;
   width: 100%;
   text-align: center;
+  margin-top: 0.5em;
 }
 .song {
-  font-size: 17px;
+  font-size: 1.4em;
   font-weight: 700;
-  line-height: 36px;
+  line-height: 1em;
   display: block;
   width: 100%;
   text-align: center;
