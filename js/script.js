@@ -3,6 +3,8 @@ function getPageName(url) {
     var filenameWithExtension = url.substr(index);
     return filenameWithExtension;
 }
+
+
 // Функция выполнения кода при загрузки приложения
 function onLoad() {
     document.addEventListener("deviceready", onDeviceReady, false);
@@ -468,9 +470,7 @@ function checkConnection() {
 						console.log('stopped');
 						MusicControls.updateIsPlaying(false);
 						streamer = 1;
-						$('#play i').attr('class', 'zmdi zmdi-play');
-						$('#play').removeClass('active');
-						$("#play ons-progress-circular").hide();
+						$("#l2sOffAnim").fadeOut(750);
 					}
 					if(status === PlayStream.MEDIA_STARTING){
 						console.log('starting');
@@ -482,9 +482,7 @@ function checkConnection() {
 						console.log('running');
 						MusicControls.updateIsPlaying(true);
 						streamer = 3;
-						$('#play i').attr('class', 'zmdi zmdi-stop');
-						$('#play').addClass('active');
-						$("#play ons-progress-circular").hide();
+						$("#l2sOffAnim").fadeIn(750);
 					}
 				}, 
 				function (err) {
@@ -499,16 +497,11 @@ function checkConnection() {
 					case "RINGING":
 						console.log("Звонят");
 						if (streamer == "2") {
-							$('#play i').attr('class', 'zmdi zmdi-play');
-							$('#play').removeClass('active');
-							$("#play ons-progress-circular").show();
+							$("#l2sOffAnim").fadeOut(750);
 							$my_media.stop();
 							OneclickStop = 3;
 						} else if (streamer == "3") {
-
-							$('#play i').attr('class', 'zmdi zmdi-play');
-							$('#play').removeClass('active');
-							$("#play ons-progress-circular").show();
+							$("#l2sOffAnim").fadeOut(750);
 							$my_media.stop();
 							OneclickStop = 3;
 						}
@@ -518,16 +511,11 @@ function checkConnection() {
 					case "OFFHOOK":
 						console.log("Phone is off-hook");
 						 if (streamer == "2") {
-							$('#play i').attr('class', 'zmdi zmdi-play');
-							$('#play').removeClass('active');
-							$("#play ons-progress-circular").show();
+							$("#l2sOffAnim").fadeOut(750);
 							$my_media.stop();
 							OneclickStop = 3;
 						} else if (streamer == "3") {
-
-							$('#play i').attr('class', 'zmdi zmdi-play');
-							$('#play').removeClass('active');
-							$("#play ons-progress-circular").show();
+							$("#l2sOffAnim").fadeOut(750);
 							$my_media.stop();
 							OneclickStop = 3;
 						}
@@ -540,8 +528,7 @@ function checkConnection() {
 							console.log("Восстанавливаем стрим через 3 секунды");
 							setTimeout(function() {
 								console.log("Восстанавливаем стрим");
-								$('#play i').attr('class', 'zmdi zmdi-play');
-								$('#play').addClass('active');
+								$("#l2sOffAnim").fadeIn(750);
 								$my_media.play();
 								OneclickStop = 2;
 							}, 3000);
@@ -582,8 +569,7 @@ function StreamGO(){
 function streamRePlayGO(){
 	setTimeout(function() {
 		console.log("Восстанавливаем стрим");
-		$('#play i').attr('class', 'zmdi zmdi-play');
-		$('#play').addClass('active');
+		$("#l2sOffAnim").fadeIn(750);
 		$my_media.play();
 	}, 100);
 };

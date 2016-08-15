@@ -5379,16 +5379,16 @@ input[type="search"].search-input::-webkit-search-cancel-button {
   z-index: 3;
   background-size: cover;
 }
-.playbtn .l2sOffAnim {
+.playbtn #l2sOffAnim {
   width: calc(100% - 8%);
   height: calc(100% - 8%);
   position: absolute;
   top: 0px;
   left: 0px;
   z-index: 2;
-  animation: pulse 5s infinite;
   margin: 4%;
   border-radius: 50%;
+  background-color: #2fa8fd;
 }
 .playbtn .l3s {
   width: 100%;
@@ -5417,44 +5417,4 @@ input[type="search"].search-input::-webkit-search-cancel-button {
   width: 50%;
   position: relative;
   height: 25px;
-}
-@-moz-keyframes pulse {
-  0%, 100% {
-    background-color: #fff;
-    opacity: 0;
-  }
-  50% {
-    background-color: #2fa8fd;
-    opacity: 1;
-  }
-}
-@-webkit-keyframes pulse {
-  0%, 100% {
-    background-color: #fff;
-    opacity: 0;
-  }
-  50% {
-    background-color: #2fa8fd;
-    opacity: 1;
-  }
-}
-@-o-keyframes pulse {
-  0%, 100% {
-    background-color: #fff;
-    opacity: 0;
-  }
-  50% {
-    background-color: #2fa8fd;
-    opacity: 1;
-  }
-}
-@keyframes pulse {
-  0%, 100% {
-    background-color: #fff;
-    opacity: 0;
-  }
-  50% {
-    background-color: #2fa8fd;
-    opacity: 1;
-  }
 }
