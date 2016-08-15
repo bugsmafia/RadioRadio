@@ -459,11 +459,12 @@ ons-range[disabled] .range {
 .range::-webkit-slider-thumb {
   cursor: pointer;
   position: relative;
-  height: 41px;
-  width: 42px;
+  height: 1.5em;
+  width: 1.5em;
   background-color: inherit;
   background-image: url("../../img/range-b.png");
   background-position: 50%;
+  background-size: contain;
   border: inherit;
   border-radius: inherit;
   box-shadow: none;
@@ -477,11 +478,12 @@ ons-range[disabled] .range {
 .range::-ms-thumb {
   cursor: pointer;
   position: relative;
-  height: 41px;
-  width: 42px;
+  height: 1.5em;
+  width: 1.5em;
   background-color: inherit;
   background-image: url("../../img/range-b.png");
   background-position: 50%;
+  background-size: contain;
   border: inherit;
   border-radius: inherit;
   box-shadow: none;
@@ -5337,13 +5339,22 @@ input[type="search"].search-input::-webkit-search-cancel-button {
   transform: scale(0);
 }
 .logo {
-  width: 120px;
-  height: 120px;
+  width: 10em;
+  height: 5em;
   margin: 10px auto;
   background-image: url("../../logo/3.png");
-  background-size: cover;
+  background-size: contain;
   background-repeat: no-repeat;
   background-position: 50%;
+}
+.logoAds a {
+  width: 10em;
+  height: 6em;
+  margin: 10px auto;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  display: block;
 }
 .vert_grid {
   display: table;
@@ -5362,7 +5373,7 @@ input[type="search"].search-input::-webkit-search-cancel-button {
   text-align: center;
 }
 .artist {
-  font-size: 1em;
+  font-size: 0.8em;
   font-weight: 400;
   line-height: 1em;
   display: block;
@@ -5371,7 +5382,7 @@ input[type="search"].search-input::-webkit-search-cancel-button {
   margin-top: 0.5em;
 }
 .song {
-  font-size: 1.4em;
+  font-size: 1em;
   font-weight: 700;
   line-height: 1em;
   display: block;
@@ -5380,8 +5391,8 @@ input[type="search"].search-input::-webkit-search-cancel-button {
 }
 .playbtn {
   position: relative;
-  width: 150px;
-  height: 150px;
+  width: 6em;
+  height: 6em;
   margin: 0 auto;
 }
 .playbtn .l1s {
@@ -5463,8 +5474,11 @@ input[type="search"].search-input::-webkit-search-cancel-button {
 #poll {
   display: none;
 }
+#ads {
+  display: none;
+}
 #volume {
   width: 50%;
   position: relative;
-  height: 25px;
+  height: 0.3em;
 }

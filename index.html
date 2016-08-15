@@ -4,10 +4,6 @@
 		<meta charset="utf-8">
 		<script src="cordova.js"></script>
 		<script>navigator.splashscreen.show();</script>
-		<link rel="stylesheet" href="css/onsenui.css"/>
-		<!-- <link rel="stylesheet" href="css/onsen-css-components.css"/> -->
-		<link rel="stylesheet" href="css/stylus/style.css"/>
-		<!-- <link rel="stylesheet" href="css/style.css"/> -->
 		<title>RadioRadio</title>
 	</head>
 	<body onload="onLoad()">
@@ -145,9 +141,13 @@
 					<div class="vert_grid_box">
 						<div class="logo"></div>
 					</div>
+					
 					<div class="vert_grid_box">
 						<div class="song">Загрузка...</div>
 						<div class="artist">ожидайте</div>
+					</div>
+					<div class="vert_grid_box" id="ads">
+						<div class="logoAds"><a href="#"></a></div>
 					</div>
 					<div class="vert_grid_box">
 						<div class="playbtn" onclick="streamplay();">

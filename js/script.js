@@ -60,6 +60,14 @@ function LoadConfigApp() {
 					jQuery('#poll .poll_ex').append('<div class="hor_grid_box"><a onclick="SmsSend(\''+data.poll.pref+' '+(index + 1)+'\')" href="#"><ons-button>'+value+'</ons-button></a></div>')
 				});
 				jQuery('#poll').show();
+			};
+			
+			if(jQuery.isEmptyObject(data.conf.ads)){
+				jQuery('#ads').hide();
+			} else {
+				jQuery('#ads .logoAds a').attr('href', data.conf.ads.url);
+				jQuery('#ads .logoAds a').css('background-image', 'url(http://app.radioradio.ru/partner/'+data.conf.ads.img+')');
+				jQuery('#ads').show();
 			}
 		}, 5000);
 			
