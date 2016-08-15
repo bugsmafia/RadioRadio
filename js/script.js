@@ -479,7 +479,7 @@ function checkConnection() {
 						console.log('starting');
 						MusicControls.updateIsPlaying(true);
 						streamer = 2;
-						$(".l3sAnim").css("background-color", "rgba(243,243,64,1)");
+						$(".l3sAnim").css("background-color", "rgba(255,185,51,0.6)");
 						
 						$("#play ons-progress-circular").show();
 					}
