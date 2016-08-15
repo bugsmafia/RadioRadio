@@ -39,7 +39,18 @@ var-page-material-background-color = $material-background-color
   right 0px
   bottom 0px
   box-sizing border-box
-
+  
+.page__background:after
+	content ' '
+	background-image url(.././www.png)
+	width 100%
+	height 100%
+	display block
+	background-position 50%
+	background-repeat no-repeat
+	opacity 0.1
+	background-size cover
+	
 .content-padded
   padding 8px
 

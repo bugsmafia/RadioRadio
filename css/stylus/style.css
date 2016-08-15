@@ -80,6 +80,17 @@ h6 {
   bottom: 0px;
   box-sizing: border-box;
 }
+.page__background:after {
+  content: ' ';
+  background-image: url(".././www.png");
+  width: 100%;
+  height: 100%;
+  display: block;
+  background-position: 50%;
+  background-repeat: no-repeat;
+  opacity: 0.1;
+  background-size: cover;
+}
 .content-padded {
   padding: 8px;
 }
@@ -295,7 +306,7 @@ input:disabled + .switch__toggle {
 }
 .switch.switch--material input:checked + .switch__toggle .switch__handle {
   left: 16px;
-  background-color: #80cbc4;
+  background-color: #29b6fe;
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);
 }
 .switch.switch--material input:disabled + .switch__toggle {
@@ -318,7 +329,7 @@ input:disabled + .switch__toggle {
   box-shadow: 0px 0px 0px 14px rgba(0,0,0,0.12);
 }
 .switch.switch--material.switch--active input:checked + .switch__toggle .switch__handle:before {
-  box-shadow: 0px 0px 0px 14px rgba(128,203,196,0.2);
+  box-shadow: 0px 0px 0px 14px rgba(41,182,254,0.2);
 }
 .switch.switch--material .switch__touch {
   position: absolute;
@@ -945,7 +956,7 @@ ons-range[disabled] .range {
   letter-spacing: 0;
   color: #fff;
   vertical-align: middle;
-  background-color: #3d74ff;
+  background-color: #29b6fe;
   border: 0px solid currentColor;
   border-radius: 3px;
   transition: none;
@@ -954,7 +965,7 @@ ons-range[disabled] .range {
   transition: none;
 }
 .button:active {
-  background-color: #3d74ff;
+  background-color: #29b6fe;
   transition: none;
   opacity: 0.2;
 }
@@ -977,17 +988,17 @@ ons-range[disabled] .range {
 */
 .button--outline {
   background-color: transparent;
-  border: 1px solid #3d74ff;
-  color: #3d74ff;
+  border: 1px solid #29b6fe;
+  color: #29b6fe;
 }
 .button--outline:active {
-  background-color: rgba(61,116,255,0.2);
-  border: 1px solid #3d74ff;
-  color: #3d74ff;
+  background-color: rgba(41,182,254,0.2);
+  border: 1px solid #29b6fe;
+  color: #29b6fe;
   opacity: 1;
 }
 .button--outline:hover {
-  border: 1px solid #3d74ff;
+  border: 1px solid #29b6fe;
   transition: 0;
 }
 /* topdoc
@@ -1047,7 +1058,7 @@ ons-range[disabled] .range {
   letter-spacing: 0;
   color: #fff;
   vertical-align: middle;
-  background-color: #3d74ff;
+  background-color: #29b6fe;
   border: 0px solid currentColor;
   border-radius: 3px;
   transition: none;
@@ -1055,7 +1066,7 @@ ons-range[disabled] .range {
   border: 1px solid transparent;
   box-shadow: none;
   background: transparent;
-  color: #3d74ff;
+  color: #29b6fe;
   border: none;
 }
 .button--quiet:disabled,
@@ -1076,7 +1087,7 @@ ons-range[disabled] .range {
   border: none;
   transition: none;
   opacity: 0.2;
-  color: #3d74ff;
+  color: #29b6fe;
 }
 /* topdoc
   name: Call To Action Button
@@ -1116,7 +1127,7 @@ ons-range[disabled] .range {
   letter-spacing: 0;
   color: #fff;
   vertical-align: middle;
-  background-color: #3d74ff;
+  background-color: #29b6fe;
   border: 0px solid currentColor;
   border-radius: 3px;
   transition: none;
@@ -1159,7 +1170,7 @@ ons-range[disabled] .range {
   text-align: center;
 }
 .button--large:active {
-  background-color: #3d74ff;
+  background-color: #29b6fe;
   transition: none;
   opacity: 0.2;
   transition: none;
@@ -1213,7 +1224,7 @@ ons-range[disabled] .range {
   letter-spacing: 0;
   color: #fff;
   vertical-align: middle;
-  background-color: #3d74ff;
+  background-color: #29b6fe;
   border: 0px solid currentColor;
   border-radius: 3px;
   transition: none;
@@ -1226,13 +1237,13 @@ ons-range[disabled] .range {
   background: transparent;
   border: 1px solid transparent;
   box-shadow: none;
-  color: #3d74ff;
+  color: #29b6fe;
   text-align: center;
 }
 .button--large--quiet:active {
   transition: none;
   opacity: 0.2;
-  color: #3d74ff;
+  color: #29b6fe;
   background: transparent;
   border: 1px solid transparent;
   box-shadow: none;
@@ -1286,7 +1297,7 @@ ons-range[disabled] .range {
   letter-spacing: 0;
   color: #fff;
   vertical-align: middle;
-  background-color: #3d74ff;
+  background-color: #29b6fe;
   border: 0px solid currentColor;
   border-radius: 3px;
   transition: none;
@@ -1361,7 +1372,7 @@ ons-range[disabled] .range {
   letter-spacing: 0;
   color: #fff;
   vertical-align: middle;
-  background-color: #3d74ff;
+  background-color: #29b6fe;
   border: 0px solid currentColor;
   border-radius: 3px;
   transition: none;
@@ -1374,7 +1385,7 @@ ons-range[disabled] .range {
   font-size: 14px;
   transform: translate3d(0, 0, 0);
   text-transform: uppercase;
-  background-color: #80cbc4;
+  background-color: #29b6fe;
   color: #fff;
   font-family: 'Roboto', 'Noto', sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -1382,7 +1393,7 @@ ons-range[disabled] .range {
 }
 .button--material:active {
   box-shadow: 0 6px 10px 0 rgba(0,0,0,0.14), 0 1px 18px 0 rgba(0,0,0,0.12), 0 3px 5px -1px rgba(0,0,0,0.4);
-  background-color: #80cbc4;
+  background-color: #29b6fe;
   opacity: 1;
 }
 .button--material:focus {
@@ -1435,7 +1446,7 @@ ons-range[disabled] .range {
   letter-spacing: 0;
   color: #fff;
   vertical-align: middle;
-  background-color: #3d74ff;
+  background-color: #29b6fe;
   border: 0px solid currentColor;
   border-radius: 3px;
   transition: none;
@@ -1448,19 +1459,19 @@ ons-range[disabled] .range {
   font-size: 14px;
   transform: translate3d(0, 0, 0);
   text-transform: uppercase;
-  background-color: #80cbc4;
+  background-color: #29b6fe;
   color: #fff;
   font-family: 'Roboto', 'Noto', sans-serif;
   -webkit-font-smoothing: antialiased;
   font-weight: 500;
   box-shadow: none;
   background-color: transparent;
-  color: #80cbc4;
+  color: #29b6fe;
 }
 .button--material--flat:active {
   box-shadow: none;
   background-color: transparent;
-  color: #80cbc4;
+  color: #29b6fe;
   outline: 0;
   opacity: 1;
   border: none;
@@ -1468,7 +1479,7 @@ ons-range[disabled] .range {
 .button--material--flat:focus {
   box-shadow: none;
   background-color: transparent;
-  color: #80cbc4;
+  color: #29b6fe;
   outline: 0;
   opacity: 1;
   border: none;
@@ -2381,11 +2392,11 @@ ons-range[disabled] .range {
   appearance: none;
 }
 .checkbox__input:checked {
-  background: #3d74ff;
+  background: #29b6fe;
 }
 .checkbox__input:checked + .checkbox__checkmark:before {
-  background: #3d74ff;
-  border: 1px solid #3d74ff;
+  background: #29b6fe;
+  border: 1px solid #29b6fe;
 }
 .checkbox__input:checked + .checkbox__checkmark:after {
   opacity: 1;
@@ -2398,7 +2409,7 @@ ons-range[disabled] .range {
   width: 24px;
   height: 24px;
   background: transparent;
-  border: 1px solid #3d74ff;
+  border: 1px solid #29b6fe;
   border-radius: 16px;
   box-shadow: none;
   left: 0;
@@ -2573,7 +2584,7 @@ ons-range[disabled] .range {
   width: 12px;
   height: 6px;
   background: transparent;
-  border: 3px solid #3d74ff;
+  border: 3px solid #29b6fe;
   border-width: 2px;
   border-top: none;
   border-right: none;
@@ -2787,7 +2798,7 @@ ons-range[disabled] .range {
   width: 12px;
   height: 6px;
   background: transparent;
-  border: 3px solid #3d74ff;
+  border: 3px solid #29b6fe;
   border-width: 2px;
   border-top: none;
   border-right: none;
@@ -4396,7 +4407,7 @@ input[type="search"].search-input::-webkit-search-cancel-button {
   height: 44px;
   line-height: 44px;
   outline: none;
-  color: #3d74ff;
+  color: #29b6fe;
 }
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
   .alert-dialog-button {
@@ -4600,7 +4611,7 @@ input[type="search"].search-input::-webkit-search-cancel-button {
   font-size: 14px;
   font-weight: 500;
   outline: none;
-  color: #80cbc4;
+  color: #29b6fe;
 }
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
   .alert-dialog-button--material {
@@ -4908,7 +4919,7 @@ input[type="search"].search-input::-webkit-search-cancel-button {
   z-index: 100;
 }
 .progress-bar--determinate > .progress-bar__secondary {
-  background-color: #80cbc4;
+  background-color: #29b6fe;
   z-index: 0;
 }
 .progress-bar--indeterminate:before {
@@ -5079,7 +5090,7 @@ input[type="search"].search-input::-webkit-search-cancel-button {
 }
 .progress-circular--determinate > .progress-circular__secondary {
   animation: none;
-  stroke: #80cbc4;
+  stroke: #29b6fe;
 }
 @-moz-keyframes progress__rotate {
   100% {
@@ -5208,7 +5219,7 @@ input[type="search"].search-input::-webkit-search-cancel-button {
 }
 .fab:active {
   box-shadow: 0 8px 10px 1px rgba(0,0,0,0.14), 0 3px 14px 2px rgba(0,0,0,0.12), 0 5px 5px -3px rgba(0,0,0,0.4);
-  background-color: #80cbc4;
+  background-color: #29b6fe;
   transition: all 0.2s ease;
 }
 .fab:focus {
