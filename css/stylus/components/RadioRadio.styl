@@ -95,17 +95,28 @@
 	margin: 4%
 	border-radius: 50%
 	background-color: #2fa8fd;
+	display: none;
 
 	
-
+.playbtn .l3sAnim
+	width: calc(100% - 30%)
+	height: calc(100% - 30%)
+	margin: 15%
+	border-radius: 50%
+	position: absolute
+	top: 0px
+	left: 0px
+	background-color: rgba(255,0,0,1)
+	z-index: 8
+	
 .playbtn .l3s
 	width: 100%
 	height: 100%
 	position: absolute
 	top: 0px
 	left: 0px
-	background-image: url(../../img/play-l3.png) 
-	z-index: 4
+	background-image: url(../../img/play-l3-load.png) 
+	z-index: 10
 	background-size: cover
 
 .playbtn .l4s
@@ -117,7 +128,7 @@
 	background-image: url(../../img/play-SPa.png)
 	z-index: 5
 	background-size: cover
-
+	display: none;
 	
 #poll
 	display: none

@@ -7,6 +7,7 @@ function getPageName(url) {
 
 // Функция выполнения кода при загрузки приложения
 function onLoad() {
+	$("#l2sOffAnim").fadeOut(0).fadeIn(700).delay(500).fadeOut(300).fadeIn(700).delay(500).fadeOut(300);
     document.addEventListener("deviceready", onDeviceReady, false);
 }
 // Функция исполнения когда приложение готово
@@ -470,18 +471,24 @@ function checkConnection() {
 						console.log('stopped');
 						MusicControls.updateIsPlaying(false);
 						streamer = 1;
+						$(".l3sAnim").css("background-color", "rgba(51,177,255,0.7)");
+						$(".l3sAnim").css("background-image", "url(../../img/play-l3-play.png)");
 						$("#l2sOffAnim").fadeOut(750);
 					}
 					if(status === PlayStream.MEDIA_STARTING){
 						console.log('starting');
 						MusicControls.updateIsPlaying(true);
 						streamer = 2;
+						$(".l3sAnim").css("background-color", "rgba(243,243,64,1)");
+						
 						$("#play ons-progress-circular").show();
 					}
 					if(status === PlayStream.MEDIA_RUNNING){
 						console.log('running');
 						MusicControls.updateIsPlaying(true);
 						streamer = 3;
+						$(".l3sAnim").css("background-color", "rgba(51,177,255,1)");
+						$(".l3sAnim").css("background-image", "url(../../img/play-l3-stop.png)");
 						$("#l2sOffAnim").fadeIn(750);
 					}
 				}, 
