@@ -472,7 +472,7 @@ function checkConnection() {
 						MusicControls.updateIsPlaying(false);
 						streamer = 1;
 						$(".l3sAnim").css("background-color", "rgba(51,177,255,0.7)");
-						$(".l3sAnim").css("background-image", "url(../../img/play-l3-play.png)");
+						$(".l3sAnim").css("background-image", "url('../../img/play-l3-play.png')");
 						$("#l2sOffAnim").fadeOut(750);
 					}
 					if(status === PlayStream.MEDIA_STARTING){
@@ -488,7 +488,7 @@ function checkConnection() {
 						MusicControls.updateIsPlaying(true);
 						streamer = 3;
 						$(".l3sAnim").css("background-color", "rgba(51,177,255,1)");
-						$(".l3sAnim").css("background-image", "url(../../img/play-l3-stop.png)");
+						$(".l3sAnim").css("background-image", "url('../../img/play-l3-stop.png')");
 						$("#l2sOffAnim").fadeIn(750);
 					}
 				}, 
