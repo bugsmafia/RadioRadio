@@ -5482,3 +5482,6 @@ input[type="search"].search-input::-webkit-search-cancel-button {
   position: relative;
   height: 0.3em;
 }
+.poll_text {
+  margin: 1em 1em 0.5em;
+}
