@@ -71,8 +71,6 @@
 <!--  <plugin spec="https://github.com/bugsmafia/cordova-aac-stream.git" source="git" />  -->
   
 <!--  <plugin spec="https://github.com/remoorejr/cordova-plugin-media-with-compression.git" source="git" />  -->
-<config-file target="AndroidManifest.xml" parent="/*">
-	<uses-feature android:name="android.hardware.telephony" android:required="false" />
-</config-file>
+<uses-feature android:name="android.hardware.telephony" android:required="false" />
 </widget>
  
