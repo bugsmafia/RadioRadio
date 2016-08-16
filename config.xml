@@ -11,12 +11,12 @@
   <!-- <content src="http://localhost/index.html" /> -->
   <preference name="phonegap-version" value="cli-6.3.0" />
   <preference name="android-build-tool" value="gradle" /> 
-  <preference name="AndroidLaunchMode" value="singleTask" />
+  <preference name="AndroidLaunchMode" value="singleTop" />
   <preference name="CordovaWebViewEngine" value="CDVUIWebViewEngine" />
   <preference name="android-installLocation" value="auto" />
   <plugin name="cordova-plugin-whitelist" version="1" />
   <access origin="*" />
-  <allow-intent href="http://*/*" />
+  <allow-intent href="http://*/*" /> 
   <allow-intent href="https://*/*" />
   <allow-intent href="tel:*" />
   <allow-intent href="sms:*" />
