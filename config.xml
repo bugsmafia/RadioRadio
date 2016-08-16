@@ -46,18 +46,11 @@
     <splash src="res/screen/android/splash-port-ldpi.png" density="port-ldpi"/>
     <splash src="res/screen/android/splash-port-mdpi.png" density="port-mdpi"/>
     <splash src="res/screen/android/splash-port-xhdpi.png" density="port-xhdpi"/>
+	<preference name="AutoHideSplashScreen" value="true" />
+    <preference name="FadeSplashScreen" value="false"/>
+    <preference name="FadeSplashScreenDuration" value="3"/>
+    <preference name="ShowSplashScreenSpinner" value="false"/>
   </platform>
-	<splash src="res/screen/android/splash-land-hdpi.png" density="land-hdpi"/>
-    <splash src="res/screen/android/splash-land-ldpi.png" density="land-ldpi"/>
-    <splash src="res/screen/android/splash-land-mdpi.png" density="land-mdpi"/>
-    <splash src="res/screen/android/splash-land-xhdpi.png" density="land-xhdpi"/>
-
-    <splash src="res/screen/android/splash-port-hdpi.png" density="port-hdpi"/>
-    <splash src="res/screen/android/splash-port-ldpi.png" density="port-ldpi"/>
-    <splash src="res/screen/android/splash-port-mdpi.png" density="port-mdpi"/>
-    <splash src="res/screen/android/splash-port-xhdpi.png" density="port-xhdpi"/>
-<preference name="SplashScreenDelay" value="20000" />
-<preference name="SplashScreen" value ="screen" />
 
 
 <icon src="150.png"  width="150" height="150" />
