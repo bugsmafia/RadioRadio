@@ -48,7 +48,9 @@
     <splash src="res/screen/android/splash-port-xhdpi.png" density="port-xhdpi"/>
   </platform>
 
-<preference name="SplashScreenDelay" value="3000" />
+<preference name="SplashScreenDelay" value="20000" />
+<preference name="SplashScreen" value ="screen" />
+
 
 <icon src="150.png"  width="150" height="150" />
 	
