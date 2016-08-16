@@ -8,7 +8,11 @@
   <author email="bugsmafia@gmail.com" href="https://vk.com/bugsmafia">Сергей Осипов Bugsmafia</author>
 
   <content src="index.html" />
-  <supports-screens android:largeScreens="true" android:normalScreens="true" android:smallScreens="true" android:xlargeScreens="true" android:resizeable="true" android:anyDensity="true"/>
+  <config-file target="AndroidManifest.xml" parent="/*">
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+	<supports-screens android:largeScreens="true" android:normalScreens="true" android:smallScreens="true" android:xlargeScreens="true" android:resizeable="true" android:anyDensity="true"/>
+</config-file>
+  
   <!-- <content src="http://localhost/index.html" /> -->
   <preference name="phonegap-version" value="cli-6.3.0" />
   <preference name="android-build-tool" value="gradle" /> 
@@ -29,7 +33,7 @@
       <allow-intent href="market:*" />
   </platform> 
   <platform name="android">
-    <icon src="resources/android/icon/drawable-ldpi-icon.png" density="ldpi"/>
+    <icon src="resources/android/icon/drawable-ldpi-icon.png" density="ldpi"/> 
     <icon src="resources/android/icon/drawable-mdpi-icon.png" density="mdpi"/>
     <icon src="resources/android/icon/drawable-hdpi-icon.png" density="hdpi"/>
     <icon src="resources/android/icon/drawable-xhdpi-icon.png" density="xhdpi"/>
