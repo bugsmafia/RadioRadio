@@ -27,8 +27,8 @@ var-button-quiet-color = $highlight-color
 
 var-button-cta-background-color = $second-highlight-color
 var-button-cta-color = white
-var-button-large-padding = 4px 12px
-var-button-padding = 4px 10px
+var-button-large-padding = 0.4em 1em
+var-button-padding = 0.4em 1em
 var-button-line-height = 32px
 var-button-large-line-height = 36px
 var-button-active-opacity = 0.2
@@ -62,14 +62,14 @@ button()
   inline-block()
   reset-box-model()
   reset-base()
-  reset-font()
+
   reset-cursor()
   ellipsis()
   height auto
   text-decoration none
   padding var-button-padding
-  font-size 0.9em
-  line-height 2em
+  font-size 0.7em
+  line-height 2.5em
   letter-spacing var-letter-spacing
   color var-button-color
   vertical-align middle
@@ -77,6 +77,7 @@ button()
   border 0px solid currentColor
   border-radius var-button-border-radius
   transition none
+  font-weight 300
 
 button--focus()
   outline 0

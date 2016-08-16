@@ -957,11 +957,6 @@ ons-range[disabled] .range {
   background: transparent;
   border: none;
   line-height: normal;
-  font-family: 'Roboto Condensed', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-weight: 400;
-  font-size: 17px;
   cursor: default;
   user-select: none;
   text-overflow: ellipsis;
@@ -969,9 +964,9 @@ ons-range[disabled] .range {
   overflow: hidden;
   height: auto;
   text-decoration: none;
-  padding: 4px 10px;
-  font-size: 0.9em;
-  line-height: 2em;
+  padding: 0.4em 1em;
+  font-size: 0.7em;
+  line-height: 2.5em;
   letter-spacing: 0;
   color: #fff;
   vertical-align: middle;
@@ -979,6 +974,7 @@ ons-range[disabled] .range {
   border: 0px solid currentColor;
   border-radius: 3px;
   transition: none;
+  font-weight: 300;
 }
 .button:hover {
   transition: none;
@@ -1059,11 +1055,6 @@ ons-range[disabled] .range {
   background: transparent;
   border: none;
   line-height: normal;
-  font-family: 'Roboto Condensed', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-weight: 400;
-  font-size: 17px;
   cursor: default;
   user-select: none;
   text-overflow: ellipsis;
@@ -1071,9 +1062,9 @@ ons-range[disabled] .range {
   overflow: hidden;
   height: auto;
   text-decoration: none;
-  padding: 4px 10px;
-  font-size: 0.9em;
-  line-height: 2em;
+  padding: 0.4em 1em;
+  font-size: 0.7em;
+  line-height: 2.5em;
   letter-spacing: 0;
   color: #fff;
   vertical-align: middle;
@@ -1081,6 +1072,7 @@ ons-range[disabled] .range {
   border: 0px solid currentColor;
   border-radius: 3px;
   transition: none;
+  font-weight: 300;
   background: transparent;
   border: 1px solid transparent;
   box-shadow: none;
@@ -1128,11 +1120,6 @@ ons-range[disabled] .range {
   background: transparent;
   border: none;
   line-height: normal;
-  font-family: 'Roboto Condensed', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-weight: 400;
-  font-size: 17px;
   cursor: default;
   user-select: none;
   text-overflow: ellipsis;
@@ -1140,9 +1127,9 @@ ons-range[disabled] .range {
   overflow: hidden;
   height: auto;
   text-decoration: none;
-  padding: 4px 10px;
-  font-size: 0.9em;
-  line-height: 2em;
+  padding: 0.4em 1em;
+  font-size: 0.7em;
+  line-height: 2.5em;
   letter-spacing: 0;
   color: #fff;
   vertical-align: middle;
@@ -1150,6 +1137,7 @@ ons-range[disabled] .range {
   border: 0px solid currentColor;
   border-radius: 3px;
   transition: none;
+  font-weight: 300;
   border: none;
   background-color: #5494d1;
   color: #fff;
@@ -1183,7 +1171,7 @@ ons-range[disabled] .range {
   font-size: 17px;
   font-weight: 500;
   line-height: 36px;
-  padding: 4px 12px;
+  padding: 0.4em 1em;
   display: block;
   width: 100%;
   text-align: center;
@@ -1225,11 +1213,6 @@ ons-range[disabled] .range {
   background: transparent;
   border: none;
   line-height: normal;
-  font-family: 'Roboto Condensed', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-weight: 400;
-  font-size: 17px;
   cursor: default;
   user-select: none;
   text-overflow: ellipsis;
@@ -1237,9 +1220,9 @@ ons-range[disabled] .range {
   overflow: hidden;
   height: auto;
   text-decoration: none;
-  padding: 4px 10px;
-  font-size: 0.9em;
-  line-height: 2em;
+  padding: 0.4em 1em;
+  font-size: 0.7em;
+  line-height: 2.5em;
   letter-spacing: 0;
   color: #fff;
   vertical-align: middle;
@@ -1247,10 +1230,11 @@ ons-range[disabled] .range {
   border: 0px solid currentColor;
   border-radius: 3px;
   transition: none;
+  font-weight: 300;
   font-size: 17px;
   font-weight: 500;
   line-height: 36px;
-  padding: 4px 12px;
+  padding: 0.4em 1em;
   display: block;
   width: 100%;
   background: transparent;
@@ -1298,11 +1282,6 @@ ons-range[disabled] .range {
   background: transparent;
   border: none;
   line-height: normal;
-  font-family: 'Roboto Condensed', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-weight: 400;
-  font-size: 17px;
   cursor: default;
   user-select: none;
   text-overflow: ellipsis;
@@ -1310,9 +1289,9 @@ ons-range[disabled] .range {
   overflow: hidden;
   height: auto;
   text-decoration: none;
-  padding: 4px 10px;
-  font-size: 0.9em;
-  line-height: 2em;
+  padding: 0.4em 1em;
+  font-size: 0.7em;
+  line-height: 2.5em;
   letter-spacing: 0;
   color: #fff;
   vertical-align: middle;
@@ -1320,13 +1299,14 @@ ons-range[disabled] .range {
   border: 0px solid currentColor;
   border-radius: 3px;
   transition: none;
+  font-weight: 300;
   border: none;
   background-color: #5494d1;
   color: #fff;
   font-size: 17px;
   font-weight: 500;
   line-height: 36px;
-  padding: 4px 12px;
+  padding: 0.4em 1em;
   width: 100%;
   text-align: center;
   display: block;
@@ -1373,11 +1353,6 @@ ons-range[disabled] .range {
   background: transparent;
   border: none;
   line-height: normal;
-  font-family: 'Roboto Condensed', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-weight: 400;
-  font-size: 17px;
   cursor: default;
   user-select: none;
   text-overflow: ellipsis;
@@ -1385,9 +1360,9 @@ ons-range[disabled] .range {
   overflow: hidden;
   height: auto;
   text-decoration: none;
-  padding: 4px 10px;
-  font-size: 0.9em;
-  line-height: 2em;
+  padding: 0.4em 1em;
+  font-size: 0.7em;
+  line-height: 2.5em;
   letter-spacing: 0;
   color: #fff;
   vertical-align: middle;
@@ -1395,6 +1370,7 @@ ons-range[disabled] .range {
   border: 0px solid currentColor;
   border-radius: 3px;
   transition: none;
+  font-weight: 300;
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);
   padding: 0px 16px;
   transition: box-shadow 0.2s ease;
@@ -1443,11 +1419,6 @@ ons-range[disabled] .range {
   background: transparent;
   border: none;
   line-height: normal;
-  font-family: 'Roboto Condensed', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-weight: 400;
-  font-size: 17px;
   cursor: default;
   user-select: none;
   text-overflow: ellipsis;
@@ -1455,9 +1426,9 @@ ons-range[disabled] .range {
   overflow: hidden;
   height: auto;
   text-decoration: none;
-  padding: 4px 10px;
-  font-size: 0.9em;
-  line-height: 2em;
+  padding: 0.4em 1em;
+  font-size: 0.7em;
+  line-height: 2.5em;
   letter-spacing: 0;
   color: #fff;
   vertical-align: middle;
@@ -1465,6 +1436,7 @@ ons-range[disabled] .range {
   border: 0px solid currentColor;
   border-radius: 3px;
   transition: none;
+  font-weight: 300;
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);
   padding: 0px 16px;
   transition: box-shadow 0.2s ease;
@@ -5469,4 +5441,24 @@ input[type="search"].search-input::-webkit-search-cancel-button {
 .poll_text {
   padding: 1em 1em 0.5em;
   margin: 0;
+}
+@media all and (-webkit-min-device-pixel-ratio: 1) and (max-width: 320px) {
+  .page {
+    font-size: 14px;
+  }
+}
+@media all and (-webkit-min-device-pixel-ratio: 1) and (min-width: 600px) {
+  .page {
+    font-size: 29px;
+  }
+}
+@media all and (-webkit-min-device-pixel-ratio: 1) and (min-width: 700px) {
+  .page {
+    font-size: 34px;
+  }
+}
+@media all and (-webkit-min-device-pixel-ratio: 2) and (min-width: 1400px) {
+  .page {
+    font-size: 85px;
+  }
 }
