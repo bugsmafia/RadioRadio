@@ -69,4 +69,9 @@
 <!--  <plugin spec="https://github.com/bugsmafia/cordova-aac-stream.git" source="git" />  -->
   
 <!--  <plugin spec="https://github.com/remoorejr/cordova-plugin-media-with-compression.git" source="git" />  -->
+<gap:config-file platform="android" parent="/manifest" mode="add">
+    <uses-feature android:name="android.hardware.touchscreen" android:required="false" />
+    <uses-feature android:name="android.hardware.telephony" android:required="false" />
+</gap:config-file>
 </widget>
+ 
