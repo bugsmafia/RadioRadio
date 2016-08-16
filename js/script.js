@@ -1,3 +1,5 @@
+screen.lockOrientation('portrait');
+
 function getPageName(url) {
     var index = url.lastIndexOf("/") + 1;
     var filenameWithExtension = url.substr(index);
@@ -7,6 +9,7 @@ function getPageName(url) {
 
 // Функция выполнения кода при загрузки приложения
 function onLoad() {
+	screen.lockOrientation('portrait');
 	$("#l2sOffAnim").fadeOut(0).fadeIn(700).delay(500).fadeOut(300).fadeIn(700).delay(500).fadeOut(300);
     document.addEventListener("deviceready", onDeviceReady, false);
 }
