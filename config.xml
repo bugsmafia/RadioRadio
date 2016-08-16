@@ -8,6 +8,7 @@
   <author email="bugsmafia@gmail.com" href="https://vk.com/bugsmafia">Сергей Осипов Bugsmafia</author>
 
   <content src="index.html" />
+  <supports-screens android:largeScreens="true" android:normalScreens="true" android:smallScreens="true" android:xlargeScreens="true" android:resizeable="true" android:anyDensity="true"/>
   <!-- <content src="http://localhost/index.html" /> -->
   <preference name="phonegap-version" value="cli-6.3.0" />
   <preference name="android-build-tool" value="gradle" /> 
@@ -69,9 +70,6 @@
 <!--  <plugin spec="https://github.com/bugsmafia/cordova-aac-stream.git" source="git" />  -->
   
 <!--  <plugin spec="https://github.com/remoorejr/cordova-plugin-media-with-compression.git" source="git" />  -->
-<gap:config-file platform="android" parent="/manifest" mode="add">
-    <uses-feature android:name="android.hardware.touchscreen" android:required="false" />
-    <uses-feature android:name="android.hardware.telephony" android:required="false" />
-</gap:config-file>
+ 
 </widget>
  
