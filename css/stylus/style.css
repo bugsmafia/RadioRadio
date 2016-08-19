@@ -512,8 +512,6 @@ ons-range[disabled] .range {
   left: 0px;
   top: 0px;
   z-index: 3;
-  margin-left: 15px;
-  margin-right: 15px;
 }
 .range__left:before {
   content: ' ';
@@ -5441,6 +5439,13 @@ input[type="search"].search-input::-webkit-search-cancel-button {
 .poll_text {
   padding: 1em 1em 0.5em;
   margin: 0;
+}
+#volume i {
+  position: absolute;
+  left: -1.5em;
+  color: rgba(255,255,255,0.5);
+  top: -0.4em;
+  font-size: 1.5em;
 }
 @media all and (-webkit-min-device-pixel-ratio: 1) and (max-width: 320px) {
   .page {
