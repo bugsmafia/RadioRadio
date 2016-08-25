@@ -189,6 +189,10 @@ text-input-underbar-disabled()
   border-radius 0
   height 24px
   -webkit-transform translate3d(0, 0, 0) // prevent ios flicker
+  -ms-transform translate3d(0, 0, 0)
+  -o-transform translate3d(0, 0, 0)
+  -moz-transform translate3d(0, 0, 0)
+  transform translate3d(0, 0, 0)
 
 .text-input--material__label
   color var-material-text-input-inactive-color
@@ -204,7 +208,19 @@ text-input-underbar-disabled()
   color var-material-text-input-active-color
   transform translate(0, -75%) scale(0.75)
   transform-origin left top
+  -ms-transform translate(0, -75%) scale(0.75)
+  -ms-transform-origin left top
+  -webkit-transform translate(0, -75%) scale(0.75)
+  -webkit-transform-origin left top
+  -o-transform translate(0, -75%) scale(0.75)
+  -o-transform-origin left top
+  -moz-transform translate(0, -75%) scale(0.75)
+  -moz-transform-origin left top
   transition transform 0.1s ease-in, color 0.1s ease-in
+  -ms-transition transform 0.1s ease-in, color 0.1s ease-in
+  -webkit-transition transform 0.1s ease-in, color 0.1s ease-in
+  -o-transition transform 0.1s ease-in, color 0.1s ease-in
+  -moz-transition transform 0.1s ease-in, color 0.1s ease-in
 
 .text-input--material:focus
   background-image linear-gradient(var-material-text-input-active-color, var-material-text-input-active-color), linear-gradient(to top, transparent 1px, var-material-text-input-inactive-color 1px)

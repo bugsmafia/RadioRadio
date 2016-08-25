@@ -63,6 +63,10 @@ var-popover-margin-material = 4px
   height 100%
   pointer-events none
   transform translate3d(0, 0, 0) // iOS / Safari bugfix
+  -ms-transform translate3d(0, 0, 0)
+  -webkit-transform translate3d(0, 0, 0)
+  -o-transform translate3d(0, 0, 0)
+  -moz-transform translate3d(0, 0, 0)
 
 .popover__content
   reset-box-model()
@@ -92,6 +96,10 @@ var-popover-margin-material = 4px
   width var-popover-arrow-size
   height var-popover-arrow-size
   transform-origin 50% 50% 0
+  -ms-transform-origin 50% 50% 0
+  -webkit-transform-origin 50% 50% 0
+  -o-transform-origin 50% 50% 0
+  -moz-transform-origin 50% 50% 0
   background-color transparent
   background-image linear-gradient(45deg, var-popover-background-color, var-popover-background-color 50%, transparent 50%)
   border-radius 0 0 0 var-popover-arrow-radius
@@ -99,18 +107,34 @@ var-popover-margin-material = 4px
 
 .popover--bottom .popover__arrow
   transform rotate(-45deg)
+  -ms-transform rotate(-45deg)
+  -webkit-transform rotate(-45deg)
+  -o-transform rotate(-45deg)
+  -moz-transform rotate(-45deg)
   bottom 1px
 
 .popover--top .popover__arrow
   transform rotate(135deg)
+  -ms-transform rotate(135deg)
+  -webkit-transform rotate(135deg)
+  -o-transform rotate(135deg)
+  -moz-transform rotate(135deg)
   top 1px
 
 .popover--left .popover__arrow
   transform rotate(45deg)
+  -ms-transform rotate(45deg)
+  -webkit-transform rotate(45deg)
+  -o-transform rotate(45deg)
+  -moz-transform rotate(45deg)
   left 1px
 
 .popover--right .popover__arrow
   transform rotate(225deg)
+  -ms-transform rotate(225deg)
+  -webkit-transform rotate(225deg)
+  -o-transform rotate(225deg)
+  -moz-transform rotate(225deg)
   right 1px
 
 /*! topdoc
@@ -171,6 +195,10 @@ var-popover-margin-material = 4px
   max-height 100%
   overflow auto
   transform none
+  -ms-transform none
+  -webkit-transform none
+  -o-transform none
+  -moz-transform none
   /*border-bottom 4px solid transparent*/
 
 .popover__content--material

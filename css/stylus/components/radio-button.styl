@@ -78,6 +78,10 @@ radio-button--after()
   top 50%
   left 50%
   transform translate(-50%, -50%)
+  -ms-transform translate(-50%, -50%)
+  -webkit-transform translate(-50%, -50%)
+  -o-transform translate(-50%, -50%)
+  -moz-transform translate(-50%, -50%)
 
 radio-button--disabled()
   disabled()
@@ -137,6 +141,10 @@ radio-button--disabled()
   border-right none
   border-radius var-checkmark-border-radius
   transform rotate(-45deg)
+  -ms-transform rotate(-45deg)
+  -webkit-transform rotate(-45deg)
+  -o-transform rotate(-45deg)
+  -moz-transform rotate(-45deg)
 
 .radio-button__input:disabled + .radio-button__checkmark
   radio-button--disabled()
@@ -196,6 +204,10 @@ radio-button--disabled()
   border none
   border-radius 50%
   transform scale(0)
+  -ms-transform scale(0)
+  -webkit-transform scale(0)
+  -o-transform scale(0)
+  -moz-transform scale(0)
 
 .radio-button--material__input:checked + .radio-button__checkmark:before
   background transparent
@@ -205,11 +217,19 @@ radio-button--disabled()
   background $material-radio-button-inactive-color
   opacity 1
   transform scale(0)
+  -ms-transform scale(0)
+  -webkit-transform scale(0)
+  -o-transform scale(0)
+  -moz-transform scale(0)
 
 .radio-button--material__input:checked + .radio-button__checkmark:after
   opacity 1
   background $material-radio-button-active-color
   transform scale(1)
+  -ms-transform scale(1)
+  -webkit-transform scale(1)
+  -o-transform scale(1)
+  -moz-transform scale(1)
 
 .radio-button--material__input:disabled + .radio-button__checkmark
   opacity 1
