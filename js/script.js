@@ -49,31 +49,31 @@ function modals(name) {
 	};
 } 
 var streamChanel;
-var data;
+var JSONdata;
 streamChanel = false;
 function LoadConfigApp() {
 	jQuery.getJSON("http://app.radioradio.ru/api.php", function(data) {
-		data = data;
+		var JSONdata = data;
 	})
 	.done(function() {
 		alert('Данные получены');
-			streamChanel = data.stream;
-			if(jQuery.isEmptyObject(data.poll)){
+			streamChanel = JSONdata.stream;
+			if(jQuery.isEmptyObject(JSONdata.poll)){
 				jQuery('#poll').hide();
 			} else {
-				jQuery('#poll .poll_text').text(data.poll.text);
+				jQuery('#poll .poll_text').text(JSONdata.poll.text);
 				jQuery('#poll .poll_ex').html('');
-				jQuery.each(data.poll.ex, function (index, value) {
-					jQuery('#poll .poll_ex').append('<div class="hor_grid_box"><a onclick="SmsSend(\''+data.poll.pref+' '+(index + 1)+'\')" href="#"><ons-button>'+value+'</ons-button></a></div>')
+				jQuery.each(JSONdata.poll.ex, function (index, value) {
+					jQuery('#poll .poll_ex').append('<div class="hor_grid_box"><a onclick="SmsSend(\''+JSONdata.poll.pref+' '+(index + 1)+'\')" href="#"><ons-button>'+value+'</ons-button></a></div>')
 				});
 				jQuery('#poll').show();
 			};
 			
-			if(jQuery.isEmptyObject(data.conf.ads)){
+			if(jQuery.isEmptyObject(JSONdata.conf.ads)){
 				jQuery('#ads').hide();
 			} else {
-				jQuery('#ads .logoAds a').attr('href', data.conf.ads.url);
-				jQuery('#ads .logoAds a').css('background-image', 'url(http://app.radioradio.ru/partner/'+data.conf.ads.img+')');
+				jQuery('#ads .logoAds a').attr('href', JSONdata.conf.ads.url);
+				jQuery('#ads .logoAds a').css('background-image', 'url(http://app.radioradio.ru/partner/'+JSONdata.conf.ads.img+')');
 				jQuery('#ads').show();
 			};
 			if(streamChanel != false){
