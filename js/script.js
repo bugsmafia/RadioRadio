@@ -4,7 +4,7 @@ function getPageName(url) {
     return filenameWithExtension;
 }
 
-ons.ready(function() {
+
 // Функция выполнения кода при загрузки приложения
 function onLoad() {
 	screen.lockOrientation('portrait');
@@ -307,6 +307,8 @@ function LoadStatus() {
 		UpdateStatus(data.i);
 	});
 }
+
+ons.ready(function() {
 // Устанавливаем первоначальное значение куки о треке
 localStorage.setItem('TrackIdNow', '');
 LoadStatus();
