@@ -457,7 +457,7 @@ function checkConnection() {
 	$('#inet').html('Статус соединения - '+states[networkState]);
 }
 
-ons.ready(function() {
+
 	LoadConfigApp();	
 	setInterval(function(){
 		LoadConfigApp();
@@ -486,8 +486,8 @@ ons.ready(function() {
 			};
 		}
 	}
-    
-	
+
+ons.ready(function() {
 	LoadStream();
 	function LoadStream() {
 		setTimeout(function() {
@@ -506,8 +506,6 @@ ons.ready(function() {
 						MusicControls.updateIsPlaying(true);
 						streamer = 2;
 						$(".l3sAnim").css("background-color", "rgba(255,87,34,1)");
-						
-						$("#play ons-progress-circular").show();
 					}
 					if(status === PlayStream.MEDIA_RUNNING){
 						console.log('running');
