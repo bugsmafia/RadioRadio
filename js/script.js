@@ -308,7 +308,7 @@ function LoadStatus() {
 	});
 }
 
-ons.ready(function() {
+
 // Устанавливаем первоначальное значение куки о треке
 localStorage.setItem('TrackIdNow', '');
 LoadStatus();
@@ -457,7 +457,7 @@ function checkConnection() {
 	$('#inet').html('Статус соединения - '+states[networkState]);
 }
 
-
+ons.ready(function() {
 	LoadConfigApp();	
 	setInterval(function(){
 		LoadConfigApp();
