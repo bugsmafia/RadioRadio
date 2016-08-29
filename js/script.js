@@ -4,7 +4,8 @@ function getPageName(url) {
     return filenameWithExtension;
 }
 
-
+ons.ready(function() {
+alert('мы готовы');
 // Функция выполнения кода при загрузки приложения
 function onLoad() {
 	screen.lockOrientation('portrait');
@@ -48,10 +49,19 @@ function modals(name) {
 	};
 } 
 var streamChanel;
+streamChanel = false;
 function LoadConfigApp() {
 	jQuery.getJSON("http://app.radioradio.ru/api.php", function(data) {
-		streamChanel = data.stream;
+
+		
 		setTimeout(function() {
+			
+		}, 5000);
+			
+	})
+	.done(function() {
+		alert('Данные получены');
+			streamChanel = data.stream;
 			if(jQuery.isEmptyObject(data.poll)){
 				jQuery('#poll').hide();
 			} else {
@@ -69,10 +79,19 @@ function LoadConfigApp() {
 				jQuery('#ads .logoAds a').attr('href', data.conf.ads.url);
 				jQuery('#ads .logoAds a').css('background-image', 'url(http://app.radioradio.ru/partner/'+data.conf.ads.img+')');
 				jQuery('#ads').show();
+			};
+			if(streamChanel != false){
+				$(".l3sAnim").css("background-color", "rgba(51,177,255,0.7)");
+				$(".l3s").css("background-image", "url(img/play-l3-play.png)");
+				$("#l2sOffAnim").fadeOut(750);
 			}
-		}, 5000);
-			
-	});
+	})
+	.fail(function() {
+		console.log( "error" );
+	})
+	.always(function() {
+		console.log( "complete" );
+	})
 }
 
 // Тянем информацию об альбоме
@@ -457,17 +476,21 @@ function checkConnection() {
 	var OneclickStop = 1;
 	// Функция кнопки ПЛЕЙ основной
 	function streamplay() {
-		OneclickPlay = 2;
-		
-		if (streamer == "1") {
-			$my_media.play();
-		} else if (streamer == "2") {
-			$my_media.stop();
-		} else if (streamer == "3") {
-			$my_media.stop();
-		} else if (streamer == "4") {
-			$my_media.play();
-		};
+		if(streamChanel == false){
+			alert('Пожалуйста подождите. Соединяемся с сервером.');
+		} else {
+			alert('все гуд');
+			OneclickPlay = 2;			
+			if (streamer == "1") {
+				$my_media.play();
+			} else if (streamer == "2") {
+				$my_media.stop();
+			} else if (streamer == "3") {
+				$my_media.stop();
+			} else if (streamer == "4") {
+				$my_media.play();
+			};
+		}
 	}
     
 	
@@ -627,8 +650,8 @@ setInterval(function(){
 			localStorage.setItem('StreamReg', 'RU-MOS');
 		};		
 	}; 
-ons.ready(function() {
-console.log('Приложение загружено');
+
+	console.log('Приложение загружено');
 	LocalConfig();
 	
 	$('input:checkbox').change(function(){

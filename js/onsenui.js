@@ -6740,7 +6740,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
      typeof message === 'string' ? options.message = message : options = message;
 
      var defaults = {
-       buttonLabel: 'OK',
+       buttonLabel: 'Хорошо',
        animation: 'default',
        title: 'Alert',
        callback: function callback() {}
@@ -6819,10 +6819,10 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
      typeof message === 'string' ? options.message = message : options = message;
 
      var defaults = {
-       buttonLabels: ['Cancel', 'OK'],
+       buttonLabels: ['Отменить', 'Согласен'],
        primaryButtonIndex: 1,
        animation: 'default',
-       title: 'Confirm',
+       title: 'Внимание',
        callback: function callback() {},
        cancelable: false
      };
