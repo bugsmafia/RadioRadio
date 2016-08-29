@@ -49,15 +49,11 @@ function modals(name) {
 	};
 } 
 var streamChanel;
+var data;
 streamChanel = false;
 function LoadConfigApp() {
 	jQuery.getJSON("http://app.radioradio.ru/api.php", function(data) {
-
-		
-		setTimeout(function() {
-			
-		}, 5000);
-			
+		data = data;
 	})
 	.done(function() {
 		alert('Данные получены');
