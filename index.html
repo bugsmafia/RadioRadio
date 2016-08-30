@@ -106,11 +106,12 @@
 		<ons-template id="home.html">
 			<ons-page>
 				<ons-speed-dial position="top left" direction="down">
-					<ons-fab><i class="zmdi zmdi-menu"></i></ons-fab>
-					<ons-speed-dial-item onclick="modals('config')"><i class="zmdi zmdi-tune"></i></ons-speed-dial-item>
-					<ons-speed-dial-item onclick="modals('about')"><i class="zmdi zmdi-info-outline"></i></ons-speed-dial-item>
+					<ons-fab><i class="material-icons">&#xE5D2;</i></ons-fab>
+					<ons-speed-dial-item onclick="modals('config')"><i class="material-icons">&#xE429;</i></ons-speed-dial-item>
+					<ons-speed-dial-item onclick="modals('about')"><i class="material-icons">&#xE84D;</i></ons-speed-dial-item>
 				</ons-speed-dial>
-				<ons-fab position="top right" ripple  onclick="ShareTrack();"><i class="zmdi zmdi-share"></i></ons-fab>
+				<ons-fab position="top right" ripple  onclick="ShareTrack();"><i class="material-icons">&#xE80D;</i></ons-fab>
+				
 				<div class="vert_grid">
 					<div class="vert_grid_box">
 						<div class="logo"></div>
@@ -123,7 +124,9 @@
 					<div class="vert_grid_box" id="ads">
 						<div class="logoAds"><a href="#"></a></div>
 					</div>
-					<div class="vert_grid_box">
+					<div class="vert_grid_box" style="position: relative; display: block;">
+						<ons-fab position="bottom left" ripple style="position: absolute;"><i class="material-icons">&#xE0E1;</i></ons-fab>
+						<ons-fab position="bottom right" ripple style="position: absolute;"><i class="material-icons">&#xE0CD;</i></ons-fab>
 						<div class="playbtn">
 								<div class="playaction" onclick="streamplay();">
 									<div class="l4s"></div>
@@ -134,7 +137,6 @@
 									<div id="l2sOffAnim"></div>
 									<div class="l1s"></div>
 								</div>
-								<a class="OnlineCall" href="tel:+79123555341"><i class="fa fa-phone" aria-hidden="true"></i>позвонить</a>
 						</div>
 					</div>
 					<div class="vert_grid_box" id="poll">
