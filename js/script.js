@@ -454,7 +454,7 @@ function checkConnection() {
     states[Connection.CELL_4G]  = 'мобильный 4G';
     states[Connection.CELL]     = 'мобильный, базовый';
     states[Connection.NONE]     = 'нет соединения';
-	$('#inet').html('Статус соединения - '+states[networkState]);
+	return states[networkState];
 }
 
 
@@ -473,6 +473,8 @@ function checkConnection() {
 	function streamplay() {
 		if(streamChanel == false){
 			alert('Пожалуйста подождите. Соединяемся с сервером.');
+		} else if (checkConnection == 'нет соединения'){
+			alert('Соединение с интернетом - отсутствует.');
 		} else {
 			OneclickPlay = 2;			
 			if (streamer == "1") {
