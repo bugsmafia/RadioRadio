@@ -5580,9 +5580,17 @@ input[type="search"].search-input::-webkit-search-cancel-button {
 .buttonSMS {
   position: absolute;
   color: #fab032;
+  display: none;
+}
+.buttonSMS a {
+  color: #fab032;
 }
 .buttonCall {
   position: absolute;
+  color: #f00;
+  display: none;
+}
+.buttonCall a {
   color: #f00;
 }
 @media all and (-webkit-min-device-pixel-ratio: 1) and (max-width: 320px) {

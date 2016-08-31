@@ -85,6 +85,18 @@ function LoadConfigApp() {
 				jQuery('#ads .logoAds a').css('background-image', 'url(http://app.radioradio.ru/partner/'+data.conf.ads.img+')');
 				jQuery('#ads').show();
 			};
+			if(jQuery.isEmptyObject(data.conf.sms)){
+				jQuery('.buttonSMS').hide();
+			} else {
+				jQuery('#buttonSMS a').attr('href', data.conf.sms);
+				jQuery('.buttonSMS').show();
+			};
+			if(jQuery.isEmptyObject(data.conf.phone)){
+				jQuery('.buttonCall').hide();
+			} else {
+				jQuery('#buttonCall a').attr('href', data.conf.call);
+				jQuery('.buttonCall').show();
+			};
 			if(streamChanel != false){
 				$(".l3sAnim").css("background-color", "rgba(51,177,255,0.7)");
 				$(".l3s").css("background-image", "url(img/play-l3-play.png)");
