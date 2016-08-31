@@ -16,7 +16,7 @@
 					<div class="center">Настройки приложения</div>
 					<div class="right">
 						<ons-toolbar-button onclick="modals('config'); LocalConfig();">
-							<ons-icon icon="md-close"></ons-icon>
+							<i class="material-icons">&#xE5CD;</i>
 						</ons-toolbar-button>
 					</div>
 				</ons-toolbar>
@@ -67,7 +67,7 @@
 					<div class="center">Информация</div>
 					<div class="right">
 						<ons-toolbar-button onclick="modals('about')">
-							<ons-icon icon="md-close"></ons-icon>
+							<i class="material-icons">&#xE5CD;</i>
 						</ons-toolbar-button>
 					</div>
 				</ons-toolbar>
@@ -110,7 +110,9 @@
 					<ons-speed-dial-item onclick="modals('config')"><i class="material-icons">&#xE429;</i></ons-speed-dial-item>
 					<ons-speed-dial-item onclick="modals('about')"><i class="material-icons">&#xE8FD;</i></ons-speed-dial-item>
 				</ons-speed-dial>
-				<ons-fab position="top right" ripple  onclick="ShareTrack();"><i class="material-icons">&#xE80D;</i></ons-fab>
+				<ons-speed-dial position="top right" direction="down" onclick="ShareTrack();">
+					<ons-fab><i class="material-icons">&#xE80D;</i></ons-fab>
+				</ons-speed-dial>
 				
 				<div class="vert_grid">
 					<div class="vert_grid_box">
@@ -125,8 +127,8 @@
 						<div class="logoAds"><a href="#"></a></div>
 					</div>
 					<div class="vert_grid_box" style="position: relative;display: block;margin: 1em 0em;">
-						<ons-fab position="bottom left" ripple style="position: absolute;"><i class="material-icons">&#xE0E1;</i></ons-fab>
-						<ons-fab position="bottom right" ripple style="position: absolute;font-size: 1.8em; */"><i class="material-icons">&#xE0CD;</i></ons-fab>
+						<ons-fab class="buttonSMS" position="bottom left" ripple><i class="material-icons">&#xE0E1;</i></ons-fab>
+						<ons-fab class="buttonCall" position="bottom right" ripple><i class="material-icons">&#xE0CD;</i></ons-fab>
 						<div class="playbtn">
 								<div class="playaction" onclick="streamplay();">
 									<div class="l4s"></div>

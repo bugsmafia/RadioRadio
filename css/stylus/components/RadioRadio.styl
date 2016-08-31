@@ -159,10 +159,10 @@
 	
 #volume i
     position: absolute;
-    left: -1em;
+    left: -1.5em;
     color: rgba(255,255,255,0.5);
-    top: -0.4em;
-    font-size: 1em;
+    top: -0.42em;
+    font-size: 1.3em;
 
 .OnlineCall
 	position absolute
@@ -178,6 +178,14 @@
 	display block
 	font-size 2em
 
+.buttonSMS
+	position absolute
+	color rgb(250, 176, 50)
+
+.buttonCall
+	position absolute
+	color #f00
+
 @media all and (-webkit-min-device-pixel-ratio: 1)
 	@media (max-width: 320px)
     .page
@@ -190,6 +198,8 @@
       font-size: 34px
 	  
 @media all and (-webkit-min-device-pixel-ratio: 2)
-	@media (min-width: 1400px)
-    .page
-      font-size: 17px * 5
+	@media (min-width: 800px)
+		.page
+		  font-size: 17px * 2
+		//.buttonCall, .buttonSMS
+		 //font-size: 1.2em

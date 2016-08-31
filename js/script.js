@@ -19,22 +19,34 @@ function onDeviceReady() {
 }
 // Функция при нажатии кнопки НАЗАД
 function onBackKeyDown() {
-	$my_media.stop();
-	OneclickPlay = 2;
-	ons.notification.confirm('Закрыть радио?').then(
-		function(answer) {
-		  if (answer === 1) {
-				console.log('закрывается');
-		  }
-		}
-	);
+	if(openmodal == true){
+		document.querySelector("#Modal_Config").hide();
+		document.querySelector("#Modal_About").hide();
+		document.querySelector("#Modal_Share").hide();
+		openmodal = false;
+	} else {
+		$my_media.stop();
+		OneclickPlay = 2;
+		ons.notification.confirm('Закрыть радио?').then(
+			function(answer) {
+			  if (answer === 1) {
+					console.log('закрывается');
+			  }
+			}
+		);
+	};
 }
 // Функция при сворачивании приложения
 function onPause() {}
 // Функция при восстановлении приложения
 function onResume() {} 
-
+var openmodal = false;
 function modals(name) {
+	if(openmodal == false){
+		openmodal = true;
+	} else {
+		openmodal = false;
+	};
 	switch (name) {
 		case "config":
 			document.querySelector("#Modal_Config").toggle();
