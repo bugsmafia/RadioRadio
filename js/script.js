@@ -97,7 +97,7 @@ function LoadConfigApp() {
 			if(jQuery.isEmptyObject(data.conf.phone)){
 				jQuery('.buttonCall').hide();
 			} else {
-				jQuery('.phoneact').attr('href', data.conf.call);
+				jQuery('.phoneact').attr('href', data.conf.phone);
 				jQuery('.buttonCall').show();
 			};
 			if(streamChanel != false){
