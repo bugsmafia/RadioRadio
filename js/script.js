@@ -15,7 +15,7 @@ function onLoad() {
 function onDeviceReady() {
     document.addEventListener("pause", onPause, false);
     document.addEventListener("resume", onResume, false);
-	document.addEventListener("backbutton", onBackKeyDown, true);
+	document.addEventListener("backbutton", onBackKeyDown, false);
 } 
 // Функция при нажатии кнопки НАЗАД
 function onBackKeyDown() {
