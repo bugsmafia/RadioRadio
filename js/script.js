@@ -19,12 +19,15 @@ function onDeviceReady() {
 }
 // Функция при нажатии кнопки НАЗАД
 function onBackKeyDown() {
+	console.log('Функция backbtn');
 	if(openmodal == true){
+		console.log('Модальное закрывается');
 		document.querySelector("#Modal_Config").hide();
 		document.querySelector("#Modal_About").hide();
 		document.querySelector("#Modal_Share").hide();
 		openmodal = false;
 	} else {
+		console.log('Модальное было закрыто. останавливаем и закрываем все');
 		$my_media.stop();
 		OneclickPlay = 2;
 		ons.notification.confirm('Закрыть радио?').then(
@@ -88,13 +91,13 @@ function LoadConfigApp() {
 			if(jQuery.isEmptyObject(data.conf.sms)){
 				jQuery('.buttonSMS').hide();
 			} else {
-				jQuery('#buttonSMS a').attr('href', data.conf.sms);
+				jQuery('.smsact').attr('href', data.conf.sms);
 				jQuery('.buttonSMS').show();
 			};
 			if(jQuery.isEmptyObject(data.conf.phone)){
 				jQuery('.buttonCall').hide();
 			} else {
-				jQuery('#buttonCall a').attr('href', data.conf.call);
+				jQuery('.phoneact').attr('href', data.conf.call);
 				jQuery('.buttonCall').show();
 			};
 			if(streamChanel != false){
