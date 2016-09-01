@@ -515,7 +515,74 @@ function checkConnection() {
 			};
 		}
 	}
-
+function StreamGO(){	
+		var StreamGO;
+			var StreamRegion = 'reg'+localStorage.getItem('StreamReg');
+			$.each(streamChanel, function (key, region) {
+				console.log(key);
+				console.log(StreamRegion);
+				// выбираем регион
+				if(key == StreamRegion){
+					$.each(region, function (index, codec) {
+						console.log(index);
+						console.log(codec);
+						// выбираем кодек
+						if(index == 'aac'){
+							console.log('выбрали aac');				
+							$.each(codec, function (index, qa) {
+								console.log(index);
+								$.each(qa, function (index, chanel) {
+									StreamGO = chanel.patch;
+								})
+							})
+						};
+					})
+				};
+			});
+	return StreamGO;
+};			
+	// Функция восстановления воспроизведения
+function streamRePlayGO(){
+	setTimeout(function() {
+		console.log("Восстанавливаем стрим");
+		$("#l2sOffAnim").fadeIn(750);
+		$my_media.play();
+	}, 100);
+};
+function streamRePlay(){
+	console.log(navigator.connection.type+' '+streamer+' '+OneclickStop+' '+OneclickPlay);
+	if(navigator.connection.type != 'none' && streamer == "1" && OneclickStop == "2"){
+		console.log('Сработали условия для перезапуска стрима!');
+		streamRePlayGO();
+	};	
+}
+function LocalConfig(){
+		if(localStorage.getItem('ConfloadAlbum')){
+			$("#album").prop('checked', localStorage.getItem('ConfloadAlbum'));
+		} else {
+			localStorage.setItem('ConfloadAlbum', false);
+		};
+		if(localStorage.getItem('StreamQ')){
+			$("input[name='qa']").each(function() {
+				if(this.value == localStorage.getItem('StreamQ')){
+					$(this).prop('checked', true)
+				}
+			});
+		} else {
+			localStorage.setItem('StreamQ', 'auto');
+			$("input[name='qa']").each(function() {
+				if(this.value == localStorage.getItem('StreamQ')){
+					$(this).prop('checked', true)
+				}
+			});
+		}; 
+		
+		if(localStorage.getItem('StreamReg')){
+			localStorage.setItem('StreamReg', 'RU-MOS');
+		} else {
+			localStorage.setItem('StreamReg', 'RU-MOS');
+		};		
+	}; 
 ons.ready(function() {
 	LoadStream();
 	function LoadStream() {
@@ -599,78 +666,12 @@ ons.ready(function() {
 			$my_media.stop();
 		}, 2000);
 	} 
-function StreamGO(){	
-		var StreamGO;
-			var StreamRegion = 'reg'+localStorage.getItem('StreamReg');
-			$.each(streamChanel, function (key, region) {
-				console.log(key);
-				console.log(StreamRegion);
-				// выбираем регион
-				if(key == StreamRegion){
-					$.each(region, function (index, codec) {
-						console.log(index);
-						console.log(codec);
-						// выбираем кодек
-						if(index == 'aac'){
-							console.log('выбрали aac');				
-							$.each(codec, function (index, qa) {
-								console.log(index);
-								$.each(qa, function (index, chanel) {
-									StreamGO = chanel.patch;
-								})
-							})
-						};
-					})
-				};
-			});
-	return StreamGO;
-};			
-	// Функция восстановления воспроизведения
-function streamRePlayGO(){
-	setTimeout(function() {
-		console.log("Восстанавливаем стрим");
-		$("#l2sOffAnim").fadeIn(750);
-		$my_media.play();
-	}, 100);
-};
-function streamRePlay(){
-	console.log(navigator.connection.type+' '+streamer+' '+OneclickStop+' '+OneclickPlay);
-	if(navigator.connection.type != 'none' && streamer == "1" && OneclickStop == "2"){
-		console.log('Сработали условия для перезапуска стрима!');
-		streamRePlayGO();
-	};	
-}
+
 setInterval(function(){
 	streamRePlay()
 }, 6000); 
 // Sharing
-	function LocalConfig(){
-		if(localStorage.getItem('ConfloadAlbum')){
-			$("#album").prop('checked', localStorage.getItem('ConfloadAlbum'));
-		} else {
-			localStorage.setItem('ConfloadAlbum', false);
-		};
-		if(localStorage.getItem('StreamQ')){
-			$("input[name='qa']").each(function() {
-				if(this.value == localStorage.getItem('StreamQ')){
-					$(this).prop('checked', true)
-				}
-			});
-		} else {
-			localStorage.setItem('StreamQ', 'auto');
-			$("input[name='qa']").each(function() {
-				if(this.value == localStorage.getItem('StreamQ')){
-					$(this).prop('checked', true)
-				}
-			});
-		}; 
-		
-		if(localStorage.getItem('StreamReg')){
-			localStorage.setItem('StreamReg', 'RU-MOS');
-		} else {
-			localStorage.setItem('StreamReg', 'RU-MOS');
-		};		
-	}; 
+	
 
 	console.log('Приложение загружено');
 	LocalConfig();
