@@ -13,8 +13,8 @@ function onLoad() {
 }
 // Функция исполнения когда приложение готово
 function onDeviceReady() {
-    document.addEventListener("pause", onPause, true);
-    document.addEventListener("resume", onResume, true);
+    document.addEventListener("pause", onPause, false);
+    document.addEventListener("resume", onResume, false);
 	document.addEventListener("backbutton", onBackKeyDown, true);
 } 
 // Функция при нажатии кнопки НАЗАД
