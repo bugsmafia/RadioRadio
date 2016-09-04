@@ -76,7 +76,7 @@ function LoadConfigApp() {
 				jQuery('#poll .poll_text').text(data.poll.text);
 				jQuery('#poll .poll_ex').html('');
 				jQuery.each(data.poll.ex, function (index, value) {
-					jQuery('#poll .poll_ex').append('<div class="hor_grid_box"><a onclick="SmsSend(\''+data.poll.pref+' '+(index + 1)+'\')" href="#"><ons-button>'+value+'</ons-button></a></div>')
+					jQuery('#poll .poll_ex').append('<div class="hor_grid_box"><a onclick="SmsSend(\''+data.poll.pref+' '+(index + 1)+'\', \''+data.poll.phone+'\')" href="#"><ons-button>'+value+'</ons-button></a></div>')
 				});
 				jQuery('#poll').show();
 			};
@@ -449,12 +449,12 @@ var textShare = 'Присоединяйся к RadioRadio!\n https://vk.com/radi
 	window.plugins.socialsharing.shareWithOptions(ShareData, onSuccess, onError);
 }
 
-function SmsSend(mess) {
+function SmsSend(mess, phone) {
 ons.notification.confirm('Услуга платная').then(
     function(answer) {
       if (answer === 1) {
 		var SmsData = {
-			phoneNumber: "+79123555341",
+			phoneNumber: phone,
 			textMessage: mess
 		};
 		sms.sendMessage(SmsData , function(message) {
@@ -462,7 +462,7 @@ ons.notification.confirm('Услуга платная').then(
 		}, function(error) {
 			console.log("code: " + error.code + ", message: " + error.message);
 		});
-        ons.notification.alert('Сообщение отправлено!');
+        ons.notification.alert('Сообщение успешно отправлено!');
       }
     }
 );

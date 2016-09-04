@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<widget xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0" id="radioradio.ru" version="3.10.0">
+<widget xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0" id="radioradio.ru" version="3.10.1">
 	<name>RadioRadio</name>
 	<description>Радиостанция «РАДИО» - молодая и очень перспективная радиосеть, с хорошим темпом развития по всей территории России.
 Радиостанция «РАДИО» - выходит за рамки традиционных представлений о музыкальном формате как таковом.
@@ -20,8 +20,6 @@
 	<allow-intent href="https://*/*" />
 	<allow-intent href="tel:*" />
 	<allow-intent href="sms:*" />
-	<allow-intent href="mailto:*" />
-	<allow-intent href="geo:*" />
 	<platform name="android">
 		<allow-intent href="market:*" />
 	</platform>
@@ -32,18 +30,18 @@
 		<icon src="resources/android/icon/drawable-xhdpi-icon.png" density="xhdpi" />
 		<icon src="resources/android/icon/drawable-xxhdpi-icon.png" density="xxhdpi" />
 		<icon src="resources/android/icon/drawable-xxxhdpi-icon.png" density="xxxhdpi" />
-		<splash src="res/screen/android/splash-land-hdpi.png" density="land-hdpi" />
-		<splash src="res/screen/android/splash-land-ldpi.png" density="land-ldpi" />
-		<splash src="res/screen/android/splash-land-mdpi.png" density="land-mdpi" />
-		<splash src="res/screen/android/splash-land-xhdpi.png" density="land-xhdpi" />
-		<splash src="res/screen/android/splash-port-hdpi.png" density="port-hdpi" />
-		<splash src="res/screen/android/splash-port-ldpi.png" density="port-ldpi" />
-		<splash src="res/screen/android/splash-port-mdpi.png" density="port-mdpi" />
-		<splash src="res/screen/android/splash-port-xhdpi.png" density="port-xhdpi" />
-		<preference name="AutoHideSplashScreen" value="true" />
-		<preference name="FadeSplashScreen" value="false" />
-		<preference name="FadeSplashScreenDuration" value="3" />
-		<preference name="ShowSplashScreenSpinner" value="false" />
+		<splash src="resources/android/splash/drawable-land-ldpi-screen.png" density="land-ldpi"/>
+		<splash src="resources/android/splash/drawable-land-mdpi-screen.png" density="land-mdpi"/>
+		<splash src="resources/android/splash/drawable-land-hdpi-screen.png" density="land-hdpi"/>
+		<splash src="resources/android/splash/drawable-land-xhdpi-screen.png" density="land-xhdpi"/>
+		<splash src="resources/android/splash/drawable-land-xxhdpi-screen.png" density="land-xxhdpi"/>
+		<splash src="resources/android/splash/drawable-land-xxxhdpi-screen.png" density="land-xxxhdpi"/>
+		<splash src="resources/android/splash/drawable-port-ldpi-screen.png" density="port-ldpi"/>
+		<splash src="resources/android/splash/drawable-port-mdpi-screen.png" density="port-mdpi"/>
+		<splash src="resources/android/splash/drawable-port-hdpi-screen.png" density="port-hdpi"/>
+		<splash src="resources/android/splash/drawable-port-xhdpi-screen.png" density="port-xhdpi"/>
+		<splash src="resources/android/splash/drawable-port-xxhdpi-screen.png" density="port-xxhdpi"/>
+		<splash src="resources/android/splash/drawable-port-xxxhdpi-screen.png" density="port-xxxhdpi"/>
 	</platform>
 	<icon src="150.png" width="150" height="150" />
 	<plugin spec="https://github.com/bugsmafia/cordova-plugin-stream-aac.git" source="git" />
@@ -52,7 +50,7 @@
 	<preference name="StatusBarBackgroundColor" value="#444444" />
 	<preference name="StatusBarStyle" value="lightcontent" />
 	<plugin spec="https://github.com/EddyVerbruggen/SocialSharing-PhoneGap-Plugin.git" source="git" />
-	<plugin spec="https://github.com/apache/cordova-plugin-splashscreen.git" source="git" />
+	<!--  <plugin spec="https://github.com/apache/cordova-plugin-splashscreen.git" source="git" /> --></plugin>
 	<plugin spec="https://github.com/renanoliveira/cordova-phone-call-trap.git" source="git" />
 	<plugin spec="https://github.com/homerours/cordova-music-controls-plugin.git" source="git" />
 	<plugin spec="https://github.com/phonegap/phonegap-plugin-contentsync.git" source="git" />
