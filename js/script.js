@@ -19,7 +19,6 @@ function onDeviceReady() {
 }
 // Функция при нажатии кнопки НАЗАД
 function onBackKeyDown() {
-    console.log('Функция backbtn');
     if (openmodal == true) {
         console.log('Модальное закрывается');
         document.querySelector("#Modal_Config").hide();
@@ -530,18 +529,12 @@ function StreamGO() {
     var StreamRegion = 'reg' + localStorage.getItem('StreamReg');
 	if(streamChanel){
 		 $.each(streamChanel, function(key, region) {
-			console.log(key);
-			console.log(StreamRegion);
 			// выбираем регион
 			if (key == StreamRegion) {
 				$.each(region, function(index, codec) {
-					console.log(index);
-					console.log(codec);
 					// выбираем кодек
 					if (index == 'aac') {
-						console.log('выбрали aac');
 						$.each(codec, function(index, qa) {
-							console.log(index);
 							$.each(qa, function(index, chanel) {
 								StreamGO = chanel.patch;
 								localStorage.setItem('Stream', StreamGO);
@@ -603,14 +596,12 @@ function LocalConfig() {
 };
  function LoadStream() {
         setTimeout(function() {
-
-
             $my_media = new PlayStream(StreamGO(), function(status) {
                     console.log("status - " + status);
                     if (status === PlayStream.MEDIA_STOPPED) {
                         console.log('stopped');
                         MusicControls.updateIsPlaying(false);
-                        streamer = 1;
+                        streamer = 1; 
                         $(".l3sAnim").css("background-color", "rgba(51,177,255,0.7)");
                         $(".l3s").css("background-image", "url(img/play-l3-play.png)");
                         $("#l2sOffAnim").fadeOut(750);
