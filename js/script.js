@@ -572,10 +572,9 @@ function streamRePlay() {
 }
 
 function LocalConfig() {
-    if (localStorage.getItem('ConfloadAlbum')) {
-        $("#album").prop('checked', localStorage.getItem('ConfloadAlbum'));
+    if (localStorage.getItem('ConfloadAlbum') == 'false') {
     } else {
-        localStorage.setItem('ConfloadAlbum', false);
+        $("#album").prop('checked', localStorage.getItem('ConfloadAlbum'));
     };
     if (localStorage.getItem('StreamQ')) {
         $("input[name='qa']").each(function() {
