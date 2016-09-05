@@ -19,7 +19,6 @@ function onDeviceReady() {
 }
 // Функция при нажатии кнопки НАЗАД
 function onBackKeyDown() {
-	ons.disableDeviceBackButtonHandler();
     if (openmodal == true) {
         console.log('Модальное закрывается');
         document.querySelector("#Modal_Config").hide();
@@ -35,6 +34,7 @@ function onBackKeyDown() {
             function(answer) {
                 if (answer === 1) {
                     console.log('закрывается');
+					navigator.app.exitApp();
                 }
             }
         );
