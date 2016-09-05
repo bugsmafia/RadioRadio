@@ -86,6 +86,7 @@ function LoadConfigApp() {
         })
 }
 
+var ConfloadC = 0;
 function Config(data) {
     data = JSON.parse(data);
     streamChanel = data.stream;
@@ -119,11 +120,14 @@ function Config(data) {
         jQuery('.phoneact').attr('href', data.conf.phone);
         jQuery('.buttonCall').show();
     };
-    if (streamChanel != false) {
-        $(".l3sAnim").css("background-color", "rgba(51,177,255,0.7)");
-        $(".l3s").css("background-image", "url(img/play-l3-play.png)");
-        $("#l2sOffAnim").fadeOut(750);
-    }
+	if(ConfloadC == 0){
+		if (streamChanel != false) {
+			$(".l3sAnim").css("background-color", "rgba(51,177,255,0.7)");
+			$(".l3s").css("background-image", "url(img/play-l3-play.png)");
+			$("#l2sOffAnim").fadeOut(750);
+		};
+		ConfloadC++; 
+	}
 }
 
 // Тянем информацию об альбоме
