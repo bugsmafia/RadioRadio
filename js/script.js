@@ -350,7 +350,7 @@ function LoadStatus() {
 
 // Устанавливаем первоначальное значение куки о треке
 localStorage.setItem('TrackIdNow', '');
-LoadStatus();
+
 // Каждые 15 секунд запрашиваем статус эфира
 setInterval(function() {
     LoadStatus();
@@ -778,6 +778,7 @@ ons.ready(function() {
 document.addEventListener("init", function(event) {
   if (event.target.id == "RadioRadio") {
 		LoadConfigApp();
+		LoadStatus(); 
 		LoadStream();
   }
 }, false);
