@@ -600,6 +600,8 @@ function LocalConfig() {
 };
  function LoadStream() {
         setTimeout(function() {
+
+
             $my_media = new PlayStream(StreamGO(), function(status) {
                     console.log("status - " + status);
                     if (status === PlayStream.MEDIA_STOPPED) {
