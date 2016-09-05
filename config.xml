@@ -61,6 +61,6 @@
 	<plugin spec="https://github.com/apache/cordova-plugin-screen-orientation.git" source="git" />
 	<!--  <plugin spec="https://github.com/bugsmafia/cordova-aac-stream.git" source="git" />  -->
 	<!--  <plugin spec="https://github.com/remoorejr/cordova-plugin-media-with-compression.git" source="git" />  -->
-	<!--  <plugin spec="https://github.com/bugsmafia/RadioRadioLib.git" source="git" />  -->
+	<plugin spec="https://github.com/bugsmafia/RadioRadioLib.git" source="git" />
 	<plugin spec="https://github.com/apache/cordova-plugin-device.git" source="git" />
 </widget>

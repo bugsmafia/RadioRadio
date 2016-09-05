@@ -211,18 +211,22 @@ function infoAlbum(type, id, md, artist, song) {
                 console.log(data.cached);
             });
             ImgCashLarge.on('complete', function(data) {
+				console.log('Ларге - отправим в бар');
                 console.log(data.localPath);
                 console.log(data.cached);
-                if (data.localPath) {
-                    statusBar(data.localPath);
-                }
+				ContentSync.loadUrl('file://' + data.localPath, function() {
+					if (data.localPath) {
+						statusBar(data.localPath);
+						console.log('Ларге - отправили в бар Готово');
+					}
+				});
+                
             });
             ImgCashExtralarge.on('complete', function(data) {
                 console.log(data.localPath);
                 console.log(data.cached);
                 if (data.localPath) {
-                    jQuery('#' + type + ' #' + id + ' img').attr('src', data.localPath);
-
+					console.log(data.localPath);
                 }
 
             });
@@ -235,6 +239,7 @@ function infoAlbum(type, id, md, artist, song) {
         statusCode: {
             400: function() {
                 infoArtist(type, id, md, artist, song);
+				statusBar('icon.png');
             }
         }
     });
@@ -319,18 +324,20 @@ function infoArtist(type, id, md, artist, song) {
 
             });
             ImgCashLarge.on('complete', function(data) {
+				console.log('Ларге - отправим в бар');
                 console.log(data.localPath);
                 console.log(data.cached);
-                if (data.localPath) {
-                    statusBar(data.localPath);
-                }
+				ContentSync.loadUrl('file://' + data.localPath, function() {
+					if (data.localPath) {
+						statusBar(data.localPath);
+						console.log('Ларге - отправили в бар Готово');
+					}
+				});
+                
             });
             ImgCashExtralarge.on('complete', function(data) {
                 console.log(data.localPath);
                 console.log(data.cached);
-                if (data.localPath) {
-                    jQuery('#' + type + ' #' + id + ' img').attr('src', data.localPath);
-                }
             });
             ImgCashMega.on('complete', function(data) {
                 console.log(data.localPath);
@@ -338,7 +345,9 @@ function infoArtist(type, id, md, artist, song) {
             });
         },
         statusCode: {
-            400: function() {}
+            400: function() {
+				statusBar('icon.png'); 				
+			}
         }
     });
 }
@@ -396,9 +405,9 @@ function statusBar(img) {
         Playing = true;
     };
     if (localStorage.getItem('ConfloadAlbum') == 'false') {
-		img = 'icon.png';
+		
 	} else {
-        
+        img = 'icon.png';
     };
     MusicControls.create({
         track: localStorage.NowSong,
