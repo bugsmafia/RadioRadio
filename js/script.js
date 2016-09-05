@@ -28,11 +28,12 @@ function onBackKeyDown() {
     } else {
 		
         console.log('Модальное было закрыто. останавливаем и закрываем все');
-        $my_media.stop();
-        OneclickPlay = 2;
+        
         ons.notification.confirm('Закрыть радио?').then(
             function(answer) {
                 if (answer === 1) {
+					$my_media.stop();
+					OneclickPlay = 2;
                     console.log('закрывается');
 					navigator.app.exitApp();
                 }
