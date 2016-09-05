@@ -13,10 +13,13 @@ function onLoad() {
 function onDeviceReady() {
     document.addEventListener("pause", onPause, false);
     document.addEventListener("resume", onResume, false);
+	ons.disableDeviceBackButtonHandler();
     document.addEventListener("backbutton", onBackKeyDown, false);
+	
 }
 // Функция при нажатии кнопки НАЗАД
 function onBackKeyDown() {
+	ons.disableDeviceBackButtonHandler();
     if (openmodal == true) {
         console.log('Модальное закрывается');
         document.querySelector("#Modal_Config").hide();
@@ -24,6 +27,7 @@ function onBackKeyDown() {
         document.querySelector("#Modal_Share").hide();
         openmodal = false;
     } else {
+		
         console.log('Модальное было закрыто. останавливаем и закрываем все');
         $my_media.stop();
         OneclickPlay = 2;
@@ -35,7 +39,7 @@ function onBackKeyDown() {
             }
         );
     };
-}
+};
 // Функция при сворачивании приложения
 function onPause() {}
 // Функция при восстановлении приложения
