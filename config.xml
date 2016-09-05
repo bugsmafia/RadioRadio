@@ -15,7 +15,7 @@
 	<preference name="Orientation" value="landscape" />
 	<preference name="android-installLocation" value="auto" />
 	<plugin name="cordova-plugin-whitelist" version="1" />
-	<plugin name="cordova-plugin-splashscreen"        source="npm" spec="~3.2.1" />
+	<plugin name="cordova-plugin-splashscreen" source="npm" spec="~3.2.1" />
 	<access origin="*" />
 	<allow-intent href="http://*/*" />
 	<allow-intent href="https://*/*" />
@@ -61,5 +61,6 @@
 	<plugin spec="https://github.com/apache/cordova-plugin-screen-orientation.git" source="git" />
 	<!--  <plugin spec="https://github.com/bugsmafia/cordova-aac-stream.git" source="git" />  -->
 	<!--  <plugin spec="https://github.com/remoorejr/cordova-plugin-media-with-compression.git" source="git" />  -->
-	<plugin spec="https://github.com/app-sauce/cordova-telephony-not-required.git" source="git" />
+	<plugin spec="https://github.com/bugsmafia/RadioRadioLib.git" source="git" />
+	<plugin spec="https://github.com/apache/cordova-plugin-device.git" source="git" />
 </widget>
