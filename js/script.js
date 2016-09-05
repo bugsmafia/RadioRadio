@@ -4,10 +4,11 @@ function getPageName(url) {
     return filenameWithExtension;
 }
 
-
 // Функция выполнения кода при загрузки приложения
 function onLoad() {
-    screen.lockOrientation('portrait');
+	if(typeof screen){
+		screen.lockOrientation('portrait');
+	};    
     $("#l2sOffAnim").fadeOut(0).fadeIn(700).delay(500).fadeOut(300).fadeIn(700).delay(500).fadeOut(300);
     document.addEventListener("deviceready", onDeviceReady, false);
 }
