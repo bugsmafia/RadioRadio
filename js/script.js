@@ -374,10 +374,10 @@ function UpdateStatus(now) {
             }, 2000);
             localStorage.setItem('TrackIdNow', data.id);
             if (localStorage.getItem('ConfloadAlbum') == 'false') {
-                infoAlbum('playinfo', 'playinfoimg', 'TrackIdNowImg', data.a, data.s);
+				console.log('Загрузка изображений альбома отключена.');
+                statusBar('icon.png');                
             } else {
-                console.log('Загрузка изображений альбома отключена.');
-                statusBar('icon.png');
+                infoAlbum('playinfo', 'playinfoimg', 'TrackIdNowImg', data.a, data.s);
             };
         });
     }
@@ -392,8 +392,10 @@ function statusBar(img) {
     } else {
         Playing = true;
     };
-    if (localStorage.getItem('ConfloadAlbum') == 'false') {} else {
-        img = 'icon.png';
+    if (localStorage.getItem('ConfloadAlbum') == 'false') {
+		img = 'icon.png';
+	} else {
+        
     };
     MusicControls.create({
         track: localStorage.NowSong,
