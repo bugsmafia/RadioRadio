@@ -378,13 +378,13 @@ function UpdateStatus(now) {
             }, 2000);
             localStorage.setItem('TrackIdNow', data.id);
             if (localStorage.getItem('ConfloadAlbum') == 'false') {
+				  infoAlbum('playinfo', 'playinfoimg', 'TrackIdNowImg', data.a, data.s);
+            } else {               
 				console.log('Загрузка изображений альбома отключена.');
-                statusBar('icon.png');                
-            } else {
-                infoAlbum('playinfo', 'playinfoimg', 'TrackIdNowImg', data.a, data.s);
+                statusBar('icon.png');        
             };
         });
-    }
+    } 
 }
 
 // Статус, играет или нет.
