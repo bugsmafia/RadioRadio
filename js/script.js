@@ -6,11 +6,8 @@ function getPageName(url) {
 
 // Функция выполнения кода при загрузки приложения
 function onLoad() {
-	if(typeof screen){
-		screen.lockOrientation('portrait');
-	};    
-    $("#l2sOffAnim").fadeOut(0).fadeIn(700).delay(500).fadeOut(300).fadeIn(700).delay(500).fadeOut(300);
-    document.addEventListener("deviceready", onDeviceReady, false);
+	
+    
 }
 // Функция исполнения когда приложение готово
 function onDeviceReady() {
@@ -782,8 +779,13 @@ ons.ready(function() {
 
 document.addEventListener("init", function(event) {
   if (event.target.id == "RadioRadio") {
+		$("#l2sOffAnim").fadeOut(0).fadeIn(700).delay(500).fadeOut(300).fadeIn(700).delay(500).fadeOut(300);
+		document.addEventListener("deviceready", onDeviceReady, false);
 		LoadConfigApp();
-		LoadStatus(); 
+		LoadStatus();
 		LoadStream();
+		if(typeof screen){
+			screen.lockOrientation('portrait');
+		};    
   }
 }, false);
