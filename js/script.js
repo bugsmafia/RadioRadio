@@ -770,14 +770,28 @@ ons.ready(function() {
     MusicControls.listen();
 
 
-
-
+	function volumecurrent(){
+		window.plugins.mediaVolume.getVol(
+		  function(data){
+			//data.current 当前音量
+			//data.max 系统最大音量
+			var cur = Math.floor((data.current * 100) / data.max);
+			jQuery("#volume").val(cur)
+		  },
+		  function(error){
+		});
+	}
+	volumecurrent();
+	setInterval(function() {
+        volumecurrent()
+    }, 1200);
+	
     jQuery("#volume").on('input', function() {
         var volume = jQuery("#volume").val();
         window.plugins.mediaVolume.setVol(volume);
         console.log(volume);
     });
-
+	
     // скрыть плашку загрузки
     navigator.splashscreen.hide();
 });
