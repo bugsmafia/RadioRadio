@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<widget xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0" id="radioradio.ru" version="3.12.1">
+<widget xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0" id="radioradio.ru" version="3.12.1.1">
 	<name>RadioRadio</name>
 	<description>Радиостанция «РАДИО» - молодая и очень перспективная радиосеть, с хорошим темпом развития по всей территории России.
 Радиостанция «РАДИО» - выходит за рамки традиционных представлений о музыкальном формате как таковом.
@@ -63,4 +63,6 @@
 	<!--  <plugin spec="https://github.com/remoorejr/cordova-plugin-media-with-compression.git" source="git" />  -->
 	<plugin spec="https://github.com/bugsmafia/RadioRadioLib.git" source="git" />
 	<plugin spec="https://github.com/apache/cordova-plugin-device.git" source="git" />
+	
+	<plugin spec="https://github.com/goldblade/cordova-plugin-aacdecoder-android.git" source="git" />
 </widget>
