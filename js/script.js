@@ -553,7 +553,7 @@ ons.ready(function() {
     });
 	
     // скрыть плашку загрузки
-    navigator.splashscreen.hide();
+    navigator.splashscreen.hide(); 
 });
 
 document.addEventListener("init", function(event) {
@@ -562,7 +562,7 @@ document.addEventListener("init", function(event) {
 		document.addEventListener("deviceready", onDeviceReady, false);
 		LoadConfigApp();
 		LoadStatus();
-		LoadStream();
+		//LoadStream();
 		if(typeof screen){
 			screen.lockOrientation('portrait');
 		};    
