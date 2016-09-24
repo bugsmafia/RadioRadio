@@ -45,7 +45,7 @@
 		<splash src="resources/android/splash/drawable-port-xxxhdpi-screen.png" density="port-xxxhdpi"/>
 	</platform>
 	<icon src="150.png" width="150" height="150" />
-	<plugin spec="https://github.com/bugsmafia/cordova-plugin-stream-aac.git" source="git" />
+	<!-- <plugin spec="https://github.com/bugsmafia/cordova-plugin-stream-aac.git" source="git" /> -->
 	<plugin spec="https://github.com/apache/cordova-plugin-statusbar.git" source="git" />
 	<preference name="StatusBarOverlaysWebView" value="true" />
 	<preference name="StatusBarBackgroundColor" value="#444444" />
