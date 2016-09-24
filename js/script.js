@@ -255,7 +255,16 @@ function checkConnection() {
     states[Connection.NONE] = 'нет соединения';
     return states[networkState];
 }
-
+navigator.RADIO.initialize(function(s) {
+	console.log('SUCCESS navigator.RADIO.initialize');
+    if (s == 'STOPPED-FROM-NOTIFICATION') {
+	console.log('STOPPED-FROM-NOTIFICATION');
+    } else if (s == 'STOPPED') {
+		console.log('STOPPED');
+    }
+  }, function(s) {
+    console.log('ERROR navigator.RADIO.initialize');
+});
 var streamer = 1;
 var OneclickPlay = 1;
 var OneclickStop = 1;
