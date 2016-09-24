@@ -477,7 +477,21 @@ ons.ready(function() {
 
     console.log('Приложение загружено');
     LocalConfig();
-
+	navigator.RADIO.initialize(function(s) {
+			console.log('SUCCESS navigator.RADIO.initialize');
+			$("#l2sOffAnim").fadeOut(0).fadeIn(700).delay(500).fadeOut(300).fadeIn(700).delay(500).fadeOut(300);
+			if (s == 'STOPPED-FROM-NOTIFICATION') {
+			console.log('STOPPED-FROM-NOTIFICATION');
+			} else if (s == 'STOPPED') {
+				console.log('STOPPED');
+			}
+		  }, function(s) {
+			console.log('ERROR navigator.RADIO.initialize');
+		});
+		
+		if(typeof screen){
+			screen.lockOrientation('portrait');
+		};
     $('input:checkbox').change(function() {
         var IdName = $(this).attr('id');
         if (IdName == 'album') {
@@ -576,20 +590,6 @@ document.addEventListener("init", function(event) {
 		LoadStatus();
 		//LoadStream();
 		
-		navigator.RADIO.initialize(function(s) {
-			console.log('SUCCESS navigator.RADIO.initialize');
-			$("#l2sOffAnim").fadeOut(0).fadeIn(700).delay(500).fadeOut(300).fadeIn(700).delay(500).fadeOut(300);
-			if (s == 'STOPPED-FROM-NOTIFICATION') {
-			console.log('STOPPED-FROM-NOTIFICATION');
-			} else if (s == 'STOPPED') {
-				console.log('STOPPED');
-			}
-		  }, function(s) {
-			console.log('ERROR navigator.RADIO.initialize');
-		});
 		
-		if(typeof screen){
-			screen.lockOrientation('portrait');
-		};
   }
 }, false);
