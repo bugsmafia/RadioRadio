@@ -268,13 +268,33 @@ function streamplay() {
     } else {
         OneclickPlay = 2;
         if (streamer == "1") {
-            $my_media.play();
-        } else if (streamer == "2") {
-            $my_media.stop();
+            var url = StreamGO();
+			navigator.RADIO.play(function(s) {
+			  console.log('SUCCESS navigator.RADIO.play');
+			}, function(s) {
+			  console.log('ERROR navigator.RADIO.play');
+			}, url, 'My Stream Title', 'My Stream Subtitle');
+
+
+			
+		} else if (streamer == "2") {
+            navigator.RADIO.stop(function(s) {
+			  console.log('SUCCESS navigator.RADIO.stop');
+			}, function(s) {
+			  console.log('ERROR navigator.RADIO.stop');
+			});
         } else if (streamer == "3") {
-            $my_media.stop();
+            navigator.RADIO.stop(function(s) {
+			  console.log('SUCCESS navigator.RADIO.stop');
+			}, function(s) {
+			  console.log('ERROR navigator.RADIO.stop');
+			});
         } else if (streamer == "4") {
-            $my_media.play();
+            navigator.RADIO.stop(function(s) {
+			  console.log('SUCCESS navigator.RADIO.stop');
+			}, function(s) {
+			  console.log('ERROR navigator.RADIO.stop');
+			});
         };
     }
 }
