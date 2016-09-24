@@ -273,8 +273,7 @@ function streamplay() {
 			  console.log('SUCCESS navigator.RADIO.play');
 			}, function(s) {
 			  console.log('ERROR navigator.RADIO.play');
-			}, url, 'My Stream Title', 'My Stream Subtitle');
-
+			}, url, localStorage.NowSong, localStorage.NowArtist);
 
 			
 		} else if (streamer == "2") {
