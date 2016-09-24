@@ -575,9 +575,7 @@ document.addEventListener("init", function(event) {
 		LoadConfigApp();
 		LoadStatus();
 		//LoadStream();
-		if(typeof screen){
-			screen.lockOrientation('portrait');
-		};
+		
 		navigator.RADIO.initialize(function(s) {
 			console.log('SUCCESS navigator.RADIO.initialize');
 			$("#l2sOffAnim").fadeOut(0).fadeIn(700).delay(500).fadeOut(300).fadeIn(700).delay(500).fadeOut(300);
@@ -589,5 +587,9 @@ document.addEventListener("init", function(event) {
 		  }, function(s) {
 			console.log('ERROR navigator.RADIO.initialize');
 		});
+		
+		if(typeof screen){
+			screen.lockOrientation('portrait');
+		};
   }
 }, false);
