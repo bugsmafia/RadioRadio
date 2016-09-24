@@ -64,5 +64,5 @@
 	<plugin spec="https://github.com/bugsmafia/RadioRadioLib.git" source="git" />
 	<plugin spec="https://github.com/apache/cordova-plugin-device.git" source="git" />
 	
-	<plugin spec="https://github.com/donaldepignosis/cordova-plugin-streaming-media.git" source="git" /> 
+	<plugin spec="https://github.com/mradosta/cordova-plugin-streaming.git" source="git" />  
 </widget>
