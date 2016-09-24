@@ -280,26 +280,38 @@ function streamplay() {
             var url = StreamGO();
 			navigator.RADIO.play(function(s) {
 			  console.log('SUCCESS navigator.RADIO.play');
+				$(".l3sAnim").css("background-color", "rgba(51,177,255,1)");
+				$(".l3s").css("background-image", "url(img/play-l3-stop.png)");
+				$("#l2sOffAnim").fadeIn(750);
 			}, function(s) {
 			  console.log('ERROR navigator.RADIO.play');
+				$(".l3sAnim").css("background-color", "rgba(51,177,255,0.7)");
+				$(".l3s").css("background-image", "url(img/play-l3-play.png)");
+				$("#l2sOffAnim").fadeOut(0).fadeIn(700).delay(500).fadeOut(300).fadeIn(700).delay(500).fadeOut(300);
 			}, url, localStorage.NowSong, localStorage.NowArtist);
 
 			
 		} else if (streamer == "2") {
             navigator.RADIO.stop(function(s) {
-			  console.log('SUCCESS navigator.RADIO.stop');
+			  $(".l3sAnim").css("background-color", "rgba(51,177,255,0.7)");
+                        $(".l3s").css("background-image", "url(img/play-l3-play.png)");
+                        $("#l2sOffAnim").fadeOut(750);
 			}, function(s) {
 			  console.log('ERROR navigator.RADIO.stop');
 			});
         } else if (streamer == "3") {
             navigator.RADIO.stop(function(s) {
-			  console.log('SUCCESS navigator.RADIO.stop');
+			  $(".l3sAnim").css("background-color", "rgba(51,177,255,0.7)");
+                        $(".l3s").css("background-image", "url(img/play-l3-play.png)");
+                        $("#l2sOffAnim").fadeOut(750);
 			}, function(s) {
 			  console.log('ERROR navigator.RADIO.stop');
 			});
         } else if (streamer == "4") {
             navigator.RADIO.stop(function(s) {
-			  console.log('SUCCESS navigator.RADIO.stop');
+			  $(".l3sAnim").css("background-color", "rgba(51,177,255,0.7)");
+                        $(".l3s").css("background-image", "url(img/play-l3-play.png)");
+                        $("#l2sOffAnim").fadeOut(750);
 			}, function(s) {
 			  console.log('ERROR navigator.RADIO.stop');
 			});
