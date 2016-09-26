@@ -155,6 +155,8 @@ function statusBar(img) {
 	} else {
         img = 'icon.png';
     };
+	
+	/*
     MusicControls.create({
         track: localStorage.NowSong,
         artist: localStorage.NowArtist,
@@ -166,6 +168,7 @@ function statusBar(img) {
         hasNext: false,
         hasClose: false
     }, onSuccess, onError);
+	*/
 }
 
 var onSuccess = function(result) {
@@ -274,6 +277,7 @@ function streamplay() {
 				$(".l3sAnim").css("background-color", "rgba(51,177,255,1)");
 				$(".l3s").css("background-image", "url(img/play-l3-stop.png)");
 				$("#l2sOffAnim").fadeIn(750);
+				 streamer = 2;
 			}, function(s) {
 			  console.log('ERROR navigator.RADIO.play');
 				$(".l3sAnim").css("background-color", "rgba(51,177,255,0.7)");
@@ -287,6 +291,7 @@ function streamplay() {
 			  $(".l3sAnim").css("background-color", "rgba(51,177,255,0.7)");
                         $(".l3s").css("background-image", "url(img/play-l3-play.png)");
                         $("#l2sOffAnim").fadeOut(750);
+				streamer = 1;
 			}, function(s) {
 			  console.log('ERROR navigator.RADIO.stop');
 			});
@@ -295,6 +300,7 @@ function streamplay() {
 			  $(".l3sAnim").css("background-color", "rgba(51,177,255,0.7)");
                         $(".l3s").css("background-image", "url(img/play-l3-play.png)");
                         $("#l2sOffAnim").fadeOut(750);
+				streamer = 1;
 			}, function(s) {
 			  console.log('ERROR navigator.RADIO.stop');
 			});
@@ -303,6 +309,7 @@ function streamplay() {
 			  $(".l3sAnim").css("background-color", "rgba(51,177,255,0.7)");
                         $(".l3s").css("background-image", "url(img/play-l3-play.png)");
                         $("#l2sOffAnim").fadeOut(750);
+				streamer = 1;
 			}, function(s) {
 			  console.log('ERROR navigator.RADIO.stop');
 			});
