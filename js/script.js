@@ -485,7 +485,7 @@ ons.ready(function() {
     console.log('Приложение загружено');
     LocalConfig();
 	navigator.RADIO.initialize(function(s) {
-			console.log('SUCCESS navigator.RADIO.initialize');
+			console.log('SUCCESS navigator.RADIO.initialize -- '+s);
 			$("#l2sOffAnim").fadeOut(0).fadeIn(700).delay(500).fadeOut(300).fadeIn(700).delay(500).fadeOut(300);
 			if (s == 'STOPPED-FROM-NOTIFICATION') {
 			console.log('STOPPED-FROM-NOTIFICATION');
