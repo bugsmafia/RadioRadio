@@ -488,9 +488,13 @@ ons.ready(function() {
 			console.log('SUCCESS navigator.RADIO.initialize -- '+s);
 			$("#l2sOffAnim").fadeOut(0).fadeIn(700).delay(500).fadeOut(300).fadeIn(700).delay(500).fadeOut(300);
 			if (s == 'STOPPED-FROM-NOTIFICATION') {
-			console.log('STOPPED-FROM-NOTIFICATION');
+				$(".l3sAnim").css("background-color", "rgba(51,177,255,0.7)");
+				$(".l3s").css("background-image", "url(img/play-l3-play.png)");
+				$("#l2sOffAnim").fadeOut(750);
 			} else if (s == 'STOPPED') {
-				console.log('STOPPED');
+				$(".l3sAnim").css("background-color", "rgba(51,177,255,0.7)");
+				$(".l3s").css("background-image", "url(img/play-l3-play.png)");
+				$("#l2sOffAnim").fadeOut(750);
 			}
 		  }, function(s) {
 			console.log('ERROR navigator.RADIO.initialize');
