@@ -30,7 +30,14 @@ function onBackKeyDown() {
         ons.notification.confirm('Закрыть радио?').then(
             function(answer) {
                 if (answer === 1) {
-					$my_media.stop();
+					navigator.RADIO.stop(function(s) {
+					  $(".l3sAnim").css("background-color", "rgba(51,177,255,0.7)");
+								$(".l3s").css("background-image", "url(img/play-l3-play.png)");
+								$("#l2sOffAnim").fadeOut(750);
+						streamer = 1;
+					}, function(s) {
+					  console.log('ERROR navigator.RADIO.stop');
+					});
 					OneclickPlay = 2;
                     console.log('закрывается');
 					navigator.app.exitApp();
@@ -283,8 +290,9 @@ function streamplay() {
 				$(".l3sAnim").css("background-color", "rgba(51,177,255,0.7)");
 				$(".l3s").css("background-image", "url(img/play-l3-play.png)");
 				$("#l2sOffAnim").fadeOut(0).fadeIn(700).delay(500).fadeOut(300).fadeIn(700).delay(500).fadeOut(300);
-			}, url, localStorage.NowSong, localStorage.NowArtist);
-
+			}, url, "РадиоРадио", "");
+		//localStorage.NowSong
+		//localStorage.NowArtist
 			
 		} else if (streamer == "2") {
             navigator.RADIO.stop(function(s) {
@@ -349,7 +357,6 @@ function streamRePlayGO() {
     setTimeout(function() {
         console.log("Восстанавливаем стрим");
         $("#l2sOffAnim").fadeIn(750);
-        $my_media.play();
     }, 100);
 };
 
