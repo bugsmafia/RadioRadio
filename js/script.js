@@ -597,7 +597,7 @@ ons.ready(function() {
     });
 	
     // скрыть плашку загрузки
-    navigator.splashscreen.hide(); 
+    //navigator.splashscreen.hide(); 
 });
 
 document.addEventListener("init", function(event) {
