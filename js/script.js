@@ -248,9 +248,17 @@ function SmsSend(mess, phone) {
             }
         }
     );
-
 }
-
+function LogoRadioRadio() {
+    ons.notification.confirm('Перейти на веб версию RadioRadio.ru?').then(
+        function(answer) {
+            if (answer === 1) {
+				var ref = cordova.InAppBrowser.open('http://radioradio.ru', '_blank', 'location=yes');
+				window.open = cordova.InAppBrowser.open;
+            }
+        }
+    );
+}
 
 function checkConnection() {
     var networkState = navigator.connection.type;
