@@ -1,3 +1,19 @@
+function Loader() {
+	
+	setTimeout(function() {
+		$(".La").fadeOut(700);
+		setTimeout(function() {
+			$(".Lb").fadeOut(700);
+			setTimeout(function() {
+				$(".Lc").fadeOut(700);
+				setTimeout(function() {
+					$(".preload").fadeOut(350);
+				}, 500);
+			}, 500);
+		}, 500);
+    }, 500);
+};
+
 function getPageName(url) {
     var index = url.lastIndexOf("/") + 1;
     var filenameWithExtension = url.substr(index);
@@ -499,6 +515,7 @@ ons.ready(function() {
 
     console.log('Приложение загружено');
     LocalConfig();
+
 	navigator.RADIO.initialize(function(s) {
 			console.log('SUCCESS navigator.RADIO.initialize -- '+s);
 			$("#l2sOffAnim").fadeOut(0).fadeIn(700).delay(500).fadeOut(300).fadeIn(700).delay(500).fadeOut(300);
@@ -514,7 +531,7 @@ ons.ready(function() {
 		  }, function(s) {
 			console.log('ERROR navigator.RADIO.initialize');
 		});
-		
+
 		if(typeof screen){
 			screen.lockOrientation('portrait');
 		};
@@ -615,7 +632,7 @@ document.addEventListener("init", function(event) {
 		LoadConfigApp();
 		LoadStatus();
 		//LoadStream();
-		
+		Loader();
 		
   }
 }, false);
