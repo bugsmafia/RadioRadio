@@ -13,7 +13,29 @@ function Loader() {
 		}, 500);
     }, 500);
 };
+$(document).on('pagechange', function() {
+    var lastPage = '#'+$.mobile.activePage.attr('id');
+    console.log('setting last page to '+lastPage);
+    localStorage.setItem('lastPage',lastPage);
+});
 
+var redirectedToLastPage = false;
+$(document).bind("pagecreate", function(){
+    var lastPage = localStorage.getItem('lastPage');
+    if(lastPage // lastPage needs to be set
+        && !redirectedToLastPage  // only do it on first pageload
+        &&!window.location.hash // we don't want to redirect from pages other than the homepage
+    ) {
+        if($("div[data-role='page']"+lastPage).length) { // make sure a "page" div with that ID exists!
+            console.log('redirecting to '+lastPage);
+            $.mobile.changePage(lastPage);
+        } 
+        else {
+        console.log(lastPage+' does not exist!');
+        }
+    }
+    redirectedToLastPage = true;
+});
 function getPageName(url) {
     var index = url.lastIndexOf("/") + 1;
     var filenameWithExtension = url.substr(index);
