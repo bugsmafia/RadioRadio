@@ -1,6 +1,6 @@
 document.addEventListener('deviceready', function () {
     // Android customization
-    cordova.plugins.backgroundMode.setDefaults({ text:'Doing heavy tasks.'});
+    //cordova.plugins.backgroundMode.setDefaults({ text:'Doing heavy tasks.'});
     // Enable background mode
     cordova.plugins.backgroundMode.enable();
 
@@ -8,11 +8,11 @@ document.addEventListener('deviceready', function () {
     cordova.plugins.backgroundMode.onactivate = function () {
         setTimeout(function () {
             // Modify the currently displayed notification
-            cordova.plugins.backgroundMode.configure({
-                text:'Running in background for more than 5s now.'
-            });
+            //cordova.plugins.backgroundMode.configure({
+            //    text:'Running in background for more than 5s now.'
+            //});
         }, 5000);
-    }
+    } 
 }, false);
 
 function Loader() {
