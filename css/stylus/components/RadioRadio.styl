@@ -17,6 +17,15 @@
     background-position: 50%	
     display: block
 	
+.logo_wrap_play
+	position: absolute
+	width: 100% 
+	top: 0 
+	z-index: 30
+
+.logo_wrap_play .logo
+	width: 70%
+	
 // Вертикальная сетка формирования
 .vert_grid
     display: table
@@ -72,6 +81,7 @@
 	background-image: url(../../img/play-l1.png)
 	z-index: 1
 	background-size: cover
+	display: none
 
 .playbtn .l2s
 	width: 100%
@@ -94,6 +104,7 @@
 	background-image: url(../../img/play-l2u.png) 
 	z-index: 3
 	background-size: cover
+	display: none
 	
 .playbtn #l2sOffAnim
 	width: calc(100% - 8%)
@@ -119,6 +130,7 @@
 	left: 0px
 	background-color: rgba(255,87,34,1)
 	z-index: 8
+	display: none
 	
 .playbtn .l3s
 	width: 100%
@@ -128,7 +140,8 @@
 	left: 0px
 	background-image: url(../../img/play-l3-load.png) 
 	z-index: 10
-	background-size: cover
+	background-size: contain
+	background-position: 50%
 
 .playbtn .l4s
 	width: 100%
@@ -144,8 +157,8 @@
 #poll
 	display: none
 	
-#ads
-	display: none
+//#ads
+//	display: none
 	
 #volume
 	width: 50%
@@ -161,7 +174,7 @@
 #volume i
     position: absolute;
     left: -1.1em;
-    color: rgba(255,255,255,0.5);
+    color: rgba(0,0,0,0.5);
     top: -0.42em;
     font-size: 1.3em;
 
@@ -171,29 +184,29 @@
 	right -70%
 	text-align center
 	font-size 0.8em
-	color #ffffff
+	color #a1a1a1
 	text-decoration inherit
 	
 .OnlineCall i
-	color #f00
+	color #a1a1a1
 	display block
 	font-size 2em
 
 .buttonSMS
 	position absolute
-	color rgb(250, 176, 50)
+	color #a1a1a1
 	display none
 	
 .buttonSMS a
-	color rgb(250, 176, 50)
+	color #a1a1a1
 	
 .buttonCall
 	position absolute
-	color #f00
+	color #a1a1a1
 	display none
 	
 .buttonCall a
-	color #f00
+	color #a1a1a1
 
 @media all and (-webkit-min-device-pixel-ratio: 1)
 	@media (max-width: 320px)

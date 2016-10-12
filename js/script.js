@@ -74,7 +74,7 @@ function onBackKeyDown() {
                 if (answer === 1) {
 					navigator.RADIO.stop(function(s) {
 					  $(".l3sAnim").css("background-color", "rgba(51,177,255,0.7)");
-								$(".l3s").css("background-image", "url(img/play-l3-play.png)");
+								$(".l3s").css("background-image", "url(img/play2-play.png)");
 								$("#l2sOffAnim").fadeOut(750);
 						streamer = 1;
 					}, function(s) {
@@ -151,11 +151,11 @@ function Config(data) {
     };
 
     if (jQuery.isEmptyObject(data.conf.ads)) {
-        jQuery('#ads').hide();
+        //jQuery('#ads').hide();
     } else {
         jQuery('#ads .logoAds a').attr('href', data.conf.ads.url);
         jQuery('#ads .logoAds a').css('background-image', 'url(http://app.radioradio.ru/partner/' + data.conf.ads.img + ')');
-        jQuery('#ads').show();
+       // jQuery('#ads').show();
     };
     if (jQuery.isEmptyObject(data.conf.sms)) {
         jQuery('.buttonSMS').hide();
@@ -172,7 +172,7 @@ function Config(data) {
 	if(ConfloadC == 0){
 		if (streamChanel != false) {
 			$(".l3sAnim").css("background-color", "rgba(51,177,255,0.7)");
-			$(".l3s").css("background-image", "url(img/play-l3-play.png)");
+			$(".l3s").css("background-image", "url(img/play2-play.png)");
 			$("#l2sOffAnim").fadeOut(750);
 		};
 		ConfloadC++; 
@@ -332,13 +332,13 @@ function streamplay() {
 			navigator.RADIO.play(function(s) {
 			  console.log('SUCCESS navigator.RADIO.play');
 				$(".l3sAnim").css("background-color", "rgba(51,177,255,1)");
-				$(".l3s").css("background-image", "url(img/play-l3-stop.png)");
+				$(".l3s").css("background-image", "url(img/play2-stop.png)");
 				$("#l2sOffAnim").fadeIn(750);
 				 streamer = 2;
 			}, function(s) {
 			  console.log('ERROR navigator.RADIO.play');
 				$(".l3sAnim").css("background-color", "rgba(51,177,255,0.7)");
-				$(".l3s").css("background-image", "url(img/play-l3-play.png)");
+				$(".l3s").css("background-image", "url(img/play2-play.png)");
 				$("#l2sOffAnim").fadeOut(0).fadeIn(700).delay(500).fadeOut(300).fadeIn(700).delay(500).fadeOut(300);
 			}, url, "РадиоРадио", "");
 		//localStorage.NowSong
@@ -347,7 +347,7 @@ function streamplay() {
 		} else if (streamer == "2") {
             navigator.RADIO.stop(function(s) {
 			  $(".l3sAnim").css("background-color", "rgba(51,177,255,0.7)");
-                        $(".l3s").css("background-image", "url(img/play-l3-play.png)");
+                        $(".l3s").css("background-image", "url(img/play2-play.png)");
                         $("#l2sOffAnim").fadeOut(750);
 				streamer = 1;
 			}, function(s) {
@@ -356,7 +356,7 @@ function streamplay() {
         } else if (streamer == "3") {
             navigator.RADIO.stop(function(s) {
 			  $(".l3sAnim").css("background-color", "rgba(51,177,255,0.7)");
-                        $(".l3s").css("background-image", "url(img/play-l3-play.png)");
+                        $(".l3s").css("background-image", "url(img/play2-play.png)");
                         $("#l2sOffAnim").fadeOut(750);
 				streamer = 1;
 			}, function(s) {
@@ -365,7 +365,7 @@ function streamplay() {
         } else if (streamer == "4") {
             navigator.RADIO.stop(function(s) {
 			  $(".l3sAnim").css("background-color", "rgba(51,177,255,0.7)");
-                        $(".l3s").css("background-image", "url(img/play-l3-play.png)");
+                        $(".l3s").css("background-image", "url(img/play2-play.png)");
                         $("#l2sOffAnim").fadeOut(750);
 				streamer = 1;
 			}, function(s) {
@@ -453,7 +453,7 @@ function LocalConfig() {
                         MusicControls.updateIsPlaying(false);
                         streamer = 1; 
                         $(".l3sAnim").css("background-color", "rgba(51,177,255,0.7)");
-                        $(".l3s").css("background-image", "url(img/play-l3-play.png)");
+                        $(".l3s").css("background-image", "url(img/play2-play.png)");
                         $("#l2sOffAnim").fadeOut(750);
                     }
                     if (status === PlayStream.MEDIA_STARTING) {
@@ -467,7 +467,7 @@ function LocalConfig() {
                         MusicControls.updateIsPlaying(true);
                         streamer = 3;
                         $(".l3sAnim").css("background-color", "rgba(51,177,255,1)");
-                        $(".l3s").css("background-image", "url(img/play-l3-stop.png)");
+                        $(".l3s").css("background-image", "url(img/play2-stop.png)");
                         $("#l2sOffAnim").fadeIn(750);
                     }
                 },
@@ -547,11 +547,11 @@ ons.ready(function() {
 			$("#l2sOffAnim").fadeOut(0).fadeIn(700).delay(500).fadeOut(300).fadeIn(700).delay(500).fadeOut(300);
 			if (s == 'STOPPED-FROM-NOTIFICATION') {
 				$(".l3sAnim").css("background-color", "rgba(51,177,255,0.7)");
-				$(".l3s").css("background-image", "url(img/play-l3-play.png)");
+				$(".l3s").css("background-image", "url(img/play2-play.png)");
 				$("#l2sOffAnim").fadeOut(750);
 			} else if (s == 'STOPPED') {
 				$(".l3sAnim").css("background-color", "rgba(51,177,255,0.7)");
-				$(".l3s").css("background-image", "url(img/play-l3-play.png)");
+				$(".l3s").css("background-image", "url(img/play2-play.png)");
 				$("#l2sOffAnim").fadeOut(750);
 			}
 		  }, function(s) {
@@ -659,6 +659,9 @@ document.addEventListener("init", function(event) {
 		LoadStatus();
 		//LoadStream();
 		Loader();
-		
+		$('.playbtn').width($('body').width());
+		$('.playbtn').height($('body').width());
+		$('.buttonSMS').css('bottom', (($('body').width() / 2) - $('.buttonSMS').width()+'px'));
+		$('.buttonCall').css('bottom', (($('body').width() / 2) - $('.buttonCall').width()+'px'));
   }
 }, false);

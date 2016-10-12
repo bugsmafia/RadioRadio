@@ -29,6 +29,7 @@
 .la-ball-scale-ripple-multiple {
     width: 32px;
     height: 32px;
+	margin-top: 20%;
 }
 .la-ball-scale-ripple-multiple > div {
     position: absolute;
@@ -191,7 +192,7 @@
 	z-index: 999999;
 	width: 100%;
 	height: 100%;
-	background: #262626;
+	background: #dfdfdf;
 	color: #fff;
 	text-align: center
 }
@@ -329,18 +330,14 @@
 				</ons-speed-dial>
 				
 				<div class="vert_grid">
-					<div class="vert_grid_box">
-						<div class="logo" onclick="LogoRadioRadio();"></div>
-					</div>
-					
-					<div class="vert_grid_box">
-						<div class="song">Загрузка...</div>
-						<div class="artist">ожидайте</div>
-					</div>
 					<div class="vert_grid_box" id="ads">
 						<div class="logoAds"><a href="#"></a></div>
 					</div>
-					<div class="vert_grid_box" style="position: relative;display: block;margin: 1em 0em;">
+					
+					
+					
+					<div class="vert_grid_box" style="position: relative;display: block;margin-bottom: -20%;">
+						<div class="logo_wrap_play"><div class="logo" onclick="LogoRadioRadio();"></div></div>
 						<ons-fab class="buttonSMS" position="bottom left" ripple><a class="smsact" href="#"><i class="material-icons">&#xE0E1;</i></a></ons-fab>
 						<ons-fab class="buttonCall" position="bottom right" ripple><a class="phoneact" href="#"><i class="material-icons">&#xE0CD;</i></a></ons-fab>
 						<div class="playbtn">
@@ -354,6 +351,11 @@
 									<div class="l1s"></div>
 								</div>
 						</div>
+					</div>
+					
+					<div class="vert_grid_box">
+						<div class="song">Загрузка...</div>
+						<div class="artist">ожидайте</div>
 					</div>
 					<div class="vert_grid_box" id="poll">
 						<p class="poll_text" style="text-align: center;"></p>
