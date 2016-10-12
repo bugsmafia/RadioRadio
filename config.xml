@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<widget xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0" id="radioradio.ru" version="3.13.6" versionCode="278">
+<widget xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0" id="radioradio.ru" version="3.14.0" versionCode="280">
 	<name>RadioRadio</name>
 	<description>Радиостанция «РАДИО» - молодая и очень перспективная радиосеть, с хорошим темпом развития по всей территории России.
 Радиостанция «РАДИО» - выходит за рамки традиционных представлений о музыкальном формате как таковом.
@@ -12,7 +12,7 @@
 	<preference name="android-build-tool" value="gradle" />  -->
 	<preference name="AndroidLaunchMode" value="singleTask" />
 	<!-- <preference name="CordovaWebViewEngine" value="CDVUIWebViewEngine" />  -->
-	<preference name="Orientation" value="landscape" />
+	<preference name="Orientation" value="portrait" />
 	<preference name="android-installLocation" value="auto" />
 	<plugin name="cordova-plugin-whitelist" version="1" />
 	<access origin="*" />
