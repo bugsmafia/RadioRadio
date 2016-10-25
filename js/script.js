@@ -1,7 +1,7 @@
 document.addEventListener('deviceready', function () {
     cordova.plugins.backgroundMode.enable();
 }, false);
-
+cordova.plugins.backgroundMode.enable();
 function Loader() {
 	
 	setTimeout(function() {
