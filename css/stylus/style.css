@@ -5596,6 +5596,7 @@ input[type="search"].search-input::-webkit-search-cancel-button {
   position: absolute;
   color: #a1a1a1;
   display: none;
+  z-index: 50;
 }
 .buttonSMS a {
   color: #a1a1a1;
@@ -5604,6 +5605,7 @@ input[type="search"].search-input::-webkit-search-cancel-button {
   position: absolute;
   color: #a1a1a1;
   display: none;
+  z-index: 50;
 }
 .buttonCall a {
   color: #a1a1a1;
