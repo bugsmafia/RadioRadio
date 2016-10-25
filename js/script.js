@@ -1,7 +1,7 @@
 document.addEventListener('deviceready', function () {
-    cordova.plugins.backgroundMode.enable();
+    //cordova.plugins.backgroundMode.enable();
 }, false);
-cordova.plugins.backgroundMode.enable();
+
 function Loader() {
 	
 	setTimeout(function() {
@@ -663,5 +663,6 @@ document.addEventListener("init", function(event) {
 		$('.playbtn').height($('body').width());
 		$('.buttonSMS').css('bottom', (($('body').width() / 2) - $('.buttonSMS').width()+'px'));
 		$('.buttonCall').css('bottom', (($('body').width() / 2) - $('.buttonCall').width()+'px'));
+		cordova.plugins.backgroundMode.enable();
   }
 }, false);
