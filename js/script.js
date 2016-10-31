@@ -661,8 +661,8 @@ document.addEventListener("init", function(event) {
 		Loader();
 		$('.playbtn').width($('body').width());
 		$('.playbtn').height($('body').width());
-		$('.buttonSMS').css('bottom', (($('body').width() / 2) - $('.buttonSMS').width()+'px'));
-		$('.buttonCall').css('bottom', (($('body').width() / 2) - $('.buttonCall').width()+'px'));
+		$('.buttonSMS').css('bottom', (($('.boxmain').width() / 2) + ($('.boxmain').width() * 0.01) - $('.buttonSMS').width()+'px'));
+		$('.buttonCall').css('bottom', (($('.boxmain').width() / 2) + ($('.boxmain').width() * 0.01) - $('.buttonCall').width()+'px'));
 		cordova.plugins.backgroundMode.enable();
   }
 }, false);
