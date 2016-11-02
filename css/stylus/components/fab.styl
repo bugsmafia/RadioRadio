@@ -1,8 +1,8 @@
 // NOTE: You can't use @extend that break component independent and topdoc parsing.
 
 // internal variables
-var-fab-width = 2em
-var-fab-height = 2em
+var-fab-width = 11.56vw
+var-fab-height = 11.56vw
 
 var-fab-mini-width = 40px
 var-fab-mini-height = 40px
@@ -47,9 +47,11 @@ fab()
   border 0px solid currentColor
   border-radius 50%
   overflow hidden
-  shadow-2()
+  shadow-6()
   transition all 0.2s ease-in-out
 
+  
+  
 fab--focus()
   outline 0
 
@@ -86,35 +88,35 @@ fab--active()
   fab--disabled()
 
 .fab--top__right
-  top 1em
+  top 4.69vw
   bottom auto
-  right 1em
+  right 4.69vw
   left auto
   position fixed
 
 .fab--bottom__right
   top auto
-  bottom 1em
-  right 1em
+  bottom 4.69vw
+  right 4.69vw
   left auto
   position fixed
 
 .fab--top__left
-  top 1em
+  top 4.69vw
   bottom auto
   right auto
-  left 1em
+  left 4.69vw
   position fixed
 
 .fab--bottom__left
   top auto
-  bottom 1em
+  bottom 4.69vw
   right auto
-  left 1em
+  left 4.69vw
   position fixed
 
 .fab--top__center
-  top 1em
+  top 4.69vw
   bottom auto
   margin-left -28px
   left 50%
@@ -123,7 +125,7 @@ fab--active()
 
 .fab--bottom__center
   top auto
-  bottom 1em
+  bottom 4.69vw
   margin-left -28px
   left 50%
   right auto
@@ -157,4 +159,5 @@ fab--active()
   -webkit-transform scale(0)
   -o-transform scale(0)
   -moz-transform scale(0)
-  
+  left 0 !important
+   
