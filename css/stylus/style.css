@@ -5561,6 +5561,7 @@ input[type="search"].search-input::-webkit-search-cancel-button {
 }
 #poll {
   display: none;
+  z-index: 10;
 }
 #volume {
   width: 50%;
@@ -5569,8 +5570,11 @@ input[type="search"].search-input::-webkit-search-cancel-button {
   margin-left: 1.1em;
 }
 .poll_text {
-  padding: 0em 1em 1em;
+  padding: 1em;
   margin: 0;
+}
+.poll_ex {
+  padding-bottom: 1em;
 }
 #volume i {
   position: absolute;
