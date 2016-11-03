@@ -2640,7 +2640,7 @@ ons-range[disabled] .range {
   height: 18px;
 }
 .checkbox--material__checkmark:before {
-  border: 2px solid #f5f5f5;
+  border: 2px solid rgba(0,0,0,0.4);
 }
 .checkbox--material__input:checked + .checkbox--material__checkmark:before {
   background-color: #3892c9;
@@ -2861,7 +2861,7 @@ ons-range[disabled] .range {
 }
 .radio-button--material__checkmark:before {
   background: transparent;
-  border: 2px solid #f5f5f5;
+  border: 2px solid rgba(0,0,0,0.4);
   box-sizing: border-box;
   border-radius: 50%;
   width: 20px;
@@ -2887,7 +2887,7 @@ ons-range[disabled] .range {
   border: 2px solid #3892c9;
 }
 .radio-button--material__input + .radio-button__checkmark:after {
-  background: #f5f5f5;
+  background: rgba(0,0,0,0.4);
   opacity: 1;
   transform: scale(0);
   -ms-transform: scale(0);
@@ -3574,7 +3574,7 @@ ons-range[disabled] .range {
   font-size: 14px;
   text-transform: none;
   margin: -1px 0 0 0;
-  color: #bbb;
+  color: rgba(0,0,0,0.6);
   font-weight: 500;
   padding: 8px 16px;
 }
