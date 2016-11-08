@@ -3,19 +3,13 @@ document.addEventListener('deviceready', function () {
 }, false);
 
 function Loader() {
-	
+	$(".La").fadeOut(700);
+	$(".Lb").fadeOut(700);
+	$(".Lc").fadeOut(700);
 	setTimeout(function() {
-		$(".La").fadeOut(700);
-		setTimeout(function() {
-			$(".Lb").fadeOut(700);
-			setTimeout(function() {
-				$(".Lc").fadeOut(700);
-				setTimeout(function() {
-					$(".preload").fadeOut(350);
-				}, 500);
-			}, 500);
-		}, 500);
-    }, 500);
+		$(".preload").fadeOut(350);
+	}, 2000);
+
 };
 $(document).on('pagechange', function() {
     var lastPage = '#'+$.mobile.activePage.attr('id');
@@ -660,9 +654,9 @@ document.addEventListener("init", function(event) {
 		//LoadStream();
 		Loader();
 		$('.playbtn').width($('body').width());
-		$('.playbtn').height($('body').width());
-		$('.buttonSMS').css('bottom', (($('.boxmain').width() / 2) + ($('.boxmain').width() * 0.01) - $('.buttonSMS').width()+'px'));
-		$('.buttonCall').css('bottom', (($('.boxmain').width() / 2) + ($('.boxmain').width() * 0.01) - $('.buttonCall').width()+'px'));
+		$('.playbtn').height($('body').width() + $('#ads').height());
+		$('.buttonSMS').css('bottom', (($('.boxmain').height() * 0.5) + ($('.buttonCall').height() - $('.boxmain').height() * 0.1)+'px'));
+		$('.buttonCall').css('bottom', (($('.boxmain').height() * 0.5) + ($('.buttonCall').height() - $('.boxmain').height() * 0.1)+'px'));
 		cordova.plugins.backgroundMode.enable();
   }
 }, false);

@@ -406,7 +406,7 @@ ons-range[disabled] .range {
   height: 33px;
   border-radius: 3px;
   background-position: 50%;
-  background-size: calc(100% - 36px) 15px;
+  background-size: calc(100% - 10vw);
   background-image: url("../../img/range-c.png");
   background-repeat: no-repeat;
   height: 100%;
@@ -456,8 +456,8 @@ ons-range[disabled] .range {
 .range::-webkit-slider-thumb {
   cursor: pointer;
   position: relative;
-  height: 42px;
-  width: 42px;
+  height: 2em;
+  width: 2em;
   background-color: inherit;
   background-image: url("../../img/range-b.png");
   background-position: 50%;
@@ -475,8 +475,8 @@ ons-range[disabled] .range {
 .range::-ms-thumb {
   cursor: pointer;
   position: relative;
-  height: 42px;
-  width: 42px;
+  height: 2em;
+  width: 2em;
   background-color: inherit;
   background-image: url("../../img/range-b.png");
   background-position: 50%;
@@ -5545,8 +5545,9 @@ input[type="search"].search-input::-webkit-search-cancel-button {
   left: 0px;
   background-image: url("../../img/play-l3-load.png");
   z-index: 10;
-  background-size: contain;
-  background-position: 50%;
+  background-size: initial;
+  background-position: 45% 95%;
+  background-repeat: no-repeat;
 }
 .playbtn .l4s {
   width: 100%;
@@ -5564,10 +5565,11 @@ input[type="search"].search-input::-webkit-search-cancel-button {
   z-index: 10;
 }
 #volume {
-  width: 50%;
+  width: 65%;
   position: relative;
-  height: 13px;
+  height: 1vh;
   margin-left: 1.1em;
+  z-index: 10;
 }
 .poll_text {
   padding: 1em;
@@ -5580,8 +5582,8 @@ input[type="search"].search-input::-webkit-search-cancel-button {
   position: absolute;
   left: -1.1em;
   color: rgba(0,0,0,0.5);
-  top: -12px;
-  font-size: 35px;
+  top: -2.5vh;
+  font-size: 6vh;
 }
 .OnlineCall {
   position: absolute;
