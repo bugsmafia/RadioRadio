@@ -1,6 +1,6 @@
 ﻿.logo
     width: 10em
-    height: 5em
+    height: 4em
     margin: 0px auto
     background-image: url(../../logo/6.png) 
     background-size: contain
@@ -141,7 +141,8 @@
 	background-image: url(../../img/play-l3-load.png) 
 	z-index: 10
 	background-size: 112%
-	background-position: 45% 650%
+	background-position-x: 40%
+	background-position-y: 70%
 	background-repeat: no-repeat
 
 .playbtn .l4s
@@ -154,6 +155,13 @@
 	z-index: 5
 	background-size: cover
 	display: none;
+
+
+.prestatus 
+    color: #c2c2c2
+    text-shadow: 0 1px 0 #ffffff
+    text-align: center
+    margin-bottom: 1em
 	
 #poll
 	display: none
@@ -180,7 +188,7 @@
 #volume i
     position: absolute;
     left: -1.1em;
-    color: rgba(0,0,0,0.5);
+    color: #c2c2c2;
     top: -2.5vh;
     font-size: 6vh;
 
@@ -205,6 +213,7 @@
 	z-index: 50;
 .buttonSMS a
 	color #a1a1a1
+	font-size 5.5vw
 	
 .buttonCall
 	position absolute
@@ -213,7 +222,32 @@
 	z-index: 50;
 .buttonCall a
 	color #a1a1a1
+	font-size 5.5vw
 
+.fab__icon
+	font-size 5.5vw
+	
+ons-splitter:before
+	content ' '
+	position absolute
+	top 0%
+	left 50%
+	width 1px
+	background-color #f00
+	height 100%
+	z-index 100
+	display none
+	
+ons-splitter:after
+	content ' '
+	position absolute
+	top 50%
+	width 100%
+	background-color #f00
+	height 1px
+	z-index 100
+	display none
+	
 @media all and (-webkit-min-device-pixel-ratio: 1)
 	@media (max-width: 320px)
     .page

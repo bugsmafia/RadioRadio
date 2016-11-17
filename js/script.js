@@ -654,9 +654,9 @@ document.addEventListener("init", function(event) {
 		//LoadStream();
 		Loader();
 		$('.playbtn').width($('body').width());
-		$('.playbtn').height($('body').width() + $('#ads').height());
-		$('.buttonSMS').css('bottom', (($('.boxmain').height() * 0.5) + ($('.buttonCall').height() - $('.boxmain').height() * 0.1)+'px'));
-		$('.buttonCall').css('bottom', (($('.boxmain').height() * 0.5) + ($('.buttonCall').height() - $('.boxmain').height() * 0.1)+'px'));
+		$('.playbtn').height($('body').width());
+		$('.buttonSMS').css('bottom', (($('.boxmain').height() * 0.370) + ($('.buttonCall').height() / 2)+'px'));
+		$('.buttonCall').css('bottom', (($('.boxmain').height() * 0.370) + ($('.buttonCall').height() / 2)+'px'));
 		cordova.plugins.backgroundMode.enable();
   }
 }, false);
