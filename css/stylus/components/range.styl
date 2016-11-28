@@ -102,7 +102,7 @@ ons-range
 	height var-range-track-height
 	border-radius var-range-border-radius
 	background-position 50%
-	background-size calc(100% - 10vw);
+	background-size 100% 100%;
 	background-image url('../../img/range-c.png');
 	background-repeat no-repeat;
 	height 100%
@@ -110,7 +110,7 @@ ons-range
 	left: 0px 
 	
 .range:before
-  content: ' ';
+  content:  '';
   width: 6px
   height: 100%
   background-image: url('../../img/range-l.png')
@@ -119,9 +119,10 @@ ons-range
   position: absolute
   left: -2px
   background-position: 50%
+  display none
   
 .range:after
-  content: ' ';
+  content: '';
   width: 6px
   height: 100%
   background-image: url('../../img/range-r.png')
@@ -130,7 +131,7 @@ ons-range
   position: absolute
   right: 12px
   background-position: 50%
-
+  display none
   
 .range::-moz-range-track
   position relative
@@ -184,14 +185,15 @@ ons-range
 	pointer-events none
 	background-repeat no-repeat
 	background-position 0
-	background-size 98% 15px
+	background-size 100% 100%
 	position: absolute
-	left: 0px
-	top: 0px
-	z-index: 3
+	left 0px
+	top 0px
+	z-index 3
+	border-radius 6px
 	
 .range__left:before
-  content: ' ';
+  content: '';
   width: 8px
   height: 100%
   background-image: url('../../img/range-l-act.png')
@@ -200,17 +202,17 @@ ons-range
   position: absolute
   left: -8px
   background-position: 50%
-  display: none
+  display none
   
   
 .range__left:after
-  content: ' ';
-  width: 8px
-  height: 100%
-  background-image: url('../../img/range-r-act.png')
-  background-repeat: no-repeat
-  display: block
-  position: absolute
-  right: -8px
-  background-position: 50%
-  display: none 
+  content '';
+  width 8px
+  height 100%
+  background-image url('../../img/range-r-act.png')
+  background-repeat no-repeat
+  display block
+  position absolute
+  right -8px
+  background-position 50%
+  display none 

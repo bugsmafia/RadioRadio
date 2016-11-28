@@ -406,7 +406,7 @@ ons-range[disabled] .range {
   height: 33px;
   border-radius: 3px;
   background-position: 50%;
-  background-size: calc(100% - 10vw);
+  background-size: 100% 100%;
   background-image: url("../../img/range-c.png");
   background-repeat: no-repeat;
   height: 100%;
@@ -414,7 +414,7 @@ ons-range[disabled] .range {
   left: 0px;
 }
 .range:before {
-  content: ' ';
+  content: '';
   width: 6px;
   height: 100%;
   background-image: url("../../img/range-l.png");
@@ -423,9 +423,10 @@ ons-range[disabled] .range {
   position: absolute;
   left: -2px;
   background-position: 50%;
+  display: none;
 }
 .range:after {
-  content: ' ';
+  content: '';
   width: 6px;
   height: 100%;
   background-image: url("../../img/range-r.png");
@@ -434,6 +435,7 @@ ons-range[disabled] .range {
   position: absolute;
   right: 12px;
   background-position: 50%;
+  display: none;
 }
 .range::-moz-range-track {
   position: relative;
@@ -512,14 +514,15 @@ ons-range[disabled] .range {
   pointer-events: none;
   background-repeat: no-repeat;
   background-position: 0;
-  background-size: 98% 15px;
+  background-size: 100% 100%;
   position: absolute;
   left: 0px;
   top: 0px;
   z-index: 3;
+  border-radius: 6px;
 }
 .range__left:before {
-  content: ' ';
+  content: '';
   width: 8px;
   height: 100%;
   background-image: url("../../img/range-l-act.png");
@@ -531,7 +534,7 @@ ons-range[disabled] .range {
   display: none;
 }
 .range__left:after {
-  content: ' ';
+  content: '';
   width: 8px;
   height: 100%;
   background-image: url("../../img/range-r-act.png");
