@@ -5345,7 +5345,6 @@ input[type="search"].search-input::-webkit-search-cancel-button {
   top: 4.69vw;
   bottom: auto;
   right: 4.69vw;
-  left: auto;
   position: fixed;
 }
 .fab--bottom__right {
