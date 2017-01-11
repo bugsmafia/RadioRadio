@@ -43,13 +43,19 @@
 		<splash src="resources/android/splash/drawable-port-xxhdpi-screen.png" density="port-xxhdpi"/>
 		<splash src="resources/android/splash/drawable-port-xxxhdpi-screen.png" density="port-xxxhdpi"/>
 	</platform>
+
+	
+	
 	<icon src="resources/icon.png"/>
 	<!-- <plugin spec="https://github.com/bugsmafia/cordova-plugin-stream-aac.git" source="git" /> -->
 	<plugin spec="https://github.com/apache/cordova-plugin-statusbar.git" source="git" />
 	<preference name="StatusBarOverlaysWebView" value="true" />
 	<preference name="StatusBarBackgroundColor" value="#444444" />
 	<preference name="StatusBarStyle" value="lightcontent" />
+	
 	<plugin spec="https://github.com/EddyVerbruggen/SocialSharing-PhoneGap-Plugin.git" source="git" />
+	
+	<plugin spec="https://github.com/floatinghotpot/cordova-plugin-android-support-v4.git" source="git" />
 	<!--  <plugin spec="https://github.com/apache/cordova-plugin-splashscreen.git" source="git" /> </plugin>-->
 	<plugin spec="https://github.com/renanoliveira/cordova-phone-call-trap.git" source="git" />
 	<plugin spec="https://github.com/homerours/cordova-music-controls-plugin.git" source="git" />
