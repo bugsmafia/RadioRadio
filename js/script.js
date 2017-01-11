@@ -547,7 +547,18 @@ ons.ready(function() {
 				$(".l3sAnim").css("background-color", "rgba(51,177,255,0.7)");
 				$(".l3s").css("background-image", "url(img/play2-play.png)");
 				$("#l2sOffAnim").fadeOut(750);
-			}
+			};
+			
+			navigator.RADIO.update(function(a) {
+				if(a == 'Играет'){
+					$(".l3sAnim").css("background-color", "rgba(51,177,255,1)");
+					$(".l3s").css("background-image", "url(img/play2-stop.png)");
+					$("#l2sOffAnim").fadeIn(750);
+					streamer = 2;
+				} else {
+					
+				}
+			});
 		  }, function(s) {
 			console.log('ERROR navigator.RADIO.initialize');
 		});
@@ -658,18 +669,7 @@ document.addEventListener("init", function(event) {
 		$('.buttonSMS').css('bottom', (($('.boxmain').height() * 0.370) + ($('.buttonCall').height() / 2)+'px'));
 		$('.buttonCall').css('bottom', (($('.boxmain').height() * 0.370) + ($('.buttonCall').height() / 2)+'px'));
 		
-		navigator.RADIO.update(function(a) {
-			if(a == 'Играет'){
-				$(".l3sAnim").css("background-color", "rgba(51,177,255,1)");
-				$(".l3s").css("background-image", "url(img/play2-stop.png)");
-				$("#l2sOffAnim").fadeIn(750);
-				streamer = 2;
-			} else {
-				
-			}
-		}, function(a) {
-
-		}, "", "", "");
+		
 		cordova.plugins.backgroundMode.enable();
   }
 }, false);
