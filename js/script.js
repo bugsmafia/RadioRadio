@@ -729,20 +729,7 @@ document.addEventListener("init", function(event) {
 
 document.addEventListener('deviceready', function () {
     //cordova.plugins.backgroundMode.enable();
-	window.plugins.webintent.hasExtra(window.plugins.webintent.EXTRA_TEXT,
-		function(has) {
-			// has is true iff it has the extra
-		}, function() {
-			// Something really bad happened.
-		}
-	);
-	window.plugins.webintent.getExtra(window.plugins.webintent.EXTRA_TEXT,
-		function(url) {
-			// url is the value of EXTRA_TEXT
-		}, function() {
-			// There was no extra supplied.
-		}
-	);
+
 	window.plugins.webintent.getUri(function(url) {
 		if(url !== "") {
 			// url is the url the intent was launched with
