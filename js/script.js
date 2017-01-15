@@ -589,17 +589,6 @@ ons.ready(function() {
 			MusicControls.subscribe(events);
 			MusicControls.listen();
 			
-			MusicControls.create({
-				track  : 'Радиостанция',
-				artist  : 'Радио',
-				cover  : 'resources/icon.png',
-				isPlaying  : false,
-				dismissable : true,
-
-				hasPrev   : false,
-				hasNext   : false,
-				hasClose  : true
-			}, onSuccess, onError);
 			/*
 			navigator.RADIO.update(function(a) {
 				if(a == 'Играет'){
