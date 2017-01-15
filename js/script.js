@@ -750,17 +750,9 @@ function stat(){
 		play: statPlay()
 	}).done(function(data, statusText, xhr){
 	if(xhr.status == 200){
-		swal({
-			title: "Ваша заявка принята!",
-			text: "Мы свяжемся с вами в течение 30 минут.",
-			type: "success"
-		});
+			// Все отлично
 		} else {
-			swal({
-				title: "Ошибка!",
-				text: "По техническим причинам, ваше обращение не было получено.",
-				type: "warning"
-			});
+			// Все отлично
 		};
 	});
 }
@@ -784,3 +776,11 @@ document.addEventListener('deviceready', function () {
 		stat();
 	}, 15000);
 }, false);
+window.onbeforeunload = function(){
+	navigator.RADIO.stop(function(s) {
+	streamer = 1;
+	console.log('Закрылись');
+	}, function(s) {
+		console.log('ERROR navigator.RADIO.stop');
+	});
+}
