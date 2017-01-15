@@ -727,7 +727,10 @@ document.addEventListener("init", function(event) {
   }
 }, false);
 var stpl = 0;
+
 function statPlay(){
+	stpl = 0;
+	/*
 	navigator.RADIO.update(function(a) {
 		if(a == 'Играет'){
 			stpl = 1;
@@ -735,8 +738,10 @@ function statPlay(){
 			stpl = 0;
 		}
 	});
+	*/
 	return stpl;
 }
+
 function stat(){
 	$.post("http://app.radioradio.ru/stat.php", {
 		cordova: device.cordova,
