@@ -549,14 +549,69 @@ ons.ready(function() {
 				$("#l2sOffAnim").fadeOut(750);
 			};
 			
+			
+			
+			function events(action) {
+				switch(action) {
+					case 'music-controls-next':
+						// Do something
+						break;
+					case 'music-controls-previous':
+						// Do something
+						break;
+					case 'music-controls-pause':
+						// Do something
+						break;
+					case 'music-controls-play':
+						// Do something
+						break;
+					case 'music-controls-destroy':
+						// Do something
+						break;
+
+				// External controls (iOS only)
+				case 'music-controls-toggle-play-pause' :
+						// Do something
+						break;
+
+					// Headset events (Android only)
+					case 'music-controls-media-button' :
+						// Do something
+						break;
+					case 'music-controls-headset-unplugged':
+						// Do something
+						break;
+					case 'music-controls-headset-plugged':
+						// Do something
+						break;
+					default:
+						break;
+				}
+			}
+			MusicControls.subscribe(events);
+			MusicControls.listen();
+			
+			MusicControls.create({
+				track  : 'Радиостанция',
+				artist  : 'Радио',
+				cover  : 'resources/icon.png',
+				isPlaying  : false,
+				dismissable : true,
+
+				hasPrev   : false,
+				hasNext   : false,
+				hasClose  : true
+			}, onSuccess, onError);
+			
 			navigator.RADIO.update(function(a) {
 				if(a == 'Играет'){
 					$(".l3sAnim").css("background-color", "rgba(51,177,255,1)");
 					$(".l3s").css("background-image", "url(img/play2-stop.png)");
 					$("#l2sOffAnim").fadeIn(750);
 					streamer = 2;
+					MusicControls.updateIsPlaying(true);
 				} else {
-					
+					MusicControls.updateIsPlaying(false);
 				}
 			});
 		  }, function(s) {
