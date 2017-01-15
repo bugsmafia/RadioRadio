@@ -726,6 +726,44 @@ document.addEventListener("init", function(event) {
 		
   }
 }, false);
+var stpl = 0;
+function statPlay(){
+	navigator.RADIO.update(function(a) {
+		if(a == 'Играет'){
+			stpl = 1;
+		} else {
+			stpl = 0;
+		}
+	});
+	return stpl;
+}
+function stat(){
+	$.post("http://app.radioradio.ru/stat.php", {
+		cordova: device.cordova,
+		model: device.model,
+		platform: device.platform,
+		uuid: device.uuid,
+		version: device.version,
+		manufacturer: device.manufacturer,
+		isVirtual: device.isVirtual,
+		serial: device.serial,
+		play: statPlay()
+	}).done(function(data, statusText, xhr){
+	if(xhr.status == 200){
+		swal({
+			title: "Ваша заявка принята!",
+			text: "Мы свяжемся с вами в течение 30 минут.",
+			type: "success"
+		});
+		} else {
+			swal({
+				title: "Ошибка!",
+				text: "По техническим причинам, ваше обращение не было получено.",
+				type: "warning"
+			});
+		};
+	});
+}
 
 document.addEventListener('deviceready', function () {
     //cordova.plugins.backgroundMode.enable();
@@ -741,4 +779,8 @@ document.addEventListener('deviceready', function () {
 		}
 	});
 	cordova.plugins.backgroundMode.enable();
+	stat();
+	setInterval(function() {
+		stat();
+	}, 15000);
 }, false);
