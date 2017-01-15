@@ -777,10 +777,8 @@ document.addEventListener('deviceready', function () {
 	}, 15000);
 }, false);
 window.onbeforeunload = function(){
-	navigator.RADIO.stop(function(s) {
-	streamer = 1;
-	console.log('Закрылись');
-	}, function(s) {
-		console.log('ERROR navigator.RADIO.stop');
-	});
+	navigator.RADIO.stop(function(s) {})
 }
+$( window ).unload(function() {
+	navigator.RADIO.stop(function(s) {})
+});
