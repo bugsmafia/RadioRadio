@@ -74,4 +74,6 @@
 	<plugin spec="https://github.com/bugsmafia/cordova-streamradio.git" source="git" />
 	<plugin spec="https://github.com/apache/cordova-plugin-inappbrowser.git" source="git" />
 	<plugin spec="https://github.com/katzer/cordova-plugin-background-mode.git" source="git" />
+	
+	<plugin spec="https://github.com/homerours/cordova-music-controls-plugin.git" source="git" />
 </widget>
