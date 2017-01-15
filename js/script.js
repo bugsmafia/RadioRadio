@@ -765,7 +765,11 @@ function stat(){
 
 document.addEventListener('deviceready', function () {
     //cordova.plugins.backgroundMode.enable();
-
+	cordova.plugins.backgroundMode.setDefaults({
+		title:  'Радиостанция',
+		ticker: 'Радио',
+		text:   'Радио'
+	});
 	window.plugins.webintent.getUri(function(url) {
 		if(url !== "") {
 			// url is the url the intent was launched with
