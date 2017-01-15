@@ -724,7 +724,16 @@ document.addEventListener("init", function(event) {
 		$('.buttonSMS').css('bottom', (($('.boxmain').height() * 0.370) + ($('.buttonCall').height() / 2)+'px'));
 		$('.buttonCall').css('bottom', (($('.boxmain').height() * 0.370) + ($('.buttonCall').height() / 2)+'px'));
 		
-		
+		window.plugins.webintent.getUri(function(url) {
+			if(url !== "") {
+				// url is the url the intent was launched with
+			}
+		});
+		window.plugins.webintent.onNewIntent(function(url) {
+			if(url !== "") {
+				// url is the url that was passed to onNewIntent
+			}
+		});
 		cordova.plugins.backgroundMode.enable();
   }
 }, false);
