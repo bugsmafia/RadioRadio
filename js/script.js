@@ -600,7 +600,7 @@ ons.ready(function() {
 				hasNext   : false,
 				hasClose  : true
 			}, onSuccess, onError);
-			
+			/*
 			navigator.RADIO.update(function(a) {
 				if(a == 'Играет'){
 					$(".l3sAnim").css("background-color", "rgba(51,177,255,1)");
@@ -612,6 +612,7 @@ ons.ready(function() {
 					MusicControls.updateIsPlaying(false);
 				}
 			});
+			*/
 		  }, function(s) {
 			console.log('ERROR navigator.RADIO.initialize');
 		});
