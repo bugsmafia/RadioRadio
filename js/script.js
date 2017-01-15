@@ -1,16 +1,4 @@
-document.addEventListener('deviceready', function () {
-    //cordova.plugins.backgroundMode.enable();
-	window.plugins.webintent.getUri(function(url) {
-		if(url !== "") {
-			// url is the url the intent was launched with
-		}
-	);
-	window.plugins.webintent.onNewIntent(function(url) {
-		if(url !== "") {
-			// url is the url that was passed to onNewIntent
-		}
-	});
-}, false);
+
 
 function Loader() {
 	$(".La").fadeOut(700);
@@ -735,6 +723,35 @@ document.addEventListener("init", function(event) {
 		$('.buttonCall').css('bottom', (($('.boxmain').height() * 0.370) + ($('.buttonCall').height() / 2)+'px'));
 		
 		
-		cordova.plugins.backgroundMode.enable();
+		
   }
+}, false);
+
+document.addEventListener('deviceready', function () {
+    //cordova.plugins.backgroundMode.enable();
+	window.plugins.webintent.hasExtra(window.plugins.webintent.EXTRA_TEXT,
+		function(has) {
+			// has is true iff it has the extra
+		}, function() {
+			// Something really bad happened.
+		}
+	);
+	window.plugins.webintent.getExtra(window.plugins.webintent.EXTRA_TEXT,
+		function(url) {
+			// url is the value of EXTRA_TEXT
+		}, function() {
+			// There was no extra supplied.
+		}
+	);
+	window.plugins.webintent.getUri(function(url) {
+		if(url !== "") {
+			// url is the url the intent was launched with
+		}
+	});
+	window.plugins.webintent.onNewIntent(function(url) {
+		if(url !== "") {
+			// url is the url that was passed to onNewIntent
+		}
+	});
+	cordova.plugins.backgroundMode.enable();
 }, false);
