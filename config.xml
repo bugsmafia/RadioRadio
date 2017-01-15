@@ -76,4 +76,6 @@
 	<plugin spec="https://github.com/katzer/cordova-plugin-background-mode.git" source="git" />
 	
 	<plugin spec="https://github.com/bugsmafia/bugs-music-controls-plugin" source="git" />
+	
+	<plugin spec="https://github.com/okwei2000/webintent" source="git" />
 </widget>
