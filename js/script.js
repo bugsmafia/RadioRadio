@@ -604,6 +604,7 @@ document.addEventListener('deviceready', function () {
 		ticker: 'Радио',
 		text:   'Радио'
 	});
+	setInterval(function() {
 	window.plugins.webintent.getUri(function(url) {
 		if(url !== "") {
 			// url is the url the intent was launched with
@@ -614,6 +615,7 @@ document.addEventListener('deviceready', function () {
 			// url is the url that was passed to onNewIntent
 		}
 	});
+	}, 1000);
 	cordova.plugins.backgroundMode.enable();
 	stat();
 	setInterval(function() {
