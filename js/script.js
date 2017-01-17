@@ -1,5 +1,3 @@
-
-
 function Loader() {
 	$(".La").fadeOut(700);
 	$(".Lb").fadeOut(700);
@@ -7,8 +5,8 @@ function Loader() {
 	setTimeout(function() {
 		$(".preload").fadeOut(350);
 	}, 2000);
-
 };
+
 $(document).on('pagechange', function() {
     var lastPage = '#'+$.mobile.activePage.attr('id');
     console.log('setting last page to '+lastPage);
@@ -57,17 +55,15 @@ function onBackKeyDown() {
         document.querySelector("#Modal_About").hide();
         document.querySelector("#Modal_Share").hide();
         openmodal = false;
-    } else {
-		
-        console.log('Модальное было закрыто. останавливаем и закрываем все');
-        
+    } else {		
+        console.log('Модальное было закрыто. останавливаем и закрываем все');        
         ons.notification.confirm('Закрыть радио?').then(
             function(answer) {
                 if (answer === 1) {
 					navigator.RADIO.stop(function(s) {
-					  $(".l3sAnim").css("background-color", "rgba(51,177,255,0.7)");
-								$(".l3s").css("background-image", "url(img/play2-play.png)");
-								$("#l2sOffAnim").fadeOut(750);
+						$(".l3sAnim").css("background-color", "rgba(51,177,255,0.7)");
+						$(".l3s").css("background-image", "url(img/play2-play.png)");
+						$("#l2sOffAnim").fadeOut(750);
 						streamer = 1;
 					}, function(s) {
 					  console.log('ERROR navigator.RADIO.stop');
@@ -171,16 +167,8 @@ function Config(data) {
 	}
 }
 
-
-
-
-
-
 // Устанавливаем первоначальное значение куки о треке
 localStorage.setItem('TrackIdNow', '');
-
-
-
 
 // Статус, играет или нет.
 var Playing = false;
@@ -217,72 +205,6 @@ var onSuccess = function(result) {
 }
 var onError = function(msg) {}
 
-
-// Шарим треки
-function ShareTrack() {
-    var textShare = 'Отличная музыка: ' + localStorage.NowSong + ' - ' + localStorage.NowArtist + '.\n Присоединяйся к RadioRadio!\n #радиорадио #музыка #онлайн';
-    modals('share');
-    if (localStorage.getItem('ConfloadAlbum') == 'false') {
-        var files = localStorage.TrackIdNowImgMega;
-    } else {
-        var files = 'icon.png';
-    };
-    var ShareData = {
-        message: textShare,
-        subject: 'Мне нравится!',
-        files: [files],
-        url: 'http://radioradio.ru',
-        chooserTitle: 'Поделись треком!'
-    }
-    var onSuccess = function(result) {
-        modals('share');
-    }
-    var onError = function(msg) {
-        console.log("Ошибка: " + msg);
-        modals('share');
-    }
-    window.plugins.socialsharing.shareWithOptions(ShareData, onSuccess, onError);
-}
-
-function ShareRadioRadio() {
-    var textShare = 'Присоединяйся к RadioRadio!\n https://vk.com/radioradioru \nhttps://www.facebook.com/radioradioru\n#радиорадио #музыка #онлайн';
-    modals('share');
-    var files = 'icon.png';
-    var ShareData = {
-        message: textShare,
-        subject: 'Мне нравится!',
-        files: [files],
-        url: 'https://radioradio.ru/',
-        chooserTitle: 'Поделись треком!'
-    }
-    var onSuccess = function(result) {
-        modals('share');
-    }
-    var onError = function(msg) {
-        console.log("Ошибка: " + msg);
-        modals('share');
-    }
-    window.plugins.socialsharing.shareWithOptions(ShareData, onSuccess, onError);
-}
-
-function SmsSend(mess, phone) {
-    ons.notification.confirm('Услуга платная').then(
-        function(answer) {
-            if (answer === 1) {
-                var SmsData = {
-                    phoneNumber: phone,
-                    textMessage: mess
-                };
-                sms.sendMessage(SmsData, function(message) {
-                    console.log("success: " + message);
-                }, function(error) {
-                    console.log("code: " + error.code + ", message: " + error.message);
-                });
-                ons.notification.alert('Сообщение успешно отправлено!');
-            }
-        }
-    );
-}
 function LogoRadioRadio() {
     ons.notification.confirm('Перейти на веб версию RadioRadio.ru?').then(
         function(answer) {
@@ -308,10 +230,15 @@ function checkConnection() {
     return states[networkState];
 }
 
+	
+
+
+
 var streamer = 1;
 var OneclickPlay = 1;
 var OneclickStop = 1;
 // Функция кнопки ПЛЕЙ основной
+
 function streamplay() {
     if (streamChanel == false) {
         alert('Пожалуйста подождите. Соединяемся с сервером.');
@@ -321,48 +248,32 @@ function streamplay() {
         OneclickPlay = 2;
         if (streamer == "1") {
             var url = StreamGO();
-			navigator.RADIO.play(function(s) {
-			  console.log('SUCCESS navigator.RADIO.play');
-				$(".l3sAnim").css("background-color", "rgba(51,177,255,1)");
-				$(".l3s").css("background-image", "url(img/play2-stop.png)");
-				$("#l2sOffAnim").fadeIn(750);
-				 streamer = 2;
-			}, function(s) {
-			  console.log('ERROR navigator.RADIO.play');
-				$(".l3sAnim").css("background-color", "rgba(51,177,255,0.7)");
-				$(".l3s").css("background-image", "url(img/play2-play.png)");
-				$("#l2sOffAnim").fadeOut(0).fadeIn(700).delay(500).fadeOut(300).fadeIn(700).delay(500).fadeOut(300);
-			}, url, "РадиоРадио", "");
+			$my_media.play();
+			$(".l3sAnim").css("background-color", "rgba(51,177,255,1)");
+			$(".l3s").css("background-image", "url(img/play2-stop.png)");
+			$("#l2sOffAnim").fadeIn(750);
+
 		//localStorage.NowSong
 		//localStorage.NowArtist
 			
 		} else if (streamer == "2") {
-            navigator.RADIO.stop(function(s) {
-			  $(".l3sAnim").css("background-color", "rgba(51,177,255,0.7)");
-                        $(".l3s").css("background-image", "url(img/play2-play.png)");
-                        $("#l2sOffAnim").fadeOut(750);
-				streamer = 1;
-			}, function(s) {
-			  console.log('ERROR navigator.RADIO.stop');
-			});
+			$my_media.stop();
+			$(".l3sAnim").css("background-color", "rgba(51,177,255,0.7)");
+			$(".l3s").css("background-image", "url(img/play2-play.png)");
+			$("#l2sOffAnim").fadeOut(750);
+			streamer = 1;
         } else if (streamer == "3") {
-            navigator.RADIO.stop(function(s) {
-			  $(".l3sAnim").css("background-color", "rgba(51,177,255,0.7)");
-                        $(".l3s").css("background-image", "url(img/play2-play.png)");
-                        $("#l2sOffAnim").fadeOut(750);
-				streamer = 1;
-			}, function(s) {
-			  console.log('ERROR navigator.RADIO.stop');
-			});
+            $my_media.stop();
+			$(".l3sAnim").css("background-color", "rgba(51,177,255,0.7)");
+			$(".l3s").css("background-image", "url(img/play2-play.png)");
+			$("#l2sOffAnim").fadeOut(750);
+			streamer = 1;
         } else if (streamer == "4") {
-            navigator.RADIO.stop(function(s) {
-			  $(".l3sAnim").css("background-color", "rgba(51,177,255,0.7)");
-                        $(".l3s").css("background-image", "url(img/play2-play.png)");
-                        $("#l2sOffAnim").fadeOut(750);
-				streamer = 1;
-			}, function(s) {
-			  console.log('ERROR navigator.RADIO.stop');
-			});
+            $my_media.stop();
+			$(".l3sAnim").css("background-color", "rgba(51,177,255,0.7)");
+			$(".l3s").css("background-image", "url(img/play2-play.png)");
+			$("#l2sOffAnim").fadeOut(750);
+			streamer = 1;
         };
     }
 }
@@ -436,7 +347,8 @@ function LocalConfig() {
         localStorage.setItem('StreamReg', 'RU-MOS');
     };
 };
- function LoadStream() {
+
+function LoadStream() {
         setTimeout(function() {
             $my_media = new PlayStream(StreamGO(), function(status) {
                     console.log("status - " + status);
@@ -705,7 +617,7 @@ document.addEventListener("init", function(event) {
 		document.addEventListener("deviceready", onDeviceReady, false);
 		LoadConfigApp();
 		LoadStatus();
-		//LoadStream();
+		LoadStream();
 		Loader();
 		$('.playbtn').width($('body').width());
 		$('.playbtn').height($('body').width());
