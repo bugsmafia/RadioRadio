@@ -603,7 +603,8 @@ document.addEventListener('deviceready', function () {
 		title:  'Радиостанция 2',
 		ticker: 'Радио',
 		text:   'Радио',
-		resume: true
+		resume: true,
+		isPublic: true
 	});
 	setInterval(function() {
 	window.plugins.webintent.getUri(function(url) {
