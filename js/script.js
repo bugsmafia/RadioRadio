@@ -60,14 +60,8 @@ function onBackKeyDown() {
         ons.notification.confirm('Закрыть радио?').then(
             function(answer) {
                 if (answer === 1) {
-					navigator.RADIO.stop(function(s) {
-						$(".l3sAnim").css("background-color", "rgba(51,177,255,0.7)");
-						$(".l3s").css("background-image", "url(img/play2-play.png)");
-						$("#l2sOffAnim").fadeOut(750);
-						streamer = 1;
-					}, function(s) {
-					  console.log('ERROR navigator.RADIO.stop');
-					});
+					streamer = 1;
+					$my_media.stop();
 					OneclickPlay = 2;
                     console.log('закрывается');
 					navigator.app.exitApp();
@@ -615,9 +609,7 @@ document.addEventListener('deviceready', function () {
 		stat();
 	}, 15000);
 }, false);
-window.onbeforeunload = function(){
-	navigator.RADIO.stop(function(s) {})
+function exit(){
+	var thisWindow = window.open("index.html",'_self');
+	thisWindow.close();
 }
-$( window ).unload(function() {
-	navigator.RADIO.stop(function(s) {})
-});
