@@ -1,3 +1,14 @@
+function getCookie(name) {
+  var matches = document.cookie.match(new RegExp(
+    "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+  ));
+  return matches ? decodeURIComponent(matches[1]) : undefined;
+}
+function exit(){
+	var thisWindow = window.open("index.html",'_self');
+	thisWindow.close();
+}
+
 function Loader() {
 	$(".La").fadeOut(700);
 	$(".Lb").fadeOut(700);
