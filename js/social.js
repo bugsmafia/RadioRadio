@@ -1,6 +1,6 @@
-// Шарим треки
+// РЁР°СЂРёРј С‚СЂРµРєРё
 function ShareTrack() {
-    var textShare = 'Отличная музыка: ' + localStorage.NowSong + ' - ' + localStorage.NowArtist + '.\n Присоединяйся к RadioRadio!\n #радиорадио #музыка #онлайн';
+    var textShare = 'РћС‚Р»РёС‡РЅР°СЏ РјСѓР·С‹РєР°: ' + localStorage.NowSong + ' - ' + localStorage.NowArtist + '.\n РџСЂРёСЃРѕРµРґРёРЅСЏР№СЃСЏ Рє RadioRadio!\n #СЂР°РґРёРѕСЂР°РґРёРѕ #РјСѓР·С‹РєР° #РѕРЅР»Р°Р№РЅ';
     modals('share');
     if (localStorage.getItem('ConfloadAlbum') == 'false') {
         var files = localStorage.TrackIdNowImgMega;
@@ -9,37 +9,37 @@ function ShareTrack() {
     };
     var ShareData = {
         message: textShare,
-        subject: 'Мне нравится!',
+        subject: 'РњРЅРµ РЅСЂР°РІРёС‚СЃСЏ!',
         files: [files],
         url: 'http://radioradio.ru',
-        chooserTitle: 'Поделись треком!'
+        chooserTitle: 'РџРѕРґРµР»РёСЃСЊ С‚СЂРµРєРѕРј!'
     }
     var onSuccess = function(result) {
         modals('share');
     }
     var onError = function(msg) {
-        console.log("Ошибка: " + msg);
+        console.log("РћС€РёР±РєР°: " + msg);
         modals('share');
     }
     window.plugins.socialsharing.shareWithOptions(ShareData, onSuccess, onError);
 }
 
 function ShareRadioRadio() {
-    var textShare = 'Присоединяйся к RadioRadio!\n https://vk.com/radioradioru \nhttps://www.facebook.com/radioradioru\n#радиорадио #музыка #онлайн';
+    var textShare = 'РџСЂРёСЃРѕРµРґРёРЅСЏР№СЃСЏ Рє RadioRadio!\n https://vk.com/radioradioru \nhttps://www.facebook.com/radioradioru\n#СЂР°РґРёРѕСЂР°РґРёРѕ #РјСѓР·С‹РєР° #РѕРЅР»Р°Р№РЅ';
     modals('share');
     var files = 'icon.png';
     var ShareData = {
         message: textShare,
-        subject: 'Мне нравится!',
+        subject: 'РњРЅРµ РЅСЂР°РІРёС‚СЃСЏ!',
         files: [files],
         url: 'https://radioradio.ru/',
-        chooserTitle: 'Поделись треком!'
+        chooserTitle: 'РџРѕРґРµР»РёСЃСЊ С‚СЂРµРєРѕРј!'
     }
     var onSuccess = function(result) {
         modals('share');
     }
     var onError = function(msg) {
-        console.log("Ошибка: " + msg);
+        console.log("РћС€РёР±РєР°: " + msg);
         modals('share');
     }
     window.plugins.socialsharing.shareWithOptions(ShareData, onSuccess, onError);
@@ -47,7 +47,7 @@ function ShareRadioRadio() {
 
 
 function SmsSend(mess, phone) {
-    ons.notification.confirm('Услуга платная').then(
+    ons.notification.confirm('РЈСЃР»СѓРіР° РїР»Р°С‚РЅР°СЏ').then(
         function(answer) {
             if (answer === 1) {
                 var SmsData = {
@@ -59,7 +59,7 @@ function SmsSend(mess, phone) {
                 }, function(error) {
                     console.log("code: " + error.code + ", message: " + error.message);
                 });
-                ons.notification.alert('Сообщение успешно отправлено!');
+                ons.notification.alert('РЎРѕРѕР±С‰РµРЅРёРµ СѓСЃРїРµС€РЅРѕ РѕС‚РїСЂР°РІР»РµРЅРѕ!');
             }
         }
     );
