@@ -600,9 +600,10 @@ function stat(){
 document.addEventListener('deviceready', function () {
     //cordova.plugins.backgroundMode.enable();
 	cordova.plugins.backgroundMode.setDefaults({
-		title:  'Радиостанция',
+		title:  'Радиостанция 2',
 		ticker: 'Радио',
-		text:   'Радио'
+		text:   'Радио',
+		resume: true
 	});
 	setInterval(function() {
 	window.plugins.webintent.getUri(function(url) {
