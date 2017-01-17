@@ -73,7 +73,7 @@
 	
 	
 	<!-- <plugin spec="https://github.com/mradosta/cordova-plugin-streaming" source="git" />  -->
-	 <plugin spec="https://github.com/bugsmafia/cordova-streamradio.git" source="git" />
+	<!-- <plugin spec="https://github.com/bugsmafia/cordova-streamradio.git" source="git" />>  -->
 	<plugin spec="https://github.com/apache/cordova-plugin-inappbrowser.git" source="git" />
 	<plugin spec="https://github.com/katzer/cordova-plugin-background-mode.git" source="git" />
 	
