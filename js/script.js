@@ -8,10 +8,7 @@ function exit(){
 	var thisWindow = window.open("index.html",'_self');
 	thisWindow.close();
 }
-if(localStorage.getItem('bg') == 1){
-	exit();
-	localStorage.setItem('bg', '0');
-}
+
 function Loader() {
 	$(".La").fadeOut(700);
 	$(".Lb").fadeOut(700);
@@ -55,6 +52,12 @@ function onLoad() {
 }
 // Функция исполнения когда приложение готово
 function onDeviceReady() {
+	if(localStorage.getItem('bg') == 1){
+		exit();
+		localStorage.setItem('bg', '0');
+	}
+	
+	
     document.addEventListener("pause", onPause, false);
     document.addEventListener("resume", onResume, false);
 	ons.disableDeviceBackButtonHandler();
