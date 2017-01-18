@@ -598,6 +598,7 @@ function stat(){
 }
 
 document.addEventListener('deviceready', function () {
+	alert(cordova.plugins.backgroundMode.isEnabled());
 	if ( cordova.plugins.backgroundMode.isEnabled() == true){
 		exit();
 	}
