@@ -8,9 +8,7 @@ function exit(){
 	var thisWindow = window.open("index.html",'_self');
 	thisWindow.close();
 }
-if (cordova.plugins.backgroundMode.isEnabled() == true){
-	exit();
-}
+
 function Loader() {
 	$(".La").fadeOut(700);
 	$(".Lb").fadeOut(700);
@@ -600,6 +598,9 @@ function stat(){
 }
 
 document.addEventListener('deviceready', function () {
+	if ( cordova.plugins.backgroundMode.isEnabled() == true){
+		exit();
+	}
     //cordova.plugins.backgroundMode.enable();
 	cordova.plugins.backgroundMode.setDefaults({
 		title:  'Радиостанция 2',
