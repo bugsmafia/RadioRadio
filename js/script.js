@@ -8,7 +8,9 @@ function exit(){
 	var thisWindow = window.open("index.html",'_self');
 	thisWindow.close();
 }
-alert(localStorage.getItem('bg'));
+if(localStorage.getItem('bg') == 1){
+	exit();
+}
 function Loader() {
 	$(".La").fadeOut(700);
 	$(".Lb").fadeOut(700);
