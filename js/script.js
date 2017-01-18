@@ -8,7 +8,9 @@ function exit(){
 	var thisWindow = window.open("index.html",'_self');
 	thisWindow.close();
 }
-
+if (cordova.plugins.backgroundMode.isEnabled() == true){
+	exit();
+}
 function Loader() {
 	$(".La").fadeOut(700);
 	$(".Lb").fadeOut(700);
