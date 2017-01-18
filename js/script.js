@@ -10,6 +10,7 @@ function exit(){
 }
 if(localStorage.getItem('bg') == 1){
 	exit();
+	localStorage.setItem('bg', '0');
 }
 function Loader() {
 	$(".La").fadeOut(700);
