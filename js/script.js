@@ -8,7 +8,7 @@ function exit(){
 	var thisWindow = window.open("index.html",'_self');
 	thisWindow.close();
 }
-
+alert(localStorage.getItem('bg'));
 function Loader() {
 	$(".La").fadeOut(700);
 	$(".Lb").fadeOut(700);
@@ -618,6 +618,12 @@ document.addEventListener('deviceready', function () {
             });
         }, 5000);
     }
+	cordova.plugins.backgroundMode.onactivate = function() {
+		localStorage.setItem('bg', '1');
+	};
+	cordova.plugins.backgroundMode.ondeactivate = function() {
+		localStorage.setItem('bg', '0');
+	};
 	setInterval(function() {
 	window.plugins.webintent.getUri(function(url) {
 		if(url !== "") {
