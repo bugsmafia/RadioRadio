@@ -10,8 +10,9 @@ function exit(){
 }
 if(localStorage.getItem('bg') == 1){
 	setTimeout(function() {
-	exit();
+
 	localStorage.setItem('bg', '0');
+	navigator.app.exitApp();
 	}, 5000);
 }
 function Loader() {
