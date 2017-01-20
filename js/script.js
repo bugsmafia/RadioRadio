@@ -612,22 +612,21 @@ document.addEventListener('deviceready', function () {
 	}
     //cordova.plugins.backgroundMode.enable();
 	cordova.plugins.backgroundMode.setDefaults({
-		title:  'Радиостанция 2',
+		title:  'Радиостанция',
 		ticker: 'Радио',
 		text:   'Радио',
 		resume: true,
 		isPublic: true
 	});
-	cordova.plugins.backgroundMode.onactivate = function () {
-        setTimeout(function () {
-            // Modify the currently displayed notification
-            cordova.plugins.backgroundMode.configure({
-                text: localStorage.getItem('NowSong')+" - "+localStorage.getItem('NowArtist')
-            });
-        }, 5000);
-    }
 	cordova.plugins.backgroundMode.onactivate = function() {
 		localStorage.setItem('bg', '1');
+		setTimeout(function () {
+            // Modify the currently displayed notification
+            cordova.plugins.backgroundMode.configure({
+				title: localStorage.getItem('NowSong'),
+                text: localStorage.getItem('NowArtist')
+            });
+        }, 5000);
 	};
 	cordova.plugins.backgroundMode.ondeactivate = function() {
 		localStorage.setItem('bg', '0');
