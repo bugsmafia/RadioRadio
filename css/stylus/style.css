@@ -692,30 +692,6 @@ ons-range[disabled] .range {
     </div>
 */
 /* topdoc
-  name: Transparent Navigation Bar
-  class: navigation-bar--transparent
-  use: Toolbar Button, Navigation Bar
-  markup:
-    <div class="navigation-bar navigation-bar--transparent">
-      <div class="navigation-bar__left">
-        <span class="toolbar-button--quiet">
-          <i class="ion-navicon" style="font-size:32px; vertical-align:-6px;"></i>
-        </span>
-      </div>
-      <div class="navigation-bar__center">
-        Navigation Bar
-      </div>
-      <div class="navigation-bar__right">
-        <span class="toolbar-button--quiet">Label</span>
-      </div>
-    </div>
-*/
-.navigation-bar--transparent {
-  background-color: transparent;
-  background-image: none;
-  border: none;
-}
-/* topdoc
   name: Navigation Bar with Outline Button
   use: Toolbar Button, Navigation Bar
   markup:
@@ -736,31 +712,6 @@ ons-range[disabled] .range {
       </div>
     </div>
 */
-/* topdoc
-  name: Transparent Navigation Bar
-  class: navigation-bar--transparent
-  use: Toolbar Button, Navigation Bar
-  markup:
-    <!-- Prerequisite=This example use ionicons(http://ionicons.com) to display icons. -->
-    <div class="navigation-bar navigation-bar--transparent">
-      <div class="navigation-bar__left">
-        <span class="toolbar-button--quiet">
-          <i class="ion-navicon" style="font-size:32px; vertical-align:-6px;"></i>
-        </span>
-      </div>
-      <div class="navigation-bar__center">
-        Navigation Bar
-      </div>
-      <div class="navigation-bar__right">
-        <span class="toolbar-button--quiet">Label</span>
-      </div>
-    </div>
-*/
-.navigation-bar--transparent {
-  background-color: transparent;
-  background-image: none;
-  border: none;
-}
 /* topdoc
   name: Bottom Bar
   class: bottom-bar
@@ -870,6 +821,25 @@ ons-range[disabled] .range {
   background-color: #3892c9;
   background-size: 0;
 }
+/* topdoc
+  name: No Shadow Navigation Bar
+  class: navigation-bar--noshadow
+  use: Toolbar Button, Navigation Bar
+  markup:
+    <div class="navigation-bar navigation-bar--noshadow">
+      <div class="navigation-bar__left">
+        <span class="toolbar-button--quiet">
+          <i class="ion-navicon" style="font-size:32px; vertical-align:-6px;"></i>
+        </span>
+      </div>
+      <div class="navigation-bar__center">
+        Navigation Bar
+      </div>
+      <div class="navigation-bar__right">
+        <span class="toolbar-button--quiet">Label</span>
+      </div>
+    </div>
+*/
 .navigation-bar--noshadow {
   box-shadow: none;
   background-image: none;
@@ -941,6 +911,31 @@ ons-range[disabled] .range {
       </div>
     </div>
 */
+/* topdoc
+  name: Transparent Navigation Bar
+  class: navigation-bar--transparent
+  use: Toolbar Button, Navigation Bar
+  markup:
+    <div class="navigation-bar navigation-bar--transparent">
+      <div class="navigation-bar__left">
+        <span class="toolbar-button--quiet">
+          <i class="ion-navicon" style="font-size:32px; vertical-align:-6px;"></i>
+        </span>
+      </div>
+      <div class="navigation-bar__center">
+        Navigation Bar
+      </div>
+      <div class="navigation-bar__right">
+        <span class="toolbar-button--quiet">Label</span>
+      </div>
+    </div>
+*/
+.navigation-bar--transparent {
+  background-color: transparent;
+  box-shadow: none;
+  background-image: none;
+  border-bottom: none;
+}
 /* topdoc
   name: Button
   class: button
@@ -1812,6 +1807,15 @@ ons-range[disabled] .range {
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
   font-size: 17px;
+}
+.tab-bar__badge.notification {
+  position: absolute;
+  top: 5px;
+  z-index: 10;
+  font-size: 12px;
+  height: 16px;
+  line-height: 16px;
+  border-radius: 8px;
 }
 .tab-bar__icon + .tab-bar__label {
   font-size: 10px;
@@ -4117,6 +4121,48 @@ input[type="search"].search-input::-webkit-search-cancel-button {
 .text-input--material::-ms-clear {
   display: none;
 }
+/* topdoc
+  name: Transparent Text Input
+  class: text-input--transparent
+  markup:
+    <input type="text" class="text-input--transparent" placeholder="text" value="">
+    <br>
+    <input type="text" class="text-input--transparent" placeholder="text" value="" disabled>
+*/
+.text-input--transparent {
+  border: none;
+  background-color: transparent;
+  background-image: none;
+  padding-left: 0;
+  padding-right: 0;
+}
+.text-input--transparent:focus {
+  background-image: none;
+}
+.text-input--transparent:disabled {
+  border: none;
+  background-color: transparent;
+}
+.text-input--transparent:disabled::-webkit-input-placeholder {
+  border: none;
+  background-color: transparent;
+}
+.text-input--transparent:disabled::-moz-placeholder {
+  border: none;
+  background-color: transparent;
+}
+.text-input--transparent:disabled::-ms-input-placeholder {
+  border: none;
+  background-color: transparent;
+}
+.text-input--transparent:disabled:-ms-input-placeholder {
+  border: none;
+  background-color: transparent;
+}
+.text-input--transparent:invalid {
+  border: none;
+  background-color: transparent;
+}
 @-moz-keyframes material-text-input-animate {
   0% {
     background-size: 0% 2px, 100% 2px;
@@ -5578,7 +5624,7 @@ input[type="search"].search-input::-webkit-search-cancel-button {
   color: #c2c2c2;
   text-shadow: 0 1px 0 #fff;
   text-align: center;
-  margin-bottom: 1em;
+  margin: -1rem 0rem 0rem 0rem;
 }
 #poll {
   display: none;

@@ -1,3 +1,5 @@
+/*! onsenui - v2.0.5 - 2016-12-19 */
+
 /* @import url("font_awesome/css/font-awesome.min.css"); */
 /* @import url("ionicons/css/ionicons.min.css");  */
 /* @import url("material-design-iconic-font/css/material-design-iconic-font.min.css");  */
@@ -152,7 +154,6 @@
 
 
 
-/* custom elements */
 ons-page, ons-navigator,
 ons-split-view, ons-sliding-menu, ons-tabbar,
 ons-gesture-detector {
@@ -160,7 +161,9 @@ ons-gesture-detector {
 }
 
 ons-navigator,
-ons-tabbar {
+ons-tabbar,
+ons-dialog,
+ons-alert-dialog {
   position: absolute;
   top: 0;
   left: 0;
@@ -174,7 +177,7 @@ ons-tab {
           transform: translate3d(0, 0, 0);
 }
 
-ons-page, ons-navigator, ons-tabbar, ons-sliding-menu, ons-split-view {
+ons-page, ons-navigator, ons-tabbar, ons-sliding-menu, ons-split-view, ons-dialog, ons-alert-dialog {
   z-index: 2;
 }
 
@@ -414,24 +417,21 @@ ons-row[vertical-align="top"], ons-row[align="top"] {
   -webkit-box-align: start;
   box-align: start;
   -moz-align-items: flex-start;
-  -ms-grid-row-align: flex-start;
-      align-items: flex-start;
+  align-items: flex-start;
 }
 
 ons-row[vertical-align="bottom"], ons-row[align="bottom"] {
   -webkit-box-align: end;
   box-align: end;
   -moz-align-items: flex-end;
-  -ms-grid-row-align: flex-end;
-      align-items: flex-end;
+  align-items: flex-end;
 }
 
 ons-row[vertical-align="center"], ons-row[align="center"] {
   -webkit-box-align: center;
   box-align: center;
   -moz-align-items: center;
-  -ms-grid-row-align: center;
-      align-items: center;
+  align-items: center;
   text-align: inherit;
 }
 
@@ -449,10 +449,12 @@ ons-col {
 }
 
 ons-col[vertical-align="top"], ons-col[align="top"] {
+  -webkit-align-self: flex-start;
   align-self: flex-start;
 }
 
 ons-col[vertical-align="bottom"], ons-col[align="bottom"] {
+  -webkit-align-self: flex-end;
   align-self: flex-end; }
 
 ons-col[vertical-align="center"], ons-col[align="center"] {
@@ -482,13 +484,14 @@ limitations under the License.
 
 .ons-icon {
   display: inline-block;
+  line-height: inherit;
   font-style: normal;
   font-weight: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-.ons-icon--ion {
+:not(ons-toolbar-button) > .ons-icon--ion {
   line-height: 0.75em;
   vertical-align: -25%;
 }
@@ -574,7 +577,7 @@ ons-input .text-input__label:not(.text-input--material__label) {
   display: none;
 }
 
-ons-input:not([float]) .text-input__label--active {
+ons-input:not([float]) .text-input--material__label--active {
   display: none;
 }
 
