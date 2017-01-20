@@ -59,7 +59,8 @@
 	<plugin spec="https://github.com/apache/cordova-plugin-device.git" source="git" />
 	<plugin spec="https://github.com/bugsmafia/RadioRadioLib.git" source="git" />
 	<plugin spec="https://github.com/apache/cordova-plugin-inappbrowser.git" source="git" />
-	<plugin spec="https://github.com/katzer/cordova-plugin-background-mode.git" source="git" />
+	<!--<plugin spec="https://github.com/katzer/cordova-plugin-background-mode.git" source="git" />-->
+	<plugin spec="https://github.com/bugsmafia/cordova-bg-mode.git" source="git" />
 	<plugin spec="https://github.com/okwei2000/webintent" source="git" /> 
 </widget>
   
