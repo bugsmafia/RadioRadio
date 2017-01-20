@@ -8,13 +8,7 @@ function exit(){
 	var thisWindow = window.open("index.html",'_self');
 	thisWindow.close();
 }
-if(localStorage.getItem('bg') == 1){
-	setTimeout(function() {
 
-	localStorage.setItem('bg', '0');
-	navigator.app.exitApp();
-	}, 5000);
-}
 function Loader() {
 	$(".La").fadeOut(700);
 	$(".Lb").fadeOut(700);
@@ -607,8 +601,11 @@ function stat(){
 }
 
 document.addEventListener('deviceready', function () {
-	if ( cordova.plugins.backgroundMode.isEnabled() == true){
-		exit();
+	if(localStorage.getItem('bg') == 1){
+		setTimeout(function() {
+			localStorage.setItem('bg', '0');
+			navigator.app.exitApp();
+		}, 500);
 	}
     //cordova.plugins.backgroundMode.enable();
 	cordova.plugins.backgroundMode.setDefaults({
