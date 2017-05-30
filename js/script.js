@@ -263,7 +263,7 @@ function streamplay() {
         alert('Соединение с интернетом - отсутствует.');
     } else {
         OneclickPlay = 2;
-		jQuery('#logs').append('Плей/стоп. Стрим статус: '.streamer().'<br/>');
+		jQuery('#logs').append('Плей/стоп. Стрим статус: '+streamer()+'<br/>');
         if (streamer == "1") {
             var url = StreamGO();
 			$my_media.play();
@@ -373,7 +373,7 @@ function LocalConfig() {
 function LoadStream() {
 	jQuery('#logs').append('Функция LoadStream<br/>');
         setTimeout(function() {
-			jQuery('#logs').append('Сервер '.StreamGO().'<br/>');
+			jQuery('#logs').append('Сервер '+StreamGO()+'<br/>');
             $my_media = new PlayStream(StreamGO(), function(status) {
                     console.log("status - " + status);
                     if (status === PlayStream.MEDIA_STOPPED) {
@@ -404,12 +404,12 @@ function LoadStream() {
                 },
                 function(err) {
                     alert(err);
-					jQuery('#logs').append('LoadStream ошибка '.err.'<br/>');
+					jQuery('#logs').append('LoadStream ошибка '+err+'<br/>');
                 }
             );
             var callmemabe = '1';
             PhoneCallTrap.onCall(function(state) {
-				jQuery('#logs').append('Событие звонка '.state.'<br/>');
+				jQuery('#logs').append('Событие звонка '+state+'<br/>');
                 console.log("CHANGE STATE: " + state + " " + callmemabe);
                 switch (state) {
                     case "RINGING":
