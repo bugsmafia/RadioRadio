@@ -263,7 +263,7 @@ function streamplay() {
         alert('Соединение с интернетом - отсутствует.');
     } else {
         OneclickPlay = 2;
-		jQuery('#logs').append('Плей/стоп. Стрим статус: '.streamer.'<br/>');
+		jQuery('#logs').append('Плей/стоп. Стрим статус: '.streamer().'<br/>');
         if (streamer == "1") {
             var url = StreamGO();
 			$my_media.play();
