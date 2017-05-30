@@ -263,11 +263,11 @@ function streamplay() {
         alert('Соединение с интернетом - отсутствует.');
     } else {
         OneclickPlay = 2;
-		jQuery('#logs').append('Плей/стоп. Стрим статус: '+streamer()+'<br/>');
+		jQuery('#logs').append( timeLogs()+'Плей/стоп. Стрим статус: '+streamer+'<br/>');
         if (streamer == "1") {
             var url = StreamGO();
 			$my_media.play();
-			jQuery('#logs').append('Плей/стоп. Включаем трансляцию<br/>');
+			jQuery('#logs').append(timeLogs()+'Плей/стоп. Включаем трансляцию<br/>');
 			$(".l3sAnim").css("background-color", "rgba(51,177,255,1)");
 			$(".l3s").css("background-image", "url(img/play2-stop.png)");
 			$("#l2sOffAnim").fadeIn(750);
@@ -277,21 +277,21 @@ function streamplay() {
 			
 		} else if (streamer == "2") {
 			$my_media.stop();
-			jQuery('#logs').append('Плей/стоп. Останавливаем трансляцию 2<br/>');
+			jQuery('#logs').append(timeLogs()+'Плей/стоп. Останавливаем трансляцию 2<br/>');
 			$(".l3sAnim").css("background-color", "rgba(51,177,255,0.7)");
 			$(".l3s").css("background-image", "url(img/play2-play.png)");
 			$("#l2sOffAnim").fadeOut(750);
 			streamer = 1;
         } else if (streamer == "3") {
             $my_media.stop();
-			jQuery('#logs').append('Плей/стоп. Останавливаем трансляцию 3<br/>');
+			jQuery('#logs').append(timeLogs()+'Плей/стоп. Останавливаем трансляцию 3<br/>');
 			$(".l3sAnim").css("background-color", "rgba(51,177,255,0.7)");
 			$(".l3s").css("background-image", "url(img/play2-play.png)");
 			$("#l2sOffAnim").fadeOut(750);
 			streamer = 1;
         } else if (streamer == "4") {
             $my_media.stop();
-			jQuery('#logs').append('Плей/стоп. Останавливаем трансляцию 4<br/>');
+			jQuery('#logs').append(timeLogs()+'Плей/стоп. Останавливаем трансляцию 4<br/>');
 			$(".l3sAnim").css("background-color", "rgba(51,177,255,0.7)");
 			$(".l3s").css("background-image", "url(img/play2-play.png)");
 			$("#l2sOffAnim").fadeOut(750);
@@ -371,14 +371,14 @@ function LocalConfig() {
 };
 
 function LoadStream() {
-	jQuery('#logs').append('Функция LoadStream<br/>');
+	jQuery('#logs').append(timeLogs()+'Функция LoadStream<br/>');
         setTimeout(function() {
-			jQuery('#logs').append('Сервер '+StreamGO()+'<br/>');
+			jQuery('#logs').append(timeLogs()+'Сервер '+StreamGO()+'<br/>');
             $my_media = new PlayStream(StreamGO(), function(status) {
                     console.log("status - " + status);
                     if (status === PlayStream.MEDIA_STOPPED) {
                         console.log('stopped');
-						jQuery('#logs').append('LoadStream остановлено<br/>');
+						jQuery('#logs').append(timeLogs()+'LoadStream остановлено<br/>');
                         MusicControls.updateIsPlaying(false);
                         streamer = 1; 
                         $(".l3sAnim").css("background-color", "rgba(51,177,255,0.7)");
@@ -387,14 +387,14 @@ function LoadStream() {
                     }
                     if (status === PlayStream.MEDIA_STARTING) {
                         console.log('starting');
-						jQuery('#logs').append('LoadStream буфер<br/>');
+						jQuery('#logs').append(timeLogs()+'LoadStream буфер<br/>');
                         MusicControls.updateIsPlaying(true);
                         streamer = 2;
                         $(".l3sAnim").css("background-color", "rgba(255,87,34,1)");
                     }
                     if (status === PlayStream.MEDIA_RUNNING) {
                         console.log('running');
-						jQuery('#logs').append('LoadStream запущено<br/>');
+						jQuery('#logs').append(timeLogs()+'LoadStream запущено<br/>');
                         MusicControls.updateIsPlaying(true);
                         streamer = 3;
                         $(".l3sAnim").css("background-color", "rgba(51,177,255,1)");
@@ -404,12 +404,12 @@ function LoadStream() {
                 },
                 function(err) {
                     alert(err);
-					jQuery('#logs').append('LoadStream ошибка '+err+'<br/>');
+					jQuery('#logs').append(timeLogs()+'LoadStream ошибка '+err+'<br/>');
                 }
             );
             var callmemabe = '1';
             PhoneCallTrap.onCall(function(state) {
-				jQuery('#logs').append('Событие звонка '+state+'<br/>');
+				jQuery('#logs').append(timeLogs()+'Событие звонка '+state+'<br/>');
                 console.log("CHANGE STATE: " + state + " " + callmemabe);
                 switch (state) {
                     case "RINGING":
@@ -665,7 +665,7 @@ document.addEventListener('deviceready', function () {
 	setInterval(function() {
 		stat();
 		
-		jQuery('#logs').append( checkConnection()+' - тип подключения<br/>');
+		jQuery('#logs').append(timeLogs()+' '+ checkConnection()+' - тип подключения<br/>');
 	}, 15000);
 }, false);
 function exit(){
