@@ -311,11 +311,30 @@ function StreamGO() {
 					// выбираем кодек
 					if (index == 'aac') {
 						$.each(codec, function(index, qa) {
-							$.each(qa, function(index, chanel) {
-								StreamGO = chanel.patch;
-								localStorage.setItem('Stream', StreamGO);
-								console.log(StreamGO);
-							})
+							if(localStorage.getItem('StreamQ') == 'l' & index == 'b32'){
+								console.log(qa);
+								$.each(qa, function(index, chanel) {
+									StreamGO = chanel.patch;
+									localStorage.setItem('Stream', StreamGO);
+									console.log(StreamGO);
+								})
+							}
+							if(localStorage.getItem('StreamQ') == 'h' & index == 'b64'){
+								console.log(qa);
+								$.each(qa, function(index, chanel) {
+									StreamGO = chanel.patch;
+									localStorage.setItem('Stream', StreamGO);
+									console.log(StreamGO);
+								})
+							}
+							if(localStorage.getItem('StreamQ') == 'auto'){
+								console.log(qa);
+								$.each(qa, function(index, chanel) {
+									StreamGO = chanel.patch;
+									localStorage.setItem('Stream', StreamGO);
+									console.log(StreamGO);
+								})
+							}
 						})
 					};
 				})
