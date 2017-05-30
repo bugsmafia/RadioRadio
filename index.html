@@ -317,12 +317,27 @@
 				</div>
 			</ons-dialog>
 		</ons-template>
+		<ons-modal id="Modal_Debug">
+			<ons-page>
+				<ons-toolbar>
+					<div class="center">Debug</div>
+					<div class="right">
+						<ons-toolbar-button onclick="modals('debug')">
+							<i class="material-icons">&#xE5CD;</i>
+						</ons-toolbar-button>
+					</div>
+				</ons-toolbar>
+				<div id="logs" class="logs" style="text-align: left;margin: 0em 1em;font-size: 0.7em;font-weight: 400;"></div>
+				
+			</ons-page>
+		</ons-modal>
 		<ons-template id="home.html">
 			<ons-page  id="RadioRadio">
 				<ons-speed-dial position="top left" direction="down">
 					<ons-fab><i class="material-icons">&#xE5D2;</i></ons-fab>
 					<ons-speed-dial-item onclick="modals('config')"><i class="material-icons">&#xE429;</i></ons-speed-dial-item>
 					<ons-speed-dial-item onclick="modals('about')"><i class="material-icons">&#xE8FD;</i></ons-speed-dial-item>
+					<ons-speed-dial-item onclick="modals('debug')"><i class="material-icons">&#xE868;</i></ons-speed-dial-item>
 				</ons-speed-dial>
 				<ons-speed-dial position="top right" direction="down" onclick="ShareTrack();">
 					<ons-fab><i class="material-icons">&#xE80D;</i></ons-fab>

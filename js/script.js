@@ -1,9 +1,11 @@
-function getCookie(name) {
-  var matches = document.cookie.match(new RegExp(
-    "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
-  ));
-  return matches ? decodeURIComponent(matches[1]) : undefined;
-}
+function timeLogs() {
+	var now = new Date();
+	var time = '['+now.getHours()+':'+now.getMinutes()+':'+now.getSeconds()+'.'+now.getMilliseconds()+']';
+	return time;
+};
+
+jQuery('#logs').append( timeLogs()+' - Загружен скрипт<br/>');
+
 function exit(){
 	var thisWindow = window.open("index.html",'_self');
 	thisWindow.close();
@@ -48,7 +50,8 @@ function getPageName(url) {
 }
 
 // Функция выполнения кода при загрузки приложения
-function onLoad() {    
+function onLoad() {
+	jQuery('#logs').append( timeLogs()+' - Приложение onLoad<br/>');
 }
 // Функция исполнения когда приложение готово
 function onDeviceReady() {
@@ -68,6 +71,7 @@ function onBackKeyDown() {
         document.querySelector("#Modal_Config").hide();
         document.querySelector("#Modal_About").hide();
         document.querySelector("#Modal_Share").hide();
+		document.querySelector("#Modal_Debug").hide();
         openmodal = false;
     } else {		
         console.log('Модальное было закрыто. останавливаем и закрываем все');        
@@ -106,14 +110,19 @@ function modals(name) {
         case "share":
             document.querySelector("#Modal_Share").toggle();
             break;
+		case "debug":
+            document.querySelector("#Modal_Debug").toggle();
+            break;
     };
 }
 var streamChanel;
 streamChanel = false;
 
 function LoadConfigApp() {
+	jQuery('#logs').append( timeLogs()+' - Загружаем конфигурации приложения с сервера<br/>');
     if (localStorage.ConfigApp) {
         Config(localStorage.ConfigApp);
+		jQuery('#logs').append( timeLogs()+' - Конфигурации доступны из кеша, возьмем их<br/>');
     }
     jQuery.getJSON("http://app.radioradio.ru/api.php", function(data) {
 		}).done(function(data) {
@@ -254,9 +263,11 @@ function streamplay() {
         alert('Соединение с интернетом - отсутствует.');
     } else {
         OneclickPlay = 2;
+		jQuery('#logs').append('Плей/стоп. Стрим статус: '.streamer.'<br/>');
         if (streamer == "1") {
             var url = StreamGO();
 			$my_media.play();
+			jQuery('#logs').append('Плей/стоп. Включаем трансляцию<br/>');
 			$(".l3sAnim").css("background-color", "rgba(51,177,255,1)");
 			$(".l3s").css("background-image", "url(img/play2-stop.png)");
 			$("#l2sOffAnim").fadeIn(750);
@@ -266,18 +277,21 @@ function streamplay() {
 			
 		} else if (streamer == "2") {
 			$my_media.stop();
+			jQuery('#logs').append('Плей/стоп. Останавливаем трансляцию 2<br/>');
 			$(".l3sAnim").css("background-color", "rgba(51,177,255,0.7)");
 			$(".l3s").css("background-image", "url(img/play2-play.png)");
 			$("#l2sOffAnim").fadeOut(750);
 			streamer = 1;
         } else if (streamer == "3") {
             $my_media.stop();
+			jQuery('#logs').append('Плей/стоп. Останавливаем трансляцию 3<br/>');
 			$(".l3sAnim").css("background-color", "rgba(51,177,255,0.7)");
 			$(".l3s").css("background-image", "url(img/play2-play.png)");
 			$("#l2sOffAnim").fadeOut(750);
 			streamer = 1;
         } else if (streamer == "4") {
             $my_media.stop();
+			jQuery('#logs').append('Плей/стоп. Останавливаем трансляцию 4<br/>');
 			$(".l3sAnim").css("background-color", "rgba(51,177,255,0.7)");
 			$(".l3s").css("background-image", "url(img/play2-play.png)");
 			$("#l2sOffAnim").fadeOut(750);
@@ -357,11 +371,14 @@ function LocalConfig() {
 };
 
 function LoadStream() {
+	jQuery('#logs').append('Функция LoadStream<br/>');
         setTimeout(function() {
+			jQuery('#logs').append('Сервер '.StreamGO().'<br/>');
             $my_media = new PlayStream(StreamGO(), function(status) {
                     console.log("status - " + status);
                     if (status === PlayStream.MEDIA_STOPPED) {
                         console.log('stopped');
+						jQuery('#logs').append('LoadStream остановлено<br/>');
                         MusicControls.updateIsPlaying(false);
                         streamer = 1; 
                         $(".l3sAnim").css("background-color", "rgba(51,177,255,0.7)");
@@ -370,12 +387,14 @@ function LoadStream() {
                     }
                     if (status === PlayStream.MEDIA_STARTING) {
                         console.log('starting');
+						jQuery('#logs').append('LoadStream буфер<br/>');
                         MusicControls.updateIsPlaying(true);
                         streamer = 2;
                         $(".l3sAnim").css("background-color", "rgba(255,87,34,1)");
                     }
                     if (status === PlayStream.MEDIA_RUNNING) {
                         console.log('running');
+						jQuery('#logs').append('LoadStream запущено<br/>');
                         MusicControls.updateIsPlaying(true);
                         streamer = 3;
                         $(".l3sAnim").css("background-color", "rgba(51,177,255,1)");
@@ -385,11 +404,12 @@ function LoadStream() {
                 },
                 function(err) {
                     alert(err);
+					jQuery('#logs').append('LoadStream ошибка '.err.'<br/>');
                 }
             );
             var callmemabe = '1';
             PhoneCallTrap.onCall(function(state) {
-
+				jQuery('#logs').append('Событие звонка '.state.'<br/>');
                 console.log("CHANGE STATE: " + state + " " + callmemabe);
                 switch (state) {
                     case "RINGING":
@@ -644,6 +664,8 @@ document.addEventListener('deviceready', function () {
 	stat();
 	setInterval(function() {
 		stat();
+		
+		jQuery('#logs').append( checkConnection()+' - тип подключения<br/>');
 	}, 15000);
 }, false);
 function exit(){
