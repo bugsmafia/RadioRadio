@@ -57,7 +57,7 @@ function onLoad() {
 function onDeviceReady() {
 	
 	
-	
+	console.log(Mediaac);
     document.addEventListener("pause", onPause, false);
     document.addEventListener("resume", onResume, false);
 	ons.disableDeviceBackButtonHandler();
