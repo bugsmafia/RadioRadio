@@ -84,6 +84,7 @@
 	<plugin spec="https://github.com/bugsmafia/cordova-bg-mode.git" source="git" />
 	<plugin spec="https://github.com/okwei2000/webintent" source="git" />
 	
-	<plugin spec="https://github.com/nchutchind/cordova-plugin-streaming-media" source="git" /> 
+	
+	<plugin spec="https://github.com/remoorejr/cordova-plugin-media-with-compression" source="git" />
 </widget>
   
